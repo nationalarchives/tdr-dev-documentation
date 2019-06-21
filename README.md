@@ -6,3 +6,7 @@ https://github.com/nationalarchives/tdr-dev-documentation - For TDR development 
 https://github.com/nationalarchives/prototype-terraform - For prototyping with Terraform \
 https://github.com/nationalarchives/prototype-front-end - For prototyping TDR front-end \
 https://github.com/nationalarchives/prototype-graphql - For prototyping with GraphQL
+
+## Documentation
+
+* [Terraform Documentation](../blob/master/TERRAFORM.md)
