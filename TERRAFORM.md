@@ -1,6 +1,9 @@
 # Terraform Documentation
 
-Prototype Project: https://github.com/nationalarchives/tdr-prototype-terraform (archived)
+* Prototype Stateful Project: https://github.com/nationalarchives/tdr-prototype-terraform-stateful
+* Prototype Modules Project: https://github.com/nationalarchives/tdr-prototype-terraform-modules
+* Prototype Project: https://github.com/nationalarchives/tdr-prototype-terraform (archived)
+
 
 ## Project Structure
 
