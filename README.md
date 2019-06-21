@@ -9,4 +9,4 @@ https://github.com/nationalarchives/prototype-graphql - For prototyping with Gra
 
 ## Documentation
 
-* [Terraform Documentation](../blob/master/TERRAFORM.md)
+* [Terraform Documentation](../master/TERRAFORM.md)
