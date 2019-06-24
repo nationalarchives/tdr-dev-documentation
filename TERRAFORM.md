@@ -1,30 +1,48 @@
 # Terraform Documentation
 
-* Prototype Stateful Project: https://github.com/nationalarchives/tdr-prototype-terraform-stateful
-* Prototype Modules Project: https://github.com/nationalarchives/tdr-prototype-terraform-modules
-* Prototype Project: https://github.com/nationalarchives/tdr-prototype-terraform (archived)
-
+* Prototype Project: 
+  * **Master Branch**: https://github.com/nationalarchives/tdr-prototype-terraform (*"stateful" repository structure to manage AWS environments*)
+  * **Workspaces Branch**: https://github.com/nationalarchives/tdr-prototype-terraform/tree/workspaces (*Terraform workspaces to manage AWS environments*)
 
 ## Project Structure
 
-The TDR Terraform project is divided into two main sets of components:
-* Stateful: [github repo link]
-* Modules: [github repo link]
+The prototype project consists of two branches that show two possible approaches to the management of AWS environments using Terraform.
 
-This supports the environments for TDR:
+The "master" branch shows the approach of using separate folders, and Terraform scripts to create different AWS environments. This is the approach taken by Digital Services 
+
+The "workspaces" branch shows the approach of using Terraform workspaces to create different AWS environments.
+
+Both approaches show how to support multiple AWS environments for TDR:
 * development (dev)
 * test (test)
 * production (prod)
 
-## Stateful
+### Terraform Workspaces vs "Stateful" Repository Structure
 
-* *Question: use Terraform workspaces?*
-* *Question: how to set up the Terraform backend (bootstrapping vs manual set up) ?*
+#### Terraform Workspaces
 
-This contains the configuration for the different environments required.
+Advantages:
+* Reduce repetition of code
+* Sets up Terraform state in S3 under specific location without the need to manually specify S3 keys
+
+Disadvantages:
+* Unable to make use of the version management of modules through GitHub
+
+#### "Stateful" Repository Structure
+
+Advantages:
+* Allow version management of modules through GitHub
+
+Disadvantages:
+* Repetition of code within each AWS environment setup
+* Need to manually specify, and mantain S3 keys to store state
+
+## Terraform State
+
+* *Question: how to set up the Terraform backend (bootstrapping vs manual set up)?*
 
 Terraform needs to keep track of the resources it creates to allow it to know which:
-* real-life resource(s) is being changed when a resource is altered in a template;
+* real-life resource(s) are being changed when a resource is altered in a template;
 * resource(s) to destroy when the a terraform destroy command is run.
 
 By default, the terraform state is stored in a local folder `.terraform`. However, storing the state locally will mean it is inaccessible to other administrators.
@@ -48,7 +66,6 @@ To preserve the Terraform state an s3 bucket needs to be created to store the /t
 }
 ```
 
-
 * **bucket**: the s3 bucket name where the Terraform state will be stored
 * **key**: path to the Terraform state file inside the bucket.
 
@@ -62,11 +79,14 @@ Both the s3 bucket(s) and DynamoDB table(s) need to be created before the Terraf
 
 ### Useful Resources
 * https://www.terraform.io/docs/backends/index.html
+* Terraform workspaces: https://www.terraform.io/docs/state/workspaces.html
 * Bootstrapping the backend: https://www.monterail.com/blog/chicken-or-egg-terraforms-remote-backend
 
 ##Modules
 
 Modules are containers for multiple resources that are used together.
+
+### Version modules in "Stateful" Repository Structure
 
 For each new module that is needed a new GitHub repository should be created. This allows for clear versioning of the infrastucture, which in turns makes it easier to deploy new versions to lower environments for validation, before promotion to higher environments
 
@@ -84,19 +104,19 @@ Useful Resources:
 * https://www.oreilly.com/library/view/terraform-up-and/9781491977071/ch04.html
 * https://www.terraform.io/docs/modules/index.html
 
-## Git Hub Repositories Structure
+## "Stateful" GitHub Repositories Structure
 
 For an example structure for Terraform architecture see the following GitHub repositories used by Digital Services:
 * Stateful repository: https://github.com/nationalarchives/Terraform-Stateful
 * Modules repository: https://github.com/nationalarchives/terraform-modules
 
-### Stateful
+### Stateful Repository
 
 Url: https://github.com/nationalarchives/tdr-prototype-terraform-stateful
 
 This repository should contain the configuration for setting up the infrastructure using modules contained in the modules repository.
 
-### Modules
+### Modules Repository
 
 Url: https://github.com/nationalarchives/tdr-prototype-terraform-modules
 
