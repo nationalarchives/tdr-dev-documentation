@@ -3,6 +3,14 @@
 * Prototype Project: 
   * **Master Branch**: https://github.com/nationalarchives/tdr-prototype-terraform (*"stateful" repository structure to manage AWS environments*)
   * **Workspaces Branch**: https://github.com/nationalarchives/tdr-prototype-terraform/tree/workspaces (*Terraform workspaces to manage AWS environments*)
+  
+## Recommendations
+
+These are based on discussions with Digital Services team and their experiences with using Terraform:
+* **Make use of Terraform workspaces**: This was not something that Digital Services did as they were not aware of them. Terraform workspaces provide better management of different environments and their state, then having different directories to define different environments.
+* **Testing of Terraform**: This is not something that Digital Services do. There is no reason to adopt testing, though further investigation is needed into the testing frameworks available for Terraform, and whether this will bring any benefits
+* **Running Terraform from developer local environments**: This is the approach that Digital Services take. Further investigation should be done as to whether there is any advantages to running Terraform on Jenkins (or other CI/CD client)
+* **Project Structure Using "Root"**: Create the Terraform project with a "root" which then calls separate modules as needed. Digital Services took a different route, with having individual "roots" for each of the Terraform modules.
 
 ## Project Structure
 
