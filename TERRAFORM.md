@@ -12,6 +12,9 @@ These are based on discussions with Digital Services team and their experiences 
 * **Running Terraform from developer local environments**: This is the approach that Digital Services take. Further investigation should be done as to whether there is any advantages to running Terraform on Jenkins (or other CI/CD client)
 * **Project Structure Using "Root"**: Create the Terraform project with a "root" which then calls separate modules as needed. Digital Services took a different route, with having individual "roots" for each of the Terraform modules.
 
+Teraform recommended practices: https://www.terraform.io/docs/enterprise/guides/recommended-practices/index.html 
+
+
 ## Project Structure
 
 The prototype project consists of two branches that show two possible approaches to the management of AWS environments using Terraform.
