@@ -12,3 +12,4 @@ The current repositories relating to TDR, and their purpose are:
 ## Documentation
 
 * [Terraform Documentation](../master/TERRAFORM.md)
+* [Developer Setup](../master/DEVELOPERSETUP.md)
