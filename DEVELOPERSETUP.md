@@ -29,7 +29,7 @@ sudo yum install python36u-devel
 [Install Instructions](https://docs.docker.com/v17.09/compose/install/#install-compose) 
 
 ### Terraform
-[TODO]
+[Install Instructions](https://learn.hashicorp.com/terraform/getting-started/install.html)
 
 ### Intellij IDE
 [TODO]
