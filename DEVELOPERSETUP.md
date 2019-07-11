@@ -7,6 +7,14 @@
 
 ## Installs
 
+
+### Yarn
+To install Yarn on Centos:
+```
+sudo curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo```
+sudo yum install yarn
+```
+
 ### Python 3
 Centos ships with python 2 but python 3 is better. To install:
 ```
