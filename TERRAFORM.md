@@ -19,7 +19,7 @@ Teraform recommended practices: https://www.terraform.io/docs/enterprise/guides/
 AWS CloudFormation | Terraform
 --- | --- 
 Initial release February 2011| Initial release July 2014 
-Propriatary| Open source
+Proprietary| Open source
 No experience within the team | Some experience within the team
 Not currently used within TNA | Used by Digital Services
 Specific to AWS | Cloud provider agnostic
