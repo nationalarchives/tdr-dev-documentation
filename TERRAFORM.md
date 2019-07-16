@@ -12,8 +12,22 @@ These are based on discussions with Digital Services team and their experiences 
 * **Running Terraform from developer local environments**: This is the approach that Digital Services take. Further investigation should be done as to whether there is any advantages to running Terraform on Jenkins (or other CI/CD client)
 * **Project Structure Using "Root"**: Create the Terraform project with a "root" which then calls separate modules as needed. Digital Services took a different route, with having individual "roots" for each of the Terraform modules.
 
-Teraform recommended practices: https://www.terraform.io/docs/enterprise/guides/recommended-practices/index.html 
+Teraform recommended practices: https://www.terraform.io/docs/enterprise/guides/recommended-practices/index.html
 
+## Comparison of Terraform and AWS Cloudformation
+
+AWS CloudFormation | Terraform
+--- | --- 
+Initial release February 2011| Initial release July 2014 
+Proprietary| Open source
+No experience within the team | Some experience within the team
+Not currently used within TNA | Used by Digital Services
+Specific to AWS | Cloud provider agnostic
+Only manage elements of infrastructure specific to AWS | Allows for the management of entire infrastructure
+Planning and execution combined so developer needs to mentally envisage the changes before commiting | Separate out "planning" infrastructure from execution
+Major users: Expedia | Major users: Starbucks, Uber, Slack
+
+Terraform provides a useful comparison with other infrastructure tools here: https://www.terraform.io/intro/vs/index.html
 
 ## Project Structure
 
