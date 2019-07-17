@@ -1,4 +1,4 @@
-#Meeting with Matthew Hobbs (Lead front end GDS assessor) to discuss frontend technologies
+# Meeting with Matthew Hobbs (GDS Frontend Lead) to discuss frontend technologies
  
 
 > On Progressive enhancement
@@ -9,13 +9,15 @@ GDS want to move away from feeling developers can’t use js; is purely about ho
 > Trying to use a tool to generate metadata about a file.
  
 OGD to generate + TNA to automate and try to harvest client side, using standards on API and design and also generating client side checksums. Without js not sure how they generate last modified file and something running on client side, and would like to resort to js to get this information.
+Matt suggested using web workers as a means for running things in the background.
 
  
 Q. Why can’t server do this for you once file been uploaded?
 
 A. Because last modified changes on upload. So defeats purpose of the checksum. Need to generate client side checksum upfront so can guarantee upload process hasn’t changed the file.
 
- 
+> User considerations
+
 Q. Do you know browsers departments are using? If using an old v of IE killing upload.
 
 A. Running browser surveys across government. Last one indicated I.E 11 as oldest, which is minimum requirement of GDS.
