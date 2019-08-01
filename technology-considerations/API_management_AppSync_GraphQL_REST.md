@@ -39,10 +39,11 @@ workaround that involves accessing Aurora from a resolver that points to a lambd
 creates complexity and potential for hard to maintain code.
 - it might be hard to develop code, as it's hard to test locally
 
-   TODO: We need to find out how hard it is to put authorisation and business logic in Appsync and
+   TODO: We need to find out how hard it is to put authorisation and business logic in lambda
 resolvers
 - the GraphQL client we have started using to connect the scala code to the GraphQL, [drunk](https://github.com/Jarlakxen/drunk)
-was not easy to use
+seems painful in having to create classes and queries. This [sbt plugin](https://github.com/muuki88/sbt-graphql) might 
+allow generation of required classes from a schema.
 
 -  [AppSync was launched less than two years ago](https://aws.amazon.com/blogs/aws/introducing-amazon-appsync/) so the tools around it might be immature, and it's long-term support
  is less certain than for the other options.
