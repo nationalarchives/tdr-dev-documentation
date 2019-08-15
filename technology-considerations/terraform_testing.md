@@ -87,4 +87,12 @@ Relies on creating the AWS resources as part of the testing, and applying tests 
 * https://newcontext-oss.github.io/kitchen-terraform/
 * https://www.darkraiden.com/blog/test-terraform-with-kitchen-and-awspec/
 
+## Recommendations
+
+Both main options Kitchen-Terraform and Terratest are new, and not well integrated into Terraform.
+
+The setup and learning requirements are high.
+
+It is recommended to use the Terraform ```plan``` option until testing options for Terraform are more mature. This should be reviewed as the AWS infrastucture becomes more complex and the benefits in investing in testing maybe higher.
+
 
