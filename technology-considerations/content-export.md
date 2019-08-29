@@ -129,10 +129,12 @@ encrypted file being uploaded to the FTP server. **The total time is more than
 the sum of the other columns** because it includes other processes, like
 starting the container.
 
-| Collection         | Download time | tar + gpg time | FTP upload time | Total time |
-| ------------------ | ------------- | -------------- | --------------- | ---------- |
-| 1000 x 10kB files  | 37 seconds    | 3 seconds      | 2 seconds       | 1 min 16 s |
-| 10000 x 10kB files | 5 min 28 s    | 15 seconds     | 7 seconds       | 6 min 26 s |
+| Collection           | Download time | tar + gpg time | FTP upload time | Total time  |
+| -------------------- | ------------- | -------------- | --------------- | ----------- |
+| 1000 x 10 kB images  | 37 seconds    | 3 seconds      | 2 seconds       | 1 min 16 s  |
+| 10000 x 10 kB images | 5 min 28 s    | 15 seconds     | 7 seconds       | 6 min 26 s  |
+| 500 x 1.8 MB images  | 1 min 3 s     | 3 min 11 s     | 53 seconds      | 5 min 25 s  |
+| 10 x 610 MB wavs     | 5 min 20 s    | 12 min 0 s     | 2 min 9s        | 19 min 45 s |
 
 We expect the export times to be longer than this in practice because of the
 extra API calls to get the original file names. We'll need to do some more
