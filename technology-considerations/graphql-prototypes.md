@@ -183,9 +183,11 @@ the Circe JSON parser. You have to write graphQL queries as strings, with no
 type safety to protect you from syntax errors or inconsistencies between the
 code and the schema.
 
-For now, we've chosen to just use an HTTP client library directly. This gives
-us more control over the HTTP request, which is particularly useful when we need
-to do things like [sign requests][iam-signing].
+For now, we've chosen to adapt the Drunk client so that we can substitute the
+HTTP backend for one which allows us to [sign requests][iam-signing]. It also
+lets us add code generation with [sbt-graphql] so that we don't have to write
+the GraphQL queries by hand.
 
 [Drunk]: https://github.com/Jarlakxen/drunk
 [iam-signing]: https://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html
+[sbt-graphql]: https://github.com/muuki88/sbt-graphql
