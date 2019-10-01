@@ -127,11 +127,11 @@ downsides.
 we need to store data in the UK.
 
 Lambda data sources suffer from cold starts, which may be even slower in a VPC
-(although [AWS say this will improve][lambda-vpc-improvements]).
+(although [AWS are rolling out a fix][lambda-vpc-improvements]).
 
 [rds-data-api]: https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-rds-resolvers.html
 [data-api-availability]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions
-[lambda-vpc-improvements]: https://www.nuweba.com/AWS-Lambda-in-a-VPC-will-soon-be-faster
+[lambda-vpc-improvements]: https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/
 
 ## Sangria approach
 
