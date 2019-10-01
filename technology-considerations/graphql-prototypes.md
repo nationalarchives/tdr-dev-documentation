@@ -152,15 +152,13 @@ to build everything we need.
 
 ### Deployment and hosting
 
-We've wrapped Sangria in a Lambda entry point for deployment, but we may switch
-to using akka-http in production as well. In that case, we would probably deploy
-a container to ECS, which we have experience of with the [TDR
-frontend][tdr-mvc].
+We originally wrapped Sangria in a Lambda entry point for deployment, but have
+switched to using akka-http in production as well. The app is deployed to a
+Fargate container to ECS, which is also how we run the [TDR frontend][tdr-mvc].
 
-We currently deploy the application to Lambda by manually uploading a jar, but
-we don't anticipate it being difficult to automate. If we switch to ECS (or even
-a different hosting provider), we will deploy it in the same way as the TDR
-frontend.
+The app is deployed by building a jar and creating a Docker image. This is
+currently done on a development machine, but we will move it to a Jenkins build
+when the project is in Beta (if not before).
 
 [Sangria]: https://sangria-graphql.org/
 [sangria-prototype]: https://github.com/nationalarchives/tdr-prototype-sangria
