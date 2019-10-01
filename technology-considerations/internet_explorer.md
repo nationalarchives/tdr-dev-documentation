@@ -3,6 +3,8 @@
 ## Problem
 
 A key deliverable for the TDR project is to support users of Internet Explorer.
+
+The TDR project will need to solve several IE specific issues such allowing the upload of folders. Therefore IE investigation has significant importance for the project.
  
 This raises some operational challenges for development and testing:
 * Development is undertaken on Linux machines which do not support Internet Explorer
@@ -12,7 +14,7 @@ This raises some operational challenges for development and testing:
  
 ### Additional Hardware for Supporting Internet Explorer
 
-Provide developer's with machines which support Internet Explorer and allow them to develop on
+Provide developers with machines which support Internet Explorer and allow them to develop on
 
 #### Problems
 
@@ -34,7 +36,7 @@ Create a "CI" AWS environment that would immediately deploy developer's changes 
 
 #### Problems
 
-* Slow Development Cycle: developer's would still have to wait for the build/deployment before checking code changes
+* Slow Development Cycle: developers would still have to wait for the build/deployment before checking code changes
 * Additional AWS Environment: require setting up and maintaining another AWS environment with the additional costs this will entail
  
  
