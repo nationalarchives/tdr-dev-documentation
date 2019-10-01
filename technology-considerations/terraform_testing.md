@@ -69,7 +69,6 @@ Kitchen-Terraform is an open soure set of plugins provided by New Context, for t
 Relies on creating the AWS resources as part of the testing, and applying tests to those resources.
 
 ### Advantages
-* Straight forward setup
 * Makes use of established testing frameworks, Kitchen and Inspec
 
 ### Disadvantages
@@ -88,6 +87,8 @@ Relies on creating the AWS resources as part of the testing, and applying tests 
 * https://www.darkraiden.com/blog/test-terraform-with-kitchen-and-awspec/
 
 ## Recommendations
+
+Terratest and Kitchen-Terraform to pick up issues that would not be directly obvious using existing AWS monitoring tools, such as tagging and variable names. They could provide a useful additional level of checking when developing. 
 
 Both main options Kitchen-Terraform and Terratest are new, and not well integrated into Terraform.
 
