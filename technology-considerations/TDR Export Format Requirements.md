@@ -51,7 +51,7 @@ which may add unnecessary complexity for TDR purposes.
 In comparison the BagIt specification is quite generic and applies a few
 basic ideas to allow file consistency to be checked.
 
-![](./images/bagitstructure.png)
+![](./images/bagitstructure.PNG)
 
 
 BagIt does not regard itself as a type of OAIS information package.
@@ -70,13 +70,13 @@ and on inspection is quite similar to the BagIt specification. OCFL
 however goes a little further and allows the categorisation of a multi
 version package.
 
-![](./images/ocflstructure.png)
+![](./images/ocflstructure.PNG)
 
 
 The OCFL specification also allows the inclusion of a BagIt Bag as a
 version description.
 
-![](./images/ocflbagitstructure.png)
+![](./images/ocflbagitstructure.PNG)
 
 
 If versioning of sets of files was required, OCFL would be very useful
@@ -135,7 +135,7 @@ is a named file system directory that minimally contains:
 -   Both the manifest-\<checksum\>.txt and the bagit.txt are known as
      tag files.
 
-![](./images/bagitstructure.png)
+![](./images/bagitstructure.PNG)
 
 On receipt of a "bag" a piece of software can examine the manifest file
 to make sure that the payload files are present, and that their
