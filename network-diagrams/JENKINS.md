@@ -3,7 +3,7 @@
 ![text][diagram]
 
 [diagram]: Jenkins.svg "Jenkins Network Diagram"
-[repository]: [Repository](https://github.com/nationalarchives/prototype-tdr-jenkins)
+[repository]: https://github.com/nationalarchives/prototype-tdr-jenkins
 
 There is an EC2 instance attached to the ECS cluster. We can't run Jenkins as a Fargate container as Fargate doesn't allow persistent storage between container restarts without some very hacky workarounds.
 
