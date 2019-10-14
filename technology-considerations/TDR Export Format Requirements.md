@@ -356,7 +356,8 @@ out nominal client side evaluation on the files. It is recommended that
 this information is also captured as part of the consignment bag payload
 as the tag file "client-metadata".
 
-An example of the proposed format is shown below
+An example of the proposed format is shown below, however it is appreciated that the full original path 
+may not be accessible and the relative path from the consignment folder selected would be acceptable without causing issues.
 
 ![](./images/client-metadata.png)
 
