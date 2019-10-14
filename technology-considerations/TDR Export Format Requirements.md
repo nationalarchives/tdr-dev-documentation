@@ -269,7 +269,7 @@ may be set.
  |Consignment-CreatingBodyCode | The Code of the creating Body || Custom          
  |Consignment-CreatingBodyName | The name of the creating Body || Custom          
  |Consignment-Series | The series for the consignment || Custom | Bagit:Bag-Group-Identifier
- |User-DeclarationDate | Usage tern acceptance date|| Custom|
+ |User-DeclarationDate | Usage terms acceptance date|| Custom|
  |User-DeclarationAccepted | Whether the user accepted the usage terms|| Custom          
 
 The format of the bag-info.txt data is defined by the specification and
