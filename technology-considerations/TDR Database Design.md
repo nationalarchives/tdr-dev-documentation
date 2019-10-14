@@ -297,6 +297,8 @@ properties captured are unlikely to change very much.
 | Filesize    |             | double      |             |             |
 | Datetime    |             | datetime    |             |             |
 
+It is appreciated that the full original path 
+may not be accessible and the relative path from the consignment folder selected would be acceptable without causing issues.
 
 ### FFIDMetadata
 
