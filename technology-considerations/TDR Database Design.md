@@ -297,9 +297,9 @@ properties captured are unlikely to change very much.
 | Filesize    |             | double      |             |             |
 | Datetime    |             | datetime    |             |             |
 
-It is appreciated that the full original path 
-may not be accessible and the relative path from the consignment folder selected would be acceptable without causing issues.
-
+It is appreciated that the full original path and the file creation date 
+may not be accessible. The last modified date and relative path of a fle from the consignment folder would be acceptable and would not cause issues with creating the bag. 
+ 
 ### FFIDMetadata
 
 The FFIDMetadata table is proposed to hold the information gathered
