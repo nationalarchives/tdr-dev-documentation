@@ -74,3 +74,109 @@ Advantages:
 Disadvantages:
 - it will require more boilerplate code
 - it may require more trips to the database to fetch data
+
+### Observations
+
+##### GraphQL APIs have a strongly typed schema. The schemas can be written in the GraphQL Schema defintion Language
+
+- Strong contracts and documentation is always up to date  
+- Types and all the operations are defined.
+```
+type Consignment {
+  id: Int!
+  name: String!
+  series: Series!
+  creator: String!
+  transferringBody: String!
+  
+  input CreateSeriesInput {
+    name: String!
+    description: String!
+  }
+ type Mutation {
+   createSeries(createSeriesInput: CreateSeriesInput!): Series!
+   createConsignment(name: String!, seriesId: Int!, creator: String!, transferringBody: String!): Consignment!
+   createFile(createFileInput: CreateFileInput!): File!
+  }
+  
+type Query {
+  getAllSeries: [Series!]!
+  getConsignments: [Consignment!]!
+  getConsignment(id: Int!): Consignment
+  getFile(id: UUID!): File
+```
+- API documentation can be generated form the graphql schema [graphdoc](https://github.com/2fd/graphdoc)
+- Intellij can validate types and operations against schema. 
+
+#####GraphQL enables rapid product development
+
+- GraphQL schema definition language easy to learn.  
+- Client side code can be generated from the schema. The queries are defined in the client
+```
+mutation createConsignment ($name: String!, $seriesId: Int!, ,  $creator : String!, $transferringBody:String!){
+    createConsignment(name:$name, seriesId:$seriesId, creator: $creator, transferringBody: $transferringBody ) {
+        name,
+        id,
+        series {
+            id,
+            name,
+            description
+        },
+        creator,
+        transferringBody
+    }
+} 
+```
+- Generated code allows very simple graphql request with serialisation and deserialisation
+ ```
+ Generated code
+ 
+ object CreateConsignment {
+   object createConsignment extends GraphQLQuery {
+     val document: sangria.ast.Document = graphql"""mutation createConsignment($$name: String!, $$seriesId: Int!, $$creator: String!, $$transferringBody: String!) {
+   createConsignment(name: $$name, seriesId: $$seriesId, creator: $$creator, transferringBody: $$transferringBody) {
+     name
+     id
+     series {
+       id
+       name
+       description
+     }
+     creator
+     transferringBody
+   }
+ }"""
+     case class Variables(name: String, seriesId: Int, creator: String, transferringBody: String)
+     object Variables { implicit val jsonEncoder: Encoder[Variables] = deriveEncoder[Variables] }
+     case class Data(createConsignment: CreateConsignment)
+     object Data { implicit val jsonDecoder: Decoder[Data] = deriveDecoder[Data] }
+     case class CreateConsignment(name: String, id: Int, series: CreateConsignment.Series, creator: String, transferringBody: String)
+     object CreateConsignment {
+       implicit val jsonDecoder: Decoder[CreateConsignment] = deriveDecoder[CreateConsignment]
+       implicit val jsonEncoder: Encoder[CreateConsignment] = deriveEncoder[CreateConsignment]
+       case class Series(id: Int, name: String, description: String)
+       object Series {
+         implicit val jsonDecoder: Decoder[Series] = deriveDecoder[Series]
+         implicit val jsonEncoder: Encoder[Series] = deriveEncoder[Series]
+       }
+     }
+   }
+ }
+ 
+ 
+ Usage:
+ 
+ val vars = createConsignment.Variables(form.get.consignmentName,form.get.seriesId,id.email,form.get.transferringBody)
+      graphQlClient.query[createConsignment.Data, createConsignment.Variables](createConsignment.document, vars).result.map {
+        case Right(r) =>
+          Redirect(routes.UploadController.index(r.data.createConsignment.id)) 
+```
+- Better tooling support for JavaScript than the adequate level for Scala
+- Codegen for Sangria should simplify server side development
+- Once schema is defined client and server side development can be done in parallel
+- Mock graphql server with responses based on schema [graphql faker](https://github.com/APIs-guru/graphql-faker)
+
+##### Graphql results in no more overfetching and underfetching
+- Data fetching examples [GraphQL is better than rest](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
+- With GraphQL, the client can dictate the shape of the response objects returned by the API
+- A single server query can provide data that would require many REST endpoints 
