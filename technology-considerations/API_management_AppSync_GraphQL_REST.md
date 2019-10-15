@@ -79,8 +79,8 @@ Disadvantages:
 
 ##### GraphQL APIs have a strongly typed schema. The schemas can be written in the GraphQL Schema defintion Language
 
-- Strong contracts and documentation is always up to date  
-- Types and all the operations are defined.
+- Simple definition of types and operations.
+
 ```
 type Consignment {
   id: Int!
@@ -106,12 +106,12 @@ type Query {
   getFile(id: UUID!): File
 ```
 - API documentation can be generated form the graphql schema [graphdoc](https://github.com/2fd/graphdoc)
-- Intellij can validate types and operations against schema. 
+- Types and operations can be validated against schema with Intellij and during codegen
 
 #####GraphQL enables rapid product development
 
 - GraphQL schema definition language easy to learn.  
-- Client side code can be generated from the schema. The queries are defined in the client
+- Client side code can be generated from queries defined with graphql and the schema. 
 ```
 mutation createConsignment ($name: String!, $seriesId: Int!, ,  $creator : String!, $transferringBody:String!){
     createConsignment(name:$name, seriesId:$seriesId, creator: $creator, transferringBody: $transferringBody ) {
@@ -175,8 +175,10 @@ mutation createConsignment ($name: String!, $seriesId: Int!, ,  $creator : Strin
 - Codegen for Sangria should simplify server side development
 - Once schema is defined client and server side development can be done in parallel
 - Mock graphql server with responses based on schema [graphql faker](https://github.com/APIs-guru/graphql-faker)
+- Client queries can be created and executed from apps such as Postman
 
 ##### Graphql results in no more overfetching and underfetching
 - Data fetching examples [GraphQL is better than rest](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
 - With GraphQL, the client can dictate the shape of the response objects returned by the API
 - A single server query can provide data that would require many REST endpoints 
+  
