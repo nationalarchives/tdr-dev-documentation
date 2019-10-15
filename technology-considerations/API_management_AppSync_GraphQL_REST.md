@@ -105,10 +105,10 @@ type Query {
   getConsignment(id: Int!): Consignment
   getFile(id: UUID!): File
 ```
-- API documentation can be generated form the graphql schema [graphdoc](https://github.com/2fd/graphdoc)
+- API documentation can be generated from the graphql schema [graphdoc](https://github.com/2fd/graphdoc)
 - Types and operations can be validated against schema with Intellij and during codegen
 
-#####GraphQL enables rapid product development
+##### GraphQL enables rapid product development
 
 - GraphQL schema definition language easy to learn.  
 - Client side code can be generated from queries defined with graphql and the schema. 
