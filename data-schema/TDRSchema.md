@@ -19,4 +19,4 @@ We therefore decided to use the Bodies and related Series held within the DRI to
 ## Series Data
 The Series_Insert.sql script creates example Series data, and associated Bodies, within the Series table. 
 The data for the series came from the current DRI and is not intended to be a full list of Series, of which there is over 20K, 
-as described by the cataloging team.
+as described by the catalogue team.
