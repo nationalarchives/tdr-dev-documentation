@@ -38,7 +38,7 @@ requirement changes within the UI and / or export package needs.
 
 The overall schema proposed is shown below
 
-![](./images/databaseschema.jpeg)
+![](./images/databaseschema.jpg)
 
 The following sections detail the tables proposed.
 
