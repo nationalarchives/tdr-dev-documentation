@@ -298,7 +298,8 @@ properties captured are unlikely to change very much.
 | Datetime    |             | datetime    |             |             |
 
 It is appreciated that the full original path and the file creation date 
-may not be accessible. The last modified date and relative path of a fle from the consignment folder would be acceptable and would not cause issues with creating the bag. 
+may not be accessible. The last modified date and relative path of a file from
+the consignment folder would be acceptable and would not cause issues with creating the bag. 
  
 ### FFIDMetadata
 
