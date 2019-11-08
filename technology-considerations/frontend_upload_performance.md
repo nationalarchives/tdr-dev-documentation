@@ -79,8 +79,8 @@ This table shows the range of results for several computers and browsers:
 Any steps which took over 5 minutes are shown in bold, to give a rough idea of
 what types of upload might be frustrating for users.
 
-Collections marked with \* do not include results for MS Edge. See the section
-on Edge below.
+The collections marked with \* does not include all results for MS Edge. See the
+section on Edge below.
 
 In general, it looks like consignments with many small files are much slower
 than consignments with a few large files, both in the checksum and the upload
