@@ -1,14 +1,16 @@
 # tdr-dev-documentation
 Documentation for developers for the Transfer Digital Records (TDR) project.
 
+## TDR repos
+
 The current repositories relating to TDR, and their purpose are:
 
-## Documentation repos
+### Documentation repos
 
 - [tdr-dev-documentation](https://github.com/nationalarchives/tdr-dev-documentation) - For TDR development documentation
 - [tdr-design-documentation](https://github.com/nationalarchives/tdr-design-documentation) - Design decisions and wireframes
 
-## Alpha prototype repos
+### Alpha prototype repos
 
 Repos that were part of the final Alpha prototype:
 
@@ -28,7 +30,7 @@ Other ideas that we prototyped, but which didn't form part of the final system:
 - [prototype-graphql](https://github.com/nationalarchives/prototype-graphql) - Prototype GraphQL server written in Node.js with Apollo Server
 - [prototype-appsync](https://github.com/nationalarchives/prototype-appsync) - Prototype AWS AppSync Graphql server
 
-## Unused repos
+### Unused repos
 
 - [tdr-platform](https://github.com/nationalarchives/tdr-platform)
 - [tdr-prototype-terraform-modules](https://github.com/nationalarchives/tdr-prototype-terraform-modules)
