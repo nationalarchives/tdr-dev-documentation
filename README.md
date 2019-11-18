@@ -40,3 +40,15 @@ Other ideas that we prototyped, but which didn't form part of the final system:
 
 * [Terraform Documentation](../master/TERRAFORM.md)
 * [Developer Setup](../master/DEVELOPERSETUP.md)
+
+## Licence
+
+Unless stated otherwise, the codebase is released under the [MIT
+License](LICENCE). This covers both the codebase and any sample code in the
+documentation.
+
+The documentation is [© Crown copyright][crown-copyright] and available under
+the terms of the [Open Government 3.0 licence][ogl].
+
+[crown-copyright]: https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/
+[ogl]: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
