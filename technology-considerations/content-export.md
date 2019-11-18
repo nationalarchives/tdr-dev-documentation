@@ -1,5 +1,7 @@
 # Content export investigation
 
+Date: 2019-08-06
+
 ## Summary
 
 - We plan to export content from TDR to the preservation system by running a
