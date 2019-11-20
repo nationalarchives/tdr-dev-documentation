@@ -38,7 +38,8 @@ Other ideas that we prototyped, but which didn't form part of the final system:
 
 ## Documentation
 
-* [Terraform Documentation](../master/TERRAFORM.md)
+* [Technology considerations](technology-considerations/README.md): results of
+  investigations into different technology choices for TDR
 
 ## Licence
 
