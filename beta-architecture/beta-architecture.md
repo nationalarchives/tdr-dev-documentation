@@ -29,4 +29,5 @@ The application stack will run within the defined environments.
 
 ### Open Questions
 
-[TODO]
+* What auditing is required
+* Whether to make use of AWS SNS topics
