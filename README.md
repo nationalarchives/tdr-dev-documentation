@@ -39,7 +39,6 @@ Other ideas that we prototyped, but which didn't form part of the final system:
 ## Documentation
 
 * [Terraform Documentation](../master/TERRAFORM.md)
-* [Developer Setup](../master/DEVELOPERSETUP.md)
 
 ## Licence
 
