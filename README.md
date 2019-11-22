@@ -4,6 +4,8 @@ Documentation for developers for the Transfer Digital Records (TDR) project.
 ## TDR repos
 
 The current repositories relating to TDR, and their purpose are:
+- [tdr-terraform-backend](https://github.com/nationalarchives/tdr-terraform-backend) - Terraform scripts for setting up the Terraform backends in the TDR management account
+- [tdr-terraform-environments](https://github.com/nationalarchives/tdr-terraform-environments) - Terraform scripts for provisioning AWS resources to support the TDR application within the different environments
 
 ### Documentation repos
 
