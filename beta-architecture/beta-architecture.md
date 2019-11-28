@@ -29,5 +29,9 @@ The application stack will run within the defined environments.
 
 ### Open Questions
 
-* What auditing is required
+* Is the browser going to access the API or should it use the Play MVC frontend?
+* What is the purge queue strategy?
+* Should the backend checks run in containers (using batches) or just use lambda functions for each file?
+* Should the GraphQL update the DB directly?
+* What auditing is required?
 * Whether to make use of AWS SNS topics
