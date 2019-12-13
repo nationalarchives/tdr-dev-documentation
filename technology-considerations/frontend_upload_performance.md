@@ -67,6 +67,10 @@ This table shows the range of results for several computers and browsers:
   the TNA corporate wifi
   - Google Chrome for Windows 77.0.3865.120
   - Microsoft Edge 44.17763.1.0 (Microsoft EdgeHTML 18.17763)
+- MacOS 10.13.5 (High Sierra) connected to the TNA public wifi
+  - Chrome 78.0
+  - Safari 11.1.1
+  - Firefox 70.0
 
 | Collection            | File info time     | File info upload time | S3 upload time               |
 | --------------------- | ------------------ | --------------------- | ---------------------------- |
