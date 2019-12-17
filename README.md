@@ -8,6 +8,7 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-terraform-backend](https://github.com/nationalarchives/tdr-terraform-backend) - Terraform scripts for setting up the Terraform backends in the TDR management account
 - [tdr-terraform-environments](https://github.com/nationalarchives/tdr-terraform-environments) - Terraform scripts for provisioning AWS resources to support the TDR application within the different environments
 - [tdr-transfer-frontend](https://github.com/nationalarchives/tdr-transfer-frontend) - Code for the TDR frontend to allow users to transfer files
+- [tdr-auth-server](https://github.com/nationalarchives/tdr-auth-server) - Jenkins and docker configuration to build and deploy the keycloak server.
 
 ### Documentation repos
 
