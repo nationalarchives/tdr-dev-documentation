@@ -5,14 +5,14 @@ This is a guide for the steps necessary to setup the AWS infrastructure to suppo
 The guide is based on the following design:
 * There will be three TDR environments:
 
-  * Integration
-  * Staging
-  * Production
+  * Integration (intg)
+  * Staging (staging)
+  * Production (prod)
   
 * There will multiple AWS accounts to host the different TDR environments:
 
   * Integration AWS account: host the TDR integration environment
-  * Production AWS account: host the TDR staging and production environments
+  * Production AWS account: host the TDR staging *and* production environments
   * Management AWS account: to manage the TDR environment accounts
 
 ## A. AWS Accounts Setup
