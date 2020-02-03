@@ -23,11 +23,16 @@ Multiple environments will be used:
 
 #### TDR
 
-The application stack will run within the defined environments. 
+The application stack will run within the defined environments.
 
 ### Assumptions
 
-[TODO]
+* We don't yet need to integrate TDR with any other systems, though we might
+  reuse the login system to let department users view their own records
+* Series and departments won't need to be updated very often, so for MVP it's OK
+  for this to be a developer task, even though eventually we might build an
+  admin UI or integrate with the planned catalogue API
+* Data stored in the export bucket can be transferred to the preservation system
 
 ### Open Questions
 
