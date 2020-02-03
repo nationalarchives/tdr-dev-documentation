@@ -10,6 +10,7 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-transfer-frontend](https://github.com/nationalarchives/tdr-transfer-frontend) - Code for the TDR frontend to allow users to transfer files
 - [tdr-auth-server](https://github.com/nationalarchives/tdr-auth-server) - Jenkins and docker configuration to build and deploy the keycloak server.
 - [tdr-e2e-tests](https://github.com/nationalarchives/tdr-e2e-tests) - End to end tests for TDR
+- [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
 
 ### Documentation repos
 
@@ -27,7 +28,6 @@ Repos that were part of the final Alpha prototype:
 - [prototype-state-machine](https://github.com/nationalarchives/prototype-state-machine) - Prototype of file check tasks, like checksum calculation
 - [tdr-prototype-wasm-checksum](https://github.com/nationalarchives/tdr-prototype-wasm-checksum) - Prototype of checksum calculations in WebAssembly
 - [prototype-tdr-jenkins](https://github.com/nationalarchives/prototype-tdr-jenkins) - Infrastructure-as-code for Jenkins
-- [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
 
 Other ideas that we prototyped, but which didn't form part of the final system:
 
