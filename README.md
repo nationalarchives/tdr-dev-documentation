@@ -27,6 +27,7 @@ Repos that were part of the final Alpha prototype:
 - [prototype-state-machine](https://github.com/nationalarchives/prototype-state-machine) - Prototype of file check tasks, like checksum calculation
 - [tdr-prototype-wasm-checksum](https://github.com/nationalarchives/tdr-prototype-wasm-checksum) - Prototype of checksum calculations in WebAssembly
 - [prototype-tdr-jenkins](https://github.com/nationalarchives/prototype-tdr-jenkins) - Infrastructure-as-code for Jenkins
+- [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
 
 Other ideas that we prototyped, but which didn't form part of the final system:
 
@@ -38,7 +39,6 @@ Other ideas that we prototyped, but which didn't form part of the final system:
 
 ### Unused repos
 
-- [tdr-platform](https://github.com/nationalarchives/tdr-platform)
 - [tdr-prototype-terraform-modules](https://github.com/nationalarchives/tdr-prototype-terraform-modules)
 - [tdr-prototype-terraform-stateful](https://github.com/nationalarchives/tdr-prototype-terraform-stateful)
 
