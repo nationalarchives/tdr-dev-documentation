@@ -25,11 +25,12 @@ The guide is based on the following design:
 
    For example setup AWS accounts for "intg", "staging" and "production" environments
    
-3. Add the TDR "environment" AWS account ids to the parameter store in the TDR "management" AWS account with the following names:
+3. Add the TDR "environment" AWS account ids and the cost centre for the TDR application to the parameter store in the TDR "management" AWS account with the following names:
 
    * Integration Account: /mgmt/intg_account
    * Staging Account: /mgmt/staging_account
    * Production Account: /mgmt/prod_account
+   * Cost Centre: /mgmt/cost_centre
 
 ## B. Setup Terraform Backend
 
@@ -42,6 +43,7 @@ The guide is based on the following design:
       * Owner: TDR Backend
       * Terraform: false
       * Name: TDR Bootstrap Terraform State
+      * CostCentre: *[value of the cost centre for the TDR project]*
        
       This will store the state of the Terraform for the backend during development, and allow sharing of the state between multiple developers
    
@@ -52,17 +54,18 @@ The guide is based on the following design:
       * Owner: TDR Backend
       * Terraform: false
       * Name: TDR Bootstrap Terraform State Lock Table
+      * CostCentre: *[value of the cost centre for the TDR project]*
    
       This will provide locking of the s3 bucket to prevent conflicts when multiple developers are working.
       
    For further information on setting up Terraform s3 backend, see here: https://www.terraform.io/docs/backends/types/s3.html
 
-2. Setup the Terraform Backend project in the TDR AWS management account: https://github.com/nationalarchives/tdr-terraform-backend/blob/master/README.md
+2. Run the Terraform Backend project in the TDR AWS management account: https://github.com/nationalarchives/tdr-terraform-backend/blob/master/README.md
 
 ## C. Setup Jenkins
 
-Setup Jenkins project in the TDR AWS management account: https://github.com/nationalarchives/tdr-jenkins/blob/master/README.md
+Run the Jenkins project in the TDR AWS management account: https://github.com/nationalarchives/tdr-jenkins/blob/master/README.md
 
 ## D. Setup Individual TDR Environment
 
-Setup the Terraform Environments project: https://github.com/nationalarchives/tdr-terraform-environments/blob/master/README.md
+Run the Terraform Environments project: https://github.com/nationalarchives/tdr-terraform-environments/blob/master/README.md
