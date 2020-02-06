@@ -6,8 +6,9 @@
   * The repo name should start with "tdr-", unless it's going to be used more
     widely
 * Update the repo's settings:
-  * In "Collaborators & teams", give admin access to the "Transfer Digital
-    Records" team
+  * In "Collaborators & teams":
+    * give **write** access to the "Transfer Digital Records" team
+    * give **admin** access to the "Transfer Digital Records Admins" team
   * In "Options", check "Automatically delete head branches"
 * Add an open source licence
   * For code repos, add an MIT licence ([example][mvc-licence])
