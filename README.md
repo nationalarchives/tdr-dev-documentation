@@ -13,6 +13,10 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-auth-server](https://github.com/nationalarchives/tdr-auth-server) - Jenkins and docker configuration to build and deploy the keycloak server.
 - [tdr-e2e-tests](https://github.com/nationalarchives/tdr-e2e-tests) - End to end tests for TDR
 - [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
+- [tdr-consignment-api-data](https://github.com/nationalarchives/tdr-consignment-api-data) - Slick helper classes generated from the TDR schema
+- [tdr-graphql-client](https://github.com/nationalarchives/tdr-graphql-client) - A simple scala client for connecting to the API
+- [tdr-auth-utils](https://github.com/nationalarchives/tdr-auth-utils) - A library of useful auth functions.
+- [tdr-generated-graphql](https://github.com/nationalarchives/tdr-generated-graphql) - Generated case classes to use when querying the API. 
 
 ### Documentation repos
 
