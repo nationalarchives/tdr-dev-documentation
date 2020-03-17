@@ -16,7 +16,7 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-consignment-api-data](https://github.com/nationalarchives/tdr-consignment-api-data) - Migrations for the main TDR database and Slick helper classes generated from the TDR schema
 - [tdr-graphql-client](https://github.com/nationalarchives/tdr-graphql-client) - A simple scala client for connecting to the API
 - [tdr-auth-utils](https://github.com/nationalarchives/tdr-auth-utils) - A library of useful auth functions.
-- [tdr-generated-graphql](https://github.com/nationalarchives/tdr-generated-graphql) - Generated case classes to use when querying the API. 
+- [tdr-generated-graphql](https://github.com/nationalarchives/tdr-generated-graphql) - Generated case classes to use when querying the API.
 
 ### Documentation repos
 
@@ -52,7 +52,9 @@ Other ideas that we prototyped, but which didn't form part of the final system:
 
 * [Developer manual](manual/README.md): a guide for developers working on TDR
 * [Technology considerations](technology-considerations/README.md): results of
-  investigations into different technology choices for TDR
+  prototypes and spikes into different technology choices for TDR
+* [Architecture decision records](architecture-decision-records/README.md):
+  technical decisions that we make while building the production system
 
 ## Licence
 
