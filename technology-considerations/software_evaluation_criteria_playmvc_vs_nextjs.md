@@ -13,7 +13,7 @@ We have two working prototypes with both solutions:
 
 [Prototype Play MVC](https://github.com/nationalarchives/tdr-prototype-mvc) - Prototype Play MVC app
 
-[Prototype Next.js](https://github.com/nationalarchives/prototype-frontend-next)  with [Serverless REST API] (https://github.com/nationalarchives/prototype-server)- For prototyping TDR front-end
+[Prototype Next.js](https://github.com/nationalarchives/prototype-frontend-next)  with [Serverless REST API](https://github.com/nationalarchives/prototype-server)- For prototyping TDR front-end
 
 Considerations around both frameworks are detailed here: [considerations_playmvc_vs_nextjs](considerations_playmvc_vs_nextjs.md)
 
