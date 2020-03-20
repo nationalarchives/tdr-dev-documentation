@@ -17,6 +17,8 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-graphql-client](https://github.com/nationalarchives/tdr-graphql-client) - A simple scala client for connecting to the API
 - [tdr-auth-utils](https://github.com/nationalarchives/tdr-auth-utils) - A library of useful auth functions.
 - [tdr-generated-graphql](https://github.com/nationalarchives/tdr-generated-graphql) - Generated case classes to use when querying the API.
+- [tdr-configurations](https://github.com/nationalarchives/tdr-configurations) - Private repository for configuration files and parameters.
+- [tna-custodian](https://github.com/nationalarchives/tna-custodian) - Implementation of Cloud Custodian for National Archives.
 
 ### Documentation repos
 
