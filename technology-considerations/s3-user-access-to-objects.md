@@ -2,19 +2,19 @@
 
 ##Problem
 
-Ensure that TDR users are not able to overwrite view another user’s objects in the TDR AWS S3 upload bucket.
+Ensure that TDR users are not able to overwrite/view another user’s objects in the TDR AWS S3 upload bucket.
 
 Potential options to resolve the problem are to use:
 * AWS Cognito;
-* Signed URLS
+* Signed URLS.
 
 The purpose of the spike was to see whether using AWS Cognito was a feasible option.
 
 AWS Cognito has some advantages over using signed URLs:
-* Using signed URLs means an eavesdropper potentially can grab the signed url and use it until it expires
+* Using signed URLs means an eavesdropper, potentially, can grab the signed url and use it until it expires
 * AWS Cognito will work with AWS KMS encrypted AWS S3, can set up an AWS IAM or key policy allowing access to the AWS KMS key from AWS Cognito identities
 
-##Additional Considerations
+###Additional Considerations
 
 Unclear how AWS Cognito will work with Javascript silent login using Keycloak's Javascript library as the tokens are stored in Redis and not cookies.
 
@@ -22,9 +22,9 @@ Unclear how AWS Cognito will work with Javascript silent login using Keycloak's 
 
 ###AWS IAM Policy To Restrict Access to AWS S3 Bucket Objects
 
-The following IAM policy is an example of using a AWS Cognito identity sub parameter to control access to AWS S3 bucket objects.
+The following AWS IAM policy is an example of using an AWS Cognito identity sub parameter to control access to AWS S3 bucket objects.
 
-Note: The `cognito-identity.amazonaws.com:sub` refers to the identity id associated with the user in the Cognito Identity Pool.
+Note: The `cognito-identity.amazonaws.com:sub` refers to the identity id associated with the user in the AWS Cognito Identity Pool.
 
 ```
     {
@@ -46,7 +46,7 @@ Note: The `cognito-identity.amazonaws.com:sub` refers to the identity id associa
     }
 ```
 
-This policy restricts the listing of S3 objects that contain a prefix including the identity id of the user.
+This policy restricts the listing of AWS S3 objects that contain a prefix including the identity id of the user.
 
 See the following for more details: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_cognito-bucket.html
 
@@ -54,13 +54,13 @@ See the following for more details: https://docs.aws.amazon.com/IAM/latest/UserG
 
 TDR is using Keycloak as a third party service to manage and authenticate users. 
 
-To be able to make use of such an IAM policy outlined above to control access to S3 objects, Keycloak needs to integrated with AWS Cognito as an identity provider.
+To be able to make use of an IAM policy outlined above to control access to AWS S3 objects, Keycloak needs to integrated with AWS Cognito as an identity provider.
 
 This is because Keycloak users will need to be associated with an AWS Cognito identity, which can be used with the AWS IAM policy.
 
 Keycloak can be made an AWS Cognito authentication provider in two ways as:
 * a custom Developer authentication provider; or 
-* an OpenId authentication provider
+* an OpenId authentication provider.
 
 Details of how to set up an AWS Cognito identity pool using these two approaches are available here:
 * Custom Developer Authentication provider: https://docs.aws.amazon.com/cognito/latest/developerguide/developer-authenticated-identities.html
@@ -68,27 +68,32 @@ Details of how to set up an AWS Cognito identity pool using these two approaches
 
 There is additional detail on the authentication flow for both approaches available here: https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html
 
-For the spike examples of using both methods have been used. This was because the custom method was quicker to set up initially to help prove the IAM policy would restrict access to a user’s AWS S3 objects.
+For the spike examples of using both methods were used. This was because the custom method was quicker to set up initially to help prove the IAM policy would restrict access to a user’s AWS S3 objects.
 
 ###Practical Example
 
+Outline of steps:
+1. Create AWS S3 bucket
+2. Set up Keycloak as an OpenId authentication provider in AWS IAM
+3. Set up AWS Cognito Identity pool using Keycloak as an authentication provider
+4. Create IAM policy restricting access to S3 objects prefixed with an AWS Cognito identity id
+5. Associate the IAM policy with the authenticated IAM role associated with the AWS Cognito Identity pool
+
 ####AWS Setup (Sandbox Account)
 
-In the AWS Sandbox account two AWS Cognito identity pools were setup to use Keycloak as a custom and OpenId authentication provider:
+In the AWS Sandbox account two AWS Cognito identity pools created to use Keycloak as a custom and OpenId authentication provider:
 * *Custom*: tkTest (https://eu-west-2.console.aws.amazon.com/cognito/pool/?region=eu-west-2&id=eu-west-2:f2d20d5e-ffcb-4446-b70a-579c762898ec)
 * *OpenId*: tkTestOIDC (https://eu-west-2.console.aws.amazon.com/cognito/pool/?region=eu-west-2&id=eu-west-2:50b460d2-7651-48a3-aba1-59fb5863c578)
 
-An AWS IAM policy was created to restrict access to objects in an AWS S3 bucket (tktest-upload) based on the user’s associated identity from the respective AWS Cognito Identity pool: tkTestS3LimitAccessCognito
+An AWS IAM policy created to restrict access to objects in an AWS S3 bucket based on the user’s associated identity from the respective AWS Cognito Identity pool: tkTestS3LimitAccessCognito
 
-The policy was attached to the IAM roles associated with the identity pools authenticated identities:
-* Cognito_tkTestAuth_Role
-* Cognito_tkTestOIDCAuth_Role
+The policy was attached to the IAM roles associated with the identity pools authenticated identities.
 
 To enable the AWS IAM policy to work the following S3 object prefix structure was implemented: `{Cognito Identity Id value}/sub prefixes …`
 
 The following TDR Transfer Frontend branch uses two functions in the `SeriesDetailsController.scala` to demonstrate the restricted access in practice: https://github.com/nationalarchives/tdr-transfer-frontend/tree/cognitoDeveloperAuthProvider
 
-Both functions add an object to the S3 bucket and list the objects with a prefix matching their Cognito Identity Id value.
+Both functions add an object to the S3 bucket and list the objects with a prefix matching their AWS Cognito Identity Id value.
 
 To run the branch the following environment variables need to be set:
 * AUTH_URL={auth url for the intg environment}
@@ -101,7 +106,7 @@ To run the branch the following environment variables need to be set:
 * DEV_PROVIDED_LOGINS_KEY={dev provider logins key}
 * AUTH_SECRET={intg env auth secret}
 
-Note: A AWS IAM user was created to provide access to the AWS Cognito client
+Note: A AWS IAM user created to provide access to the AWS Cognito client
 
 ###Setting up Keycloak As An OpenId Authentication Provider In AWS Cognito
 
@@ -114,4 +119,3 @@ In order to set up Keycloak as an OpenId Authentication Provider do the followin
 
 ##Useful Documents:
 * https://aws.amazon.com/blogs/security/writing-iam-policies-grant-access-to-user-specific-folders-in-an-amazon-s3-bucket/ (in depth look at using IAM policies to restrict access to S3 bucket objects. Concentrates on AWS console access, but still relevant)
-
