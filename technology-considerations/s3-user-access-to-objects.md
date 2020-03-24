@@ -52,9 +52,9 @@ See the following for more details: https://docs.aws.amazon.com/IAM/latest/UserG
 
 ### Using AWS IAM Policy With TDR
 
-TDR is using Keycloak as a third party service to manage and authenticate users. 
+TDR is using Keycloak to manage and authenticate users. 
 
-To be able to make use of an IAM policy outlined above to control access to AWS S3 objects, Keycloak needs to integrated with AWS Cognito as an identity provider.
+To be able to make use of an IAM policy outlined above to control access to AWS S3 objects, Keycloak needs to be integrated with AWS Cognito as an identity provider.
 
 This is because Keycloak users will need to be associated with an AWS Cognito identity, which can be used with the AWS IAM policy.
 
@@ -82,8 +82,8 @@ Outline of steps:
 #### AWS Setup (Sandbox Account)
 
 In the AWS Sandbox account two AWS Cognito identity pools created to use Keycloak as a custom and OpenId authentication provider:
-* *Custom*: tkTest (https://eu-west-2.console.aws.amazon.com/cognito/pool/?region=eu-west-2&id=eu-west-2:f2d20d5e-ffcb-4446-b70a-579c762898ec)
-* *OpenId*: tkTestOIDC (https://eu-west-2.console.aws.amazon.com/cognito/pool/?region=eu-west-2&id=eu-west-2:50b460d2-7651-48a3-aba1-59fb5863c578)
+* *Custom*: tkTest
+* *OpenId*: tkTestOIDC
 
 An AWS IAM policy created to restrict access to objects in an AWS S3 bucket based on the user’s associated identity from the respective AWS Cognito Identity pool: tkTestS3LimitAccessCognito
 
@@ -106,7 +106,7 @@ To run the branch the following environment variables need to be set:
 * DEV_PROVIDED_LOGINS_KEY={dev provider logins key}
 * AUTH_SECRET={intg env auth secret}
 
-Note: A AWS IAM user created to provide access to the AWS Cognito client
+Note: An AWS IAM user created to provide access to the AWS Cognito client
 
 ### Setting up Keycloak As An OpenId Authentication Provider In AWS Cognito
 
