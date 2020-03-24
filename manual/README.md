@@ -6,4 +6,5 @@ things like deploying code or debugging complex parts of the stack.
 ## Guides
 
 * [Create a repo](create-repo.md)
-* [Setup TDR AWS Infrastructure](tdr-create-aws-instructure-setup.md) 
+* [Setup TDR AWS Infrastructure](tdr-create-aws-instructure-setup.md)
+* [Retrieve Authorisation Token From Keycloak](keycloak-retrieve-token.md) 
