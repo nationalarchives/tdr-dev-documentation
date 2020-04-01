@@ -7,6 +7,8 @@ Based on the following blog post: https://medium.com/@bcarunmail/securing-rest-a
 The Keycloak OpenID Connection configuration URL to get details about all security endpoints is: 
 `GET https://{keycloak url}/auth/realms/{realm name}/.well-known/openid-configuration`
 
+So for example for locally running TDR Keycloak this would be: `http://localhost:8081/auth/realms/tdr/.well-known/openid-configuration`
+
 Important URLS returned from the response are:
 * *issuer*: `https://{keycloak url}/auth/realms/{realm name}`
 * *authorization_endpoint*: `{issuer}/protocol/openid-connect/auth`
@@ -37,7 +39,7 @@ To do this Postman will require an authorisation token from Keycloak. Postman ca
  * *Access Token URL*: http://localhost:9000/auth/realms/tdr/protocol/openid-connect/token *[or whatever is the access token url for the Keycloak client that is being used]*
  * *Client ID*: tdr
  * *Client Secret*: *[the TDR client secret in Keycloak]*
- * *Scope*: opened
+ * *Scope*: openeid
  * *State*: 12345
  * *Client Authentication*: Send client credentials in body
  
