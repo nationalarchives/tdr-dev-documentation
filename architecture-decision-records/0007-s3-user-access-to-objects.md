@@ -1,6 +1,8 @@
-# Restricting User Access To S3 Objects
+# 7. Restricting User Access To S3 Objects
 
-## Problem
+**Date:** 2020-04-01
+
+## Context
 
 Ensure that TDR users are not able to overwrite/view another user’s objects in the TDR AWS S3 upload bucket.
 
@@ -8,15 +10,17 @@ Potential options to resolve the problem are to use:
 * AWS Cognito;
 * Signed URLS.
 
-The purpose of the spike was to see whether using AWS Cognito was a feasible option.
+## Decision
+
+Decided to go with AWS Cognito, with Keycloak as an OpenId authentication provider, using IAM policy to restrict access to a user's objects.
 
 AWS Cognito has some advantages over using signed URLs:
 * Using signed URLs means an eavesdropper, potentially, can grab the signed url and use it until it expires
+  * Note: AWS signed URLs use HTTPS, so an eavesdropper on a public network cannot see the secret part which is in the request parameters or the path.
 * AWS Cognito will work with AWS KMS encrypted AWS S3, can set up an AWS IAM or key policy allowing access to the AWS KMS key from AWS Cognito identities
+* A separate signed URL would have to generated for each file. That would mean generating thousands of URLs for large consignments.
 
-### Additional Considerations
-
-Unclear how AWS Cognito will work with Javascript silent login using Keycloak's Javascript library as the tokens are stored in Redis and not cookies.
+Details of how AWS Congito would work are given in the sections below.
 
 ## Using AWS Cognito and Keycloak to Restrict Access to AWS S3 Bucket Objects
 
@@ -31,16 +35,10 @@ Note: The `cognito-identity.amazonaws.com:sub` refers to the identity id associa
         "Version": "2012-10-17", 
         "Statement": [
             {
-                "Sid": "ListYourObjects",
+                "Sid": "WriteYourObjects",
                 "Effect": "Allow",
-                "Action": "s3:ListBucket",
-                "Resource": ["arn:aws:s3:::bucket-name"], 
-                "Condition": 
-                    {
-                        "StringLike": {
-                            "s3:prefix": ["cognito/application-name/${cognito-identity.amazonaws.com:sub}"]
-                        }
-                    }
+                "Action": "s3:PutObject",
+                "Resource": ["arn:aws:s3:::{bucket-name}/${cognito-identity.amazonaws.com:sub}/*"]                
             }
         ]
     }
@@ -69,6 +67,8 @@ Details of how to set up an AWS Cognito identity pool using these two approaches
 There is additional detail on the authentication flow for both approaches available here: https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html
 
 For the spike examples of using both methods were used. This was because the custom method was quicker to set up initially to help prove the IAM policy would restrict access to a user’s AWS S3 objects.
+
+For production the OpenId method should be used as this is standards based.
 
 ### Practical Example
 
