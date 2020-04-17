@@ -54,7 +54,8 @@ scratch, we can set the next build numbers so they start from the next version
 rather than resetting back to build 1. To do this, you can run a script in the
 [Jenkins script console][script-console]:
 
-```def job = Jenkins.instance.getItemByFullName("name-of-jenkins-build/master")
+```
+def job = Jenkins.instance.getItemByFullName("name-of-jenkins-build/master")
 job.nextBuildNumber = 123
 job.save()
 ```
