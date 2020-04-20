@@ -44,6 +44,7 @@ Other ideas that we prototyped, but which didn't form part of the final system:
 - [prototype-cypress](https://github.com/nationalarchives/prototype-cypress) - Prototype of Cypress tests for TDR
 - [prototype-graphql](https://github.com/nationalarchives/prototype-graphql) - Prototype GraphQL server written in Node.js with Apollo Server
 - [prototype-appsync](https://github.com/nationalarchives/prototype-appsync) - Prototype AWS AppSync Graphql server
+- [prototype-server](https://github.com/nationalarchives/prototype-server) - Prototype REST API
 
 ### Unused repos
 
