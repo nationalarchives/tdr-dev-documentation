@@ -35,11 +35,11 @@ To do this Postman will require an authorisation token from Keycloak. Postman ca
  * *Token Name*: keycloak-bearer-token
  * *Grant Type*: Authorization Code
  * *Callback URL*: http://localhost:9000 *[or whatever is the call back url for the Keycloak client that is being used]*
- * *Auth URL*: http://localhost:9000/auth/realms/tdr/protocol/openid-connect/auth *[or whatever is the authorisation url for the Keycloak client that is being used]*
- * *Access Token URL*: http://localhost:9000/auth/realms/tdr/protocol/openid-connect/token *[or whatever is the access token url for the Keycloak client that is being used]*
+ * *Auth URL*: http://localhost:8081/auth/realms/tdr/protocol/openid-connect/auth *[or whatever is the authorisation url for the Keycloak client that is being used]*
+ * *Access Token URL*: http://localhost:8081/auth/realms/tdr/protocol/openid-connect/token *[or whatever is the access token url for the Keycloak client that is being used]*
  * *Client ID*: tdr
  * *Client Secret*: *[the TDR client secret in Keycloak]*
- * *Scope*: openeid
+ * *Scope*: (Doesn't matter - can be left blank)
  * *State*: 12345
  * *Client Authentication*: Send client credentials in body
  
