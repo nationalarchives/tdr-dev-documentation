@@ -10,6 +10,12 @@
     * give **write** access to the "Transfer Digital Records" team
     * give **admin** access to the "Transfer Digital Records Admins" team
   * In "Options", check "Automatically delete head branches"
+  * In "Branch", add a branch protection rule for the *master* branch with the following options selected:
+    * **Branch name pattern**: master
+    * **Require pull request reviews before merging** *(default 1 review is OK)*
+    * **Dismiss stale pull request approvals when new commits are pushed**
+    * **Include administrators**
+    * **Restrict who can push to matching branches** *(**do not** specify any members for this option)*
 * Add an open source licence
   * For code repos, add an MIT licence ([example][mvc-licence])
   * For documentation, add an MIT licence for the code and an [Open Government
