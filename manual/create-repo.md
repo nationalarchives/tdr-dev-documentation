@@ -15,7 +15,6 @@
     * **Require pull request reviews before merging** *(default 1 review is OK)*
     * **Dismiss stale pull request approvals when new commits are pushed**
     * **Include administrators**
-    * **Restrict who can push to matching branches** *(**do not** specify any members for this option)*
 * Add an open source licence
   * For code repos, add an MIT licence ([example][mvc-licence])
   * For documentation, add an MIT licence for the code and an [Open Government
