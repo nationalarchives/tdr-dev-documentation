@@ -23,7 +23,7 @@
       Choose the following status checks:
       * **TDR Jenkins build status** *(make this a required check)*
       
-      **Note**: the Jenkins job will need to be configured first before this status check will appear.
+      **Note**: the Jenkins job will need to be configured first before this status check will appear. For example see: https://github.com/nationalarchives/tdr-transfer-frontend/blob/master/Jenkinsfile-testing, where the reporting functions are called (`tdr.reportStartOfBuildToGitHub`, `tdr.reportFailedBuildToGitHub`, `tdr.reportSuccessfulBuildToGitHub`)  
       
 * Add an open source licence
   * For code repos, add an MIT licence ([example][mvc-licence])
