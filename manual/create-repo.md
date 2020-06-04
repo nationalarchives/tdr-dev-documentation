@@ -15,6 +15,16 @@
     * **Require pull request reviews before merging** *(default 1 review is OK)*
     * **Dismiss stale pull request approvals when new commits are pushed**
     * **Include administrators**
+    
+    For any repositories that use a multi-branch Jenkins pipeline the following additional branch protection rules should be set for the *master* rule:
+    * **Require status checks to pass before merging**      
+      * **Require branches to be up to date before merging** *(sub option)*
+      
+      Choose the following status checks:
+      * **TDR Jenkins build status** *(make this a required check)*
+      
+      **Note**: the Jenkins job will need to be configured first before this status check will appear. For example see: https://github.com/nationalarchives/tdr-transfer-frontend/blob/master/Jenkinsfile-testing, where the reporting functions are called (`tdr.reportStartOfBuildToGitHub`, `tdr.reportFailedBuildToGitHub`, `tdr.reportSuccessfulBuildToGitHub`)  
+      
 * Add an open source licence
   * For code repos, add an MIT licence ([example][mvc-licence])
   * For documentation, add an MIT licence for the code and an [Open Government
