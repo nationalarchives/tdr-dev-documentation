@@ -33,7 +33,7 @@ The transferring body user administrators will be defined in the TDR realm, with
 
 * **Master Realm**
   * *super_user_administrator* group:   
-    * Access to all users/groups within the master realm only (this includes the *user_administrator* as this is held within the master realm)    
+    * Access to all users/groups within the master realm only    
     * Has access to self 
 * **TDR Realm**
   * *user_administrator* group:  
@@ -43,7 +43,7 @@ The transferring body user administrators will be defined in the TDR realm, with
     * Access to TDR application only
     * Access to series belonging to transferring body
 
-With this configuration the transferring body user administrators and super user administrators can give themselves elevated privileges.
+With this configuration the transferring body user administrators and super user administrators can give themselves limited elevated privileges.
 
 ### Option 2: Define TDR user administrators in master realm
 
@@ -55,14 +55,13 @@ Both transferring body user administrators and "super" user administrators will 
     * Has access to self    
   * *tdr_user_administrator* group:  
     * Access to all users/groups within the TDR realm only    
-    * No access to self
-  
+    * No access to self  
 * **TDR Realm**
   * *transferring_body_user* group: 
     * Access to TDR application
     * Access to series belonging to transferring body
 
-With this configuration the super user administrators can give themselves elevated privileges.
+With this configuration the super user administrators can give themselves limited elevated privileges.
 
 ## Keycloak User Configuration Background
 
