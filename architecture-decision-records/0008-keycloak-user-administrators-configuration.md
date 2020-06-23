@@ -17,17 +17,23 @@ The configuration needs to consider the following principles:
 
 ## Decision
 
-TBD
+Decided to define user administrators in the "master" realm. 
+
+There is some benefit from having the user administrators in the master realm as such users will not have access to themselves and cannot give themselves elevated privileges.
+
+Having user administrators in the master realm also provides a clear demarcation between transferring body users which will be defined in the TDR realm users. This provides additional protection against inadvertently giving incorrect permissions to transferring body users.
 
 ## TDR User Administrators Configuration
 
-User adminstrators will be users that have permission to manage other users. 
+User administrators will be users that have permission to manage other users. 
 
 This will include transferring body users and internal TNA users.
 
 "Groups" will be used to define the permissions. This will allow easier administration of the permissions, as the permission will be defined by the group and keycloak users can be added or removed to the groups.
 
-### Option 1: Define user administrators in master and TDR realms
+### Options considered
+
+#### Option 1: Define user administrators in master and TDR realms
 
 The transferring body user administrators will be defined in the TDR realm, with the "super" user administrators defined in the master realm
 
@@ -45,7 +51,7 @@ The transferring body user administrators will be defined in the TDR realm, with
 
 With this configuration the transferring body user administrators and super user administrators can give themselves limited elevated privileges.
 
-### Option 2: Define TDR user administrators in master realm
+#### Option 2: Define TDR user administrators in master realm
 
 Both transferring body user administrators and "super" user administrators will be defined in the master realm
 
