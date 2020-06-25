@@ -15,31 +15,15 @@ The configuration needs to consider the following principles:
 * *Elevated privileges*: prevent a user accruing additional permissions above what they require
 * *User data protection*: ensure user data is secure
 
-## Decision
+## Options considered
 
-Decided to define user administrators in the "master" realm. 
+### Option 1: Define user administrators in the top level realm and TDR realms
 
-There is some benefit from having the user administrators in the master realm as such users will not have access to themselves and cannot give themselves elevated privileges.
+The transferring body user administrators will be defined in the TDR realm, with the "super" user administrators defined in the top level realm
 
-Having user administrators in the master realm also provides a clear demarcation between transferring body users which will be defined in the TDR realm users. This provides additional protection against inadvertently giving incorrect permissions to transferring body users.
-
-## TDR User Administrators Configuration
-
-User administrators will be users that have permission to manage other users. 
-
-This will include transferring body users and internal TNA users.
-
-"Groups" will be used to define the permissions. This will allow easier administration of the permissions, as the permission will be defined by the group and keycloak users can be added or removed to the groups.
-
-### Options considered
-
-#### Option 1: Define user administrators in master and TDR realms
-
-The transferring body user administrators will be defined in the TDR realm, with the "super" user administrators defined in the master realm
-
-* **Master Realm**
+* **Top Level Realm**
   * *super_user_administrator* group:   
-    * Access to all users/groups within the master realm only    
+    * Access to all users/groups within the top level realm only    
     * Has access to self 
 * **TDR Realm**
   * *user_administrator* group:  
@@ -51,13 +35,13 @@ The transferring body user administrators will be defined in the TDR realm, with
 
 With this configuration the transferring body user administrators and super user administrators can give themselves limited elevated privileges.
 
-#### Option 2: Define TDR user administrators in master realm
+#### Option 2: Define TDR user administrators in top level realm
 
-Both transferring body user administrators and "super" user administrators will be defined in the master realm
+Both transferring body user administrators and "super" user administrators will be defined in the top level realm
 
-* **Master Realm**
+* **Top Level Realm**
   * *super_user_administrator* group:   
-    * Access to all users/groups within the master realm only (this includes the *tdr_user_administrator* as this is held within the master realm)    
+    * Access to all users/groups within the top level realm only (this includes the *tdr_user_administrator* as this is held within the top level realm)    
     * Has access to self    
   * *tdr_user_administrator* group:  
     * Access to all users/groups within the TDR realm only    
@@ -69,6 +53,22 @@ Both transferring body user administrators and "super" user administrators will 
 
 With this configuration the super user administrators can give themselves limited elevated privileges.
 
+## Decision
+
+Decided on Option 2. 
+
+Having user administrators in the top level realm provides a clear demarcation between transferring body users which will be defined in the TDR realm users. 
+
+This provides additional protection against inadvertently giving incorrect permissions to transferring body users.
+
+## TDR User Administrators Configuration
+
+User administrators will be users that have permission to manage other users. 
+
+This will include transferring body users and internal TNA users.
+
+"Groups" will be used to define the permissions. This will allow easier administration of the permissions, as the permission will be defined by the group and keycloak users can be added or removed to the groups.
+
 ## Keycloak User Configuration Background
 
 ### Realms
@@ -79,13 +79,13 @@ A realm manages a set of users, credentials, roles, and groups. A user belongs t
 
 Realms are isolated from one another and can only manage and authenticate the users that they control.
 
-#### "Master" Realm
+#### Top Level Realm
 
-Keycloak comes with a pre-defined "master" realm which is at the highest level. in the hierarchy of realms. 
+Keycloak comes with a pre-defined "top level" realm which is at the highest level in the hierarchy of realms. 
 
 Admin accounts in this realm have permissions to view and manage any other realm created on the server instance. 
 
-Keycloak recommends that the master realm is not used to manage users and applications, and should be reserved for super admins to create and manage the realms in the system.
+Keycloak recommends that the top level realm is not used to manage users and applications, and should be reserved for super admins to create and manage the realms in the system.
 
 ### Roles
 
