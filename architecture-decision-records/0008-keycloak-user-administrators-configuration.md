@@ -35,7 +35,7 @@ The transferring body user administrators will be defined in the TDR realm, with
 
 With this configuration the transferring body user administrators and super user administrators can give themselves limited elevated privileges.
 
-#### Option 2: Define TDR user administrators in top level realm
+### Option 2: Define TDR user administrators in top level realm
 
 Both transferring body user administrators and "super" user administrators will be defined in the top level realm
 
