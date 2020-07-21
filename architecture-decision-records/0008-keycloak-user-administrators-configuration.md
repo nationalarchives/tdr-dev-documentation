@@ -2,6 +2,8 @@
 
 **Date:** 2020-06-17
 
+This decision has been superseded by decision: [0009 Keycloak User Administrator Configuration](0009-keycloak-user-administrators-configuration.md) 
+
 ## Context
 
 Keycloak provides a flexible way to organise access for users to its administration functions.
