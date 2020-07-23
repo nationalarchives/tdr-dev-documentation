@@ -1,5 +1,11 @@
 # BrowserStack Testing
 
+## Request National Archives Browser Stack Account
+
+There is a National Archives organisation account for BrowserStack. 
+
+Ask the Digital Services frontend developers to set up an account for you within the organisation.
+
 ## Testing locally running or TDR integration environment
 
 BrowserStack local testing allows the testing of non-public applications
