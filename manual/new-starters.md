@@ -18,15 +18,28 @@ This should place git-secrets into your PATH, but if not you may need to move it
 Once installed, you can use `git-secrets` or `git secrets` interchangeably within the command line
 
 ## Initialising git-secrets on all local repositories
+
+### Existing repositories
+
+To initialise git-secrets for a specific git repository, `cd` into said repository. Run `git-secrets --install`. This step may not be required if you have initialised git-secrets on all local repositories in the past.
+
+To install git-secrets in all of the repositories within a single parent directory, `cd` to the parent directory and run:
+
+```
+for d in ./*/ ; do (cd "$d" && git-secrets --install); done
+```
+
+### New repositories
+
 * Run `git-secrets --install ~/.git-templates/git-secrets`
 * Then run `git config --global init.templateDir ~/.git-templates/git-secrets`
 
-To initialise git-secrets for a specific git repository, `cd` into said repository. Run `git-secrets --install`. This step may not be required if you have initialised git-secrets on all local repositories in the past.
+This ensures that git-secrets is automatically installed in any repos that you clone or create in future.
 
 ## Add settings to check for AWS keys
 As git-secrets was made by AWS, it includes a build in method to detect AWS keys. To initialise this, run `git-secrets --register-aws --global`.
 The `--global` part sets the AWS pattern search to all repositories covered by git-secrets.
-With this built in command, git-secrets will search for common AWS patterns like: 
+With this built in command, git-secrets will search for common AWS patterns like:
 * AWS Access Key IDs
 * AWS secret key assignments
 * AWS account ID assignments
