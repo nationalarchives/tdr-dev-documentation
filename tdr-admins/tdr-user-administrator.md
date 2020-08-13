@@ -23,7 +23,7 @@ TDR user administrators have rights and privileges to manage:
   * Url to the Keycloak application
 3. Ensure you have either Microsoft Authenticator (https://www.microsoft.com/en-us/account/authenticator), or Google Authenticator (https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB) available as you will need these to log on to the Keycloak application
 3. Log on to the Keycloak application for the first time:
-  * **Note**: accessing Keycloak can only be done on the TNA network or via Citrix
+  * **Note**: accessing Keycloak can only be done on the TNA network, via Citrix or connecting to TNA using PulseSecure
   * Go to the provided URL
   * You will be prompted to set scan a QR code with an authenticator application to set up MFA for Keycloak
   * You will be prompted to reset your password
