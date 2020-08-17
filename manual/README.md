@@ -5,13 +5,14 @@ things like deploying code or debugging complex parts of the stack.
 
 ## Guides
 
-* [Create a repo](create-repo.md)
-* [Setup TDR AWS Infrastructure](tdr-create-aws-instructure-setup.md)
-* [Retrieve Authorisation Token From Keycloak](keycloak-retrieve-token.md)
-* [Reset Jenkins Builds](reset-jenkins-builds.md)
-* [Update Jenkins](update-jenkins.md)
+- [Create a repo](create-repo.md)
+- [Setup TDR AWS Infrastructure](tdr-create-aws-instructure-setup.md)
+- [Retrieve Authorisation Token From Keycloak](keycloak-retrieve-token.md)
+- [Reset Jenkins Builds](reset-jenkins-builds.md)
+- [Update Jenkins](update-jenkins.md)
+- [Jenkins style guide](jenkins-style-guide.md)
 
 ### Development processes
 
-* [Close a card](development-process/close-card.md)
-* [Plan a user story](plan-story.md)
+- [Close a card](development-process/close-card.md)
+- [Plan a user story](plan-story.md)
