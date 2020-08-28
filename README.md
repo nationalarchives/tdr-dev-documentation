@@ -4,23 +4,48 @@ Documentation for developers for the Transfer Digital Records (TDR) project.
 ## TDR repos
 
 The current repositories relating to TDR, and their purpose are:
+
+### Core services
+
+- [tdr-consignment-api](https://github.com/nationalarchives/tdr-consignment-api) - API for managing consignment and file details
+- [tdr-transfer-frontend](https://github.com/nationalarchives/tdr-transfer-frontend) - Code for the TDR frontend to allow users to transfer files
+
+### Auth
+
+- [tdr-auth-server](https://github.com/nationalarchives/tdr-auth-server) - Jenkins and docker configuration to build and deploy the Keycloak server
+- [tdr-auth-utils](https://github.com/nationalarchives/tdr-auth-utils) - A library of useful auth functions
+
+### Data migrations and libraries
+
+- [tdr-consignment-api-data](https://github.com/nationalarchives/tdr-consignment-api-data) - Migrations for the main TDR database and Slick helper classes generated from the TDR schema
+- [tdr-generated-graphql](https://github.com/nationalarchives/tdr-generated-graphql) - Generated case classes to use when querying the API
+- [tdr-graphql-client](https://github.com/nationalarchives/tdr-graphql-client) - A simple scala client for connecting to the API
+
+### File check tasks
+
+- [tdr-antivirus](https://github.com/nationalarchives/tdr-antivirus/) - Task for scanning uploaded files for malware
+- [tdr-api-update](https://github.com/nationalarchives/tdr-api-update/) - Task for sending the results of file checks to the API
+- [tdr-checksum](https://github.com/nationalarchives/tdr-checksum/) - Task for calculating the server-side checksum of uploaded files
+- [tdr-file-format](https://github.com/nationalarchives/tdr-file-format/) - Task for determining the format of uploaded files
+
+### Infrastructure and deployment
+
+- [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
+- [tdr-configurations](https://github.com/nationalarchives/tdr-configurations) - Private repository for configuration files and parameters
+- [tna-custodian](https://github.com/nationalarchives/tna-custodian) - Implementation of Cloud Custodian for National Archives
 - [tdr-jenkins](https://github.com/nationalarchives/tdr-jenkins) - Terraform scripts and Dockerfiles to create the Jenkins server and its build nodes.
 - [tdr-jenkinslib](https://github.com/nationalarchives/tdr-jenkinslib) - Shared groovy scripts for TDR jenkins jobs.
 - [tdr-terraform-backend](https://github.com/nationalarchives/tdr-terraform-backend) - Terraform scripts for setting up the Terraform backends in the TDR management account
 - [tdr-terraform-environments](https://github.com/nationalarchives/tdr-terraform-environments) - Terraform scripts for provisioning AWS resources to support the TDR application within the different environments
-- [tdr-transfer-frontend](https://github.com/nationalarchives/tdr-transfer-frontend) - Code for the TDR frontend to allow users to transfer files
-- [tdr-consignment-api](https://github.com/nationalarchives/tdr-consignment-api) - API for managing consignment and file details
-- [tdr-auth-server](https://github.com/nationalarchives/tdr-auth-server) - Jenkins and docker configuration to build and deploy the keycloak server.
-- [tdr-e2e-tests](https://github.com/nationalarchives/tdr-e2e-tests) - End to end tests for TDR
-- [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
 - [tdr-terraform-modules](https://github.com/nationalarchives/tdr-terraform-modules) - Terraform modules for use by other Terraform repositories
-- [tdr-consignment-api-data](https://github.com/nationalarchives/tdr-consignment-api-data) - Migrations for the main TDR database and Slick helper classes generated from the TDR schema
-- [tdr-graphql-client](https://github.com/nationalarchives/tdr-graphql-client) - A simple scala client for connecting to the API
-- [tdr-auth-utils](https://github.com/nationalarchives/tdr-auth-utils) - A library of useful auth functions.
-- [tdr-generated-graphql](https://github.com/nationalarchives/tdr-generated-graphql) - Generated case classes to use when querying the API.
-- [tdr-configurations](https://github.com/nationalarchives/tdr-configurations) - Private repository for configuration files and parameters.
+
+### Testing
+
+- [tdr-e2e-tests](https://github.com/nationalarchives/tdr-e2e-tests) - End to end tests for TDR
+
+### Local development
+
 - [tdr-local-aws](https://github.com/nationalarchives/tdr-local-aws) - Emulate backend file checks in the development environment
-- [tna-custodian](https://github.com/nationalarchives/tna-custodian) - Implementation of Cloud Custodian for National Archives.
 
 ### Documentation repos
 
