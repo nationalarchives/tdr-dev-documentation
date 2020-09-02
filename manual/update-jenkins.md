@@ -101,4 +101,4 @@ test the update by running some branch builds and integration deployments.
 [plugins.txt]: https://github.com/nationalarchives/tdr-jenkins/blob/master/docker/plugins.txt
 [jenkins-logs]: https://eu-west-2.console.aws.amazon.com/cloudwatch/home?region=eu-west-2#logStream:group=/ecs/tdr-jenkins-mgmt
 [plugin manager]: https://jenkins.tdr-management.nationalarchives.gov.uk/pluginManager
-[script console]: https://ci.integration.publishing.service.gov.uk/script
+[script console]: https://jenkins.tdr-management.nationalarchives.gov.uk/script
