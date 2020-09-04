@@ -48,7 +48,7 @@ You might choose to add other sections, such as:
 
 The decision itself should be considered immutable when it's merged. If we
 change our approach, we should add a new ADR explaining the change, leaving the
-original as a reference and marking it as deprecating.
+original as a reference and marking it as deprecated.
 
 If the decision has significant or unexpected consequences, we can also add a
 new section explaining what happened. This might help other developers who are
