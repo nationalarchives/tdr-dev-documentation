@@ -12,6 +12,10 @@ things like deploying code or debugging complex parts of the stack.
 * [Update Jenkins](update-jenkins.md)
 * [Jenkins style guide](jenkins-style-guide.md)
 
+### Alerts
+
+* [Rotate AWS keys][alerts/rotate-aws-keys.md]
+
 ### Development processes
 
 * [Close a card](development-process/close-card.md)
