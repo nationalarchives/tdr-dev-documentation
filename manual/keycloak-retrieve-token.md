@@ -42,7 +42,11 @@ To do this Postman will require an authorisation token from Keycloak. Postman ca
  * *Scope*: (Doesn't matter - can be left blank)
  * *State*: 12345
  * *Client Authentication*: Send client credentials in body
- 
+
 6. Click “Request Token” in the dialog box
 7. A Keycloak login screen should open up, and you need to enter the user credentials, just as if the user was logging into the TDR app
 8. After a little wait a token will be returned to Postman which can then use to make queries to the TDR API
+
+There is no way to save this configuration, which makes it tricky to when you want to fetch auth tokens from multiple environments. As a workaround, you can use a [combination of environment variables and Postman environments][switch-envs] to let you switch between TDR environments.
+
+[switch-envs]: https://github.com/postmanlabs/postman-app-support/issues/4636#issuecomment-462055383
