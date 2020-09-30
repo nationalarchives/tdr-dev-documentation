@@ -39,6 +39,10 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-terraform-environments](https://github.com/nationalarchives/tdr-terraform-environments) - Terraform scripts for provisioning AWS resources to support the TDR application within the different environments
 - [tdr-terraform-modules](https://github.com/nationalarchives/tdr-terraform-modules) - Terraform modules for use by other Terraform repositories
 
+### Monitoring
+
+- [tdr-grafana](https://github.com/nationalarchives/tdr-grafana) - Implementation of Grafana for TDR
+
 ### Testing
 
 - [tdr-e2e-tests](https://github.com/nationalarchives/tdr-e2e-tests) - End to end tests for TDR
