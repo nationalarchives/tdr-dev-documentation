@@ -33,7 +33,10 @@
 * Add a link from the new project's README to this documentation, to add context
   for anyone who finds the project
 * Add the new project to the repo list in the README of this project
+* If the project contains a [dependabot supported package manager][supported-package-managers] then add a [dependabot config file][dependabot-config].
 
+[dependabot-config]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/enabling-and-disabling-version-updates
+[supported-package-managers]: https://dependabot.com/docs/config-file/#package_manager-required
 [open-code]: https://www.gov.uk/government/publications/open-source-guidance/when-code-should-be-open-or-closed
 [mvc-licence]: https://github.com/nationalarchives/tdr-prototype-mvc/blob/master/LICENCE
 [ogl]: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
