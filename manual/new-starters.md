@@ -15,6 +15,10 @@ Clone the git-secrets [repository](https://github.com/awslabs/git-secrets) to yo
 Run `sudo make install`.
 This should place git-secrets into your PATH, but if not you may need to move it and run `sudo make install` again OR include the folder made by running `sudo make install` into your PATH.
 
+Then run the following commands to add additional rules to checkout for AWS account numbers:
+* `git-secrets --add --global '([^0-9])*[0-9]{12}([^0-9])*`: this will add a check for any 12 digit number.
+* `git-secrets --add --global -a '([^0-9])*012345678912([^0-9])*'`: this will add an allowed dummy AWS account number of *012345678912*. This can be used, if for example, when writing example code in a README which uses an AWS account number.
+
 Once installed, you can use `git-secrets` or `git secrets` interchangeably within the command line
 
 ## Initialising git-secrets on all local repositories
