@@ -39,7 +39,7 @@ To do this Postman will require an authorisation token from Keycloak. Postman ca
  * *Access Token URL*: http://localhost:8081/auth/realms/tdr/protocol/openid-connect/token *[or whatever is the access token url for the Keycloak client that is being used]*
  * *Client ID*: tdr
  * *Client Secret*: *[the TDR client secret in Keycloak]*
- * *Scope*: (Doesn't matter - can be left blank)
+ * *Scope*: openid
  * *State*: 12345
  * *Client Authentication*: Send client credentials in body
 
