@@ -119,7 +119,11 @@ We should consider whether any new components or interactions require any
 accessibility design (such as [ARIA roles][aria]) or testing once the feature
 is complete.
 
+If we decide the feature needs accessibility testing, use the [accessibility
+checklist].
+
 [aria]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
+[accessibility checklist]: test-accessibility.md
 
 ### Security considerations
 
