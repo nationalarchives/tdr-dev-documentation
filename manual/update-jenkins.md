@@ -94,7 +94,7 @@ Any issues with the updates might only appear when you run a Jenkins job, so
 test the update by running some branch builds and integration deployments.
 
 [tdr-jenkins]: https://github.com/nationalarchives/tdr-jenkins/
-[TDR Jenkins Backup]: https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Jenkins%20Backup/
+[TDR Jenkins Backup]: https://github.com/nationalarchives/tdr-jenkins#backups
 [reset-builds]: reset-jenkins-builds.md
 [ecs-ami]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html
 [jenkins-service-mgmt]: https://eu-west-2.console.aws.amazon.com/ecs/home?region=eu-west-2#/clusters/jenkins-mgmt/services/jenkins-service-mgmt/events
