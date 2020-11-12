@@ -15,9 +15,9 @@ Last Ping  Total Pings
 To investigate why the backup didn't run, check the [Maintenance Window history]
 in the TDR Management AWS account.
 
-To manually initiate a backup, go the [Systems Manager Command History], select
-a previous Jenkins backup and click Rerun.
+To manually initiate a backup, follow the [instructions in the Jenkins
+Readme][backup-guide].
 
 [healthchecks.io]: https://healthchecks.io/
 [Maintenance Window history]: https://eu-west-2.console.aws.amazon.com/systems-manager/maintenance-windows/mw-0bd9ef68cfe04bd4e/history?region=eu-west-2
-[Systems Manager Command History]: https://eu-west-2.console.aws.amazon.com/systems-manager/run-command/complete-commands?region=eu-west-2
+[backup-guide]: https://github.com/nationalarchives/tdr-jenkins#backups
