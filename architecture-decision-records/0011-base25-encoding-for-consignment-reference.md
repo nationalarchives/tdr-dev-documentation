@@ -4,18 +4,37 @@
 
 ## Context
 
-As part of the 'transfer summary' page, the user will see a 'consignment reference' to identify their consignment (which can be useful if a user needs to contact us about a specific consignment). We came to the decision that we liked the format:
+As part of the 'transfer summary' page, the user will see a 'consignment reference' to identify their consignment (which can be useful if a user needs to contact us about a specific consignment).
+The user will also be able to see the progress of multiple consignments on the 'transfer history' page, which will use the consignment reference to identify separate transfers.
+The TDR system already generates a UUID when a consignment is created, but this can be difficult for users to read or work with.
 
-`TDR-YEAR-base25reference`
+Utilising the `SeriesID` was considered to show the users, but one of the long-term goals for TDR is to remove the concepts of series', so introducing the user to these before removing them did not seem sensible.
+
+Discussions were also had about using the transferring body/code to identify a consignment, but was decided against due to potential for these to change.
+
+The TDR team decided that it would be helpful to generate a separate reference for users to use to refer to consignments using a base25 alphabet.
+With the introduction of the base25, the TDR backend will also be able to use either the UUID or consignment reference to look up consignments, but users will exclusively see the consignment reference.
+
+We came to the decision that we liked the format:
+
+`TDR-YEAR-BASE25REFERENCE` 
 
 `TDR` - since the consignment will be transferred using the TDR service
 
-`YEAR` - year the consignment is created (not completed)
+`YEAR` - year the consignment created (not completed) - as transfers may take weeks/months rather than a set time period, so we do not know when a consignment will be completed.
 
-`base25reference` - created once the consignment is assigned an incremental ID, which will be encoded to a base25 alpha-numeric code.
+`BASE25REFERENCE` - created once the consignment is assigned an incremental ID, which will be encoded to a base25 alpha-numeric code.
 
-Base25 was specifically chosen due to its ability to represent numeric identifiers through alpha-numeric codes. It also allows for specific letters and numbers to be removed from the list of possible characters, limiting the possibility that a reference can be created that is un-intentionally offensive.
-Base25 (specifically GCRb25) is also used within other TNA projects, and TDR utilising it will keep references to a similar standard to those used within different projects.
+An example of this could be: 
+
+`TDR-2020-MTB`
+
+Where `MTB` is the base25 encoding of the id number `6000`
+
+Base25 was specifically chosen due to its ability to represent numeric identifiers through alpha-numeric codes, this is especially pertinent when it comes to longer numeric identifiers, as base25 can represent this in a more succinct and easy to read manner.
+It also allows for specific letters and numbers to be removed from the list of possible characters, limiting the possibility that a reference can be created that is un-intentionally offensive.
+Base25 is also used within other TNA projects (referred to as Generated Catalogue Reference base25 or GCRb25), and TDR utilising it will keep references to a similar standard to those used within different projects.
+Though we are not creating references to replace the references created by other services, they will continue to create their own that may be similar to the ones created by TDR.
 
 ## Options considered for the incremental ID
 
@@ -23,7 +42,7 @@ We need an incremental ID to feed into the encoding method to create the base25 
 
 ### Option 1: PostgreSQL Serial ID
 
-PostgreSQL has a built-in incremental ID feature (Serial). A serial is a pseudo-type that a column can use that tells PostgreSQL to automatically create a sequence and put it's value in the assocciated column of the linked table.
+PostgreSQL has a built-in incremental ID feature (Serial). A serial is a pseudo-type that a column can use that tells PostgreSQL to automatically create a sequence and put it's value in the associated column of the linked table.
 
 #### Advantages
 
@@ -36,7 +55,7 @@ PostgreSQL has a built-in incremental ID feature (Serial). A serial is a pseudo-
 
 ### Option 2: PostgreSQL Sequence
 
-A sequence is a database object that can generate a big-int (8-bit) and be associated with specific tables. Using a sequence is slightly more manual, but  allows for many customisable options (min/max value, starting point, cycle/no-cycle).
+A sequence is a database object that can generate a big-int (8-byte) and be associated with specific tables. Using a sequence is slightly more manual, but  allows for many customisable options (min/max value, starting point, cycle/no-cycle).
 
 #### Advantages
 
@@ -83,6 +102,24 @@ The library is a little more complex than utilising the 2014 DRI code, and more 
 
 ## Decisions
 
+To create the format of `TDR-YEAR-BASE25REFERENCE` we have made the following decisions:
+
 The PostgreSQL sequence is much more customisable to our needs and can be started from any specified value, which would be very helpful should any tables be dropped from the database.
 
 Utilising the Omega library is a good way to start working on the encoding. If the project changes (like any open-source project can) we have the option to use the 2014 DRI code if needed.
+
+## Current consignment workflow
+
+The current consignment workflow is as seen below. The frontend queries the API upon the user selecting a series (form submission), which will use slick to insert a row into the 'Consignment' table with the relevant information.
+
+![Current consignment workflow](images/current-consignment-workflow.png)
+
+## Proposed workflow with tools selected
+
+A proposal for a workflow to include the tools discussed above is to edit the existing 'Consignment' table to add two columns, one for the sequential integer (using the PostgreSQL sequence) and another for the full consignment reference.
+We will have to create service methods within the consignment API to encode the base25 reference (using the Omega library) and create the complete reference (TDR-YEAR-BASE25).
+The full consignment reference will then be inserted into the 'Consignment' table in the existing row for the specified consignment.
+
+This can be seen below in a sequence diagram:
+
+![Proposed consignment workflow](images/proposed-consignment-workflow.png)
