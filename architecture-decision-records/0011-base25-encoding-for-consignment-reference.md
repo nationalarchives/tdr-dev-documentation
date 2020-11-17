@@ -104,7 +104,7 @@ The library is a little more complex than utilising the 2014 DRI code, and more 
 
 To create the format of `TDR-YEAR-BASE25REFERENCE` we have made the following decisions:
 
-The PostgreSQL sequence is much more customisable to our needs and can be started from any specified value, which would be very helpful should any tables be dropped from the database.
+The PostgreSQL sequence is much more customisable to our needs and can be started from any specified value, which would be very helpful should any tables be dropped from the database. We would use this to create a bigInt incremental ID, with no-cycle to prevent it rolling back to the min-value once the max-value is reached.
 
 Utilising the Omega library is a good way to start working on the encoding. If the project changes (like any open-source project can) we have the option to use the 2014 DRI code if needed.
 
