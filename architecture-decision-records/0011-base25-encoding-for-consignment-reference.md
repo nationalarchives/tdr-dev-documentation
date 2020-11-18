@@ -13,7 +13,7 @@ Utilising the `SeriesID` was considered to show the users, but one of the long-t
 Discussions were also had about using the transferring body/code to identify a consignment, but was decided against due to potential for these to change.
 
 The TDR team decided that it would be helpful to generate a separate reference for users to use to refer to consignments using a base25 alphabet.
-With the introduction of the base25, the TDR backend will also be able to use either the UUID or consignment reference to look up consignments, but users will exclusively see the consignment reference.
+With the introduction of the base25, the TDR backend will also be able to use either the UUID or consignment reference to look up consignments, but users will exclusively see the consignment reference within TDR pages (though TDR **URLs** will still show the consignment UUID within, since these will be used by the TDR backend)
 
 We came to the decision that we liked the format:
 
