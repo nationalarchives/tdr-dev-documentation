@@ -33,6 +33,7 @@ See here for further information on GovUK Notify: https://www.notifications.serv
 #### Advantages
 
 * Integration with other TDR logging events on AWS
+* Simpler to integrate AWS SES with TDR infrastructure-as-code Terraform scripts
 
 #### Disadvantages
 
