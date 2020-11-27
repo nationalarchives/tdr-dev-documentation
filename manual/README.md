@@ -17,6 +17,10 @@ things like deploying code or debugging complex parts of the stack.
 * [Missed Jenkins backups][alerts/missed-jenkins-backups.md]
 * [Rotate AWS keys][alerts/rotate-aws-keys.md]
 
+### Debugging
+
+* [Debug failing file checks][debugging/debug-file-checks.md]
+
 ### Development processes
 
 * [Close a card](development-process/close-card.md)
