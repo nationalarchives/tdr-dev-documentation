@@ -113,13 +113,13 @@ you can choose to block or show images.
 
 To block `CSS` styling follow the steps below:
 * Access the TDR environment you wish to test (local or intg)
-* Open the developer tools by right clicking anywhere on the page and selecting 'Inspect'
-* Access the 'Network' tab
+* Open the Chrome developer tools by right clicking anywhere on the page and selecting 'Inspect'
+* Access the 'Network' tab within the developer tools
 * Select 'Preserve log'
-* Refresh the page - the dev tools should stay open
+* Refresh the page - the developer tools should stay open
 * Within the list of requests, find the file that ends with the extension `.css`
 * Right click, select 'Block request URL'
 * On the menu that appears, click the + sign
 * Type in the following URL: `*.nationalarchives.gov.uk/*.css`
 * Once you refresh, all styling should be removed. 
-* These settings will be forgotten once you close the chrome tab/window
+* These settings will be forgotten once you close the Chrome tab/window
