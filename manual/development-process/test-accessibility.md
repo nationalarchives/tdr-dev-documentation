@@ -26,8 +26,9 @@ we should test with users.
 ### Manual tests
 
 * Zoom into 400% and check the page is still readable and functional
-* Disable images and styles (search for how to do this in your specific browser)
-  and check that the page is still readable and functional
+* Disable images and styles (search for how to do this in your specific browser -
+  instructions for Chrome are below) and check that the page is still readable
+  and functional
 * Check all functionality works using only the keyboard, and that you don't get
   stuck when tabbing through elements
 * Check that it's obvious which element has focus when tabbing to it with the
@@ -103,3 +104,22 @@ start.
 * [18F accessibility checklist](https://accessibility.18f.gov/checklist/)
 * [A11y project checklist](https://www.a11yproject.com/checklist/)
 * [ARIA MDN docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+
+## Turning off images and CSS for Chrome
+
+Within Chrome select the three horizontal dots in the upper right-hand corner and select 'Settings'.
+Within the 'Settings' menu, go to 'Privacy and security', then 'Site settings'. Under the content heading,
+you can choose to block or show images.
+
+To block `CSS` styling follow the steps below:
+* Access the TDR environment you wish to test (local or intg)
+* Open the Chrome developer tools by right clicking anywhere on the page and selecting 'Inspect'
+* Access the 'Network' tab within the developer tools
+* Select 'Preserve log'
+* Refresh the page - the developer tools should stay open
+* Within the list of requests, find the file that ends with the extension `.css`
+* Right click, select 'Block request URL'
+* On the menu that appears, click the + sign
+* Type in the following URL: `*.nationalarchives.gov.uk/*.css`
+* Once you refresh, all styling should be removed. 
+* These settings will be forgotten once you close the Chrome tab/window
