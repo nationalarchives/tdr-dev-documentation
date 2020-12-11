@@ -15,6 +15,10 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-auth-server](https://github.com/nationalarchives/tdr-auth-server) - Jenkins and docker configuration to build and deploy the Keycloak server
 - [tdr-auth-utils](https://github.com/nationalarchives/tdr-auth-utils) - A library of useful auth functions
 
+### Frontend libraries
+
+- [tdr-file-metadata](https://github.com/nationalarchives/tdr-file-metadata) - Library for extracting file metadata like client-side checksums
+
 ### Data migrations and libraries
 
 - [tdr-consignment-api-data](https://github.com/nationalarchives/tdr-consignment-api-data) - Migrations for the main TDR database and Slick helper classes generated from the TDR schema
