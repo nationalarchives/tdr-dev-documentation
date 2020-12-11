@@ -18,7 +18,7 @@ In that case, you will see an error like this in the Jenkins job console:
 
 You can fix the issue by resetting the build number in Jenkins:
 
-Go to the Jenkins script console at https://ci.integration.publishing.service.gov.uk/script
+Go to the Jenkins script console at https://jenkins.tdr-management.nationalarchives.gov.uk/script
 
 Run:
 
