@@ -14,12 +14,12 @@ things like deploying code or debugging complex parts of the stack.
 
 ### Alerts
 
-* [Missed Jenkins backups][alerts/missed-jenkins-backups.md]
-* [Rotate AWS keys][alerts/rotate-aws-keys.md]
+* [Missed Jenkins backups](alerts/missed-jenkins-backups.md)
+* [Rotate AWS keys](alerts/rotate-aws-keys.md)
 
 ### Debugging
 
-* [Debug failing file checks][debugging/debug-file-checks.md]
+* [Debug failing file checks](debugging/file-checks-do-not-run.md)
 
 ### Development processes
 
