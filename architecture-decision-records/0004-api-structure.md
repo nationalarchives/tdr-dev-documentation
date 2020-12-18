@@ -24,7 +24,7 @@ projects.
 [graphql-vs-rest]: ../technology-considerations/API_management_AppSync_GraphQL_REST.md
 [graphql-prototypes]: ../technology-considerations/graphql-prototypes.md
 [prototype-api]: https://github.com/nationalarchives/tdr-prototype-sangria
-[sangria]: https://sangria-graphql.org/
+[sangria]: https://sangria-graphql.github.io/
 
 ## Decision
 
@@ -59,7 +59,7 @@ fine-grained error handling, but we will have to decide on custom errors and
 handle them in the client applications. We will keep an eye on this in Beta and
 see how it works in practice.
 
-[deferred resolvers]: https://sangria-graphql.org/learn/#deferred-value-resolution
+[deferred resolvers]: https://sangria-graphql.github.io/learn/#deferred-value-resolution
 [prototype-frontend]: https://github.com/nationalarchives/tdr-prototype-mvc
 [sbt-graphql]: https://github.com/muuki88/sbt-graphql
 [prototype-queries]: https://github.com/nationalarchives/tdr-prototype-mvc/tree/master/app/graphql
