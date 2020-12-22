@@ -42,7 +42,7 @@ we should test with users.
 Navigate through the page using a screen reader. Choose one which works on your
 operating system:
 
-* [VoiceOver] for MacOS
+* [VoiceOver] for MacOS - Safari should be used when testing with VoiceOver (rather than Chrome/Firefox etc).
 * [NVDA] for Windows
 * [Orca] for Linux
 
