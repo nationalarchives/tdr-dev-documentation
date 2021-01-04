@@ -14,6 +14,7 @@ things like deploying code or debugging complex parts of the stack.
 
 ### Alerts
 
+* [ECR scans](alerts/ecr-scans.md)
 * [Missed Jenkins backups](alerts/missed-jenkins-backups.md)
 * [Rotate AWS keys](alerts/rotate-aws-keys.md)
 
