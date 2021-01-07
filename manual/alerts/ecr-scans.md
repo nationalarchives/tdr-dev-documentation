@@ -29,6 +29,12 @@ Each vulnerability will link to a Common Vulnerabilities and Exposures (CVE)
 report, which includes details of the component with the vulnerability, which
 versions are affected, and whether a fix is available.
 
+To fix the vulnerability, you will need to rebuild the image and potentially
+update the Dockerfile. To find the Dockerfile that the image was built from,
+check the ECR repository's tags, and look for the one named `ImageSource`:
+
+![](./images/ecr-repo-tags.png)
+
 The base Docker image may already include this fix, so it's worth rebuilding and
 redeploying the image to see if it fixes the alert:
 
