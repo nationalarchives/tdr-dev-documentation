@@ -2,7 +2,7 @@
 
 ## Initial Design
 
-The initial architectural design for beta is shown below.
+The current architectural design for beta is shown below.
 
 Diagram is available for editing here: https://www.lucidchart.com/documents/edit/caa0eee6-a9ef-4d2e-a03e-4a1d6fc7b7e4/0_0
 
