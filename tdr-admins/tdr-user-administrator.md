@@ -55,6 +55,10 @@ If a new user needs to be added, then:
 1. Go to the "Users" page: ![](images/tdr-user-administrator/adding_new_tb_user/users_1.png)
 2. Click on "Add user"
 3. Fill in the relevant fields for the new user's details: ![](images/tdr-user-administrator/adding_new_tb_user/users_2.png)
+  * The following fields are required to be filled in for a valid user to be created:
+    * User Name
+    * First Name
+    * Last Name
 4. In the "Required User Actions" add the following options:
   * Update Password *(this will force the user to change the temporary password when they first log on)*
   * Configure OTP: *(this will enforce MFA)*
