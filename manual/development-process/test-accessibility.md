@@ -26,8 +26,7 @@ we should test with users.
 ### Manual tests
 
 * Zoom into 400% and check the page is still readable and functional
-* Disable images and styles (search for how to do this in your specific browser -
-  instructions for Chrome are below) and check that the page is still readable
+* Disable images and styles (instructions are below, but you might have to search for how to do this in your specific browser) and check that the page is still readable
   and functional
 * Check all functionality works using only the keyboard, and that you don't get
   stuck when tabbing through elements
@@ -42,9 +41,9 @@ we should test with users.
 Navigate through the page using a screen reader. Choose one which works on your
 operating system:
 
-* [VoiceOver] for MacOS - Safari should be used when testing with VoiceOver (rather than Chrome/Firefox etc).
+* [VoiceOver] for MacOS (Built-in) - Safari should be used when testing with VoiceOver (rather than Chrome/Firefox etc).
 * [NVDA] for Windows
-* [Orca] for Linux
+* [Orca] for Linux (Built-in)
 
 What to test with the screen reader:
 
@@ -88,7 +87,7 @@ someone else.
 ## When should we run the tests?
 
 We should always go through the full checklist once the feature has been
-deployed. Ideally, we should run the acccessibility checks on staging, since it
+deployed. Ideally, we should run the accessibility checks on staging, since it
 is a more stable environment, but testing on integration is OK if it's more
 convenient.
 
@@ -105,21 +104,32 @@ start.
 * [A11y project checklist](https://www.a11yproject.com/checklist/)
 * [ARIA MDN docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
 
-## Turning off images and CSS for Chrome
+## Turning off images for Chrome
 
-Within Chrome select the three horizontal dots in the upper right-hand corner and select 'Settings'.
+Within Chrome, select the three horizontal dots in the upper right-hand corner and select 'Settings'.
 Within the 'Settings' menu, go to 'Privacy and security', then 'Site settings'. Under the content heading,
 you can choose to block or show images.
 
+## Turning off CSS
+
+### Temporarily (for all browsers)
+
+To block `CSS` styling (only until the page is refreshed) follow the steps below:
+* Access the TDR environment you wish to test (local or intg)
+* Open the developer tools by right-clicking anywhere on the page and selecting 'Inspect'
+* The default tab should be the 'Elements'/'Inspector'; if not, click that tab
+* In the HTML, find the <head> tag and expand it by clicking the '>'
+* Right-click the 'link' tag(s) that starts with '<link rel="stylesheet"' and select "Delete element/node"
+
+### Persistently (Only for Chrome, Edge and Brave)
+
 To block `CSS` styling follow the steps below:
 * Access the TDR environment you wish to test (local or intg)
-* Open the Chrome developer tools by right clicking anywhere on the page and selecting 'Inspect'
+* Open the developer tools by right-clicking anywhere on the page and selecting 'Inspect'
 * Access the 'Network' tab within the developer tools
 * Select 'Preserve log'
 * Refresh the page - the developer tools should stay open
 * Within the list of requests, find the file that ends with the extension `.css`
 * Right click, select 'Block request URL'
-* On the menu that appears, click the + sign
-* Type in the following URL: `*.nationalarchives.gov.uk/*.css`
 * Once you refresh, all styling should be removed. 
 * These settings will be forgotten once you close the Chrome tab/window
