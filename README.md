@@ -34,6 +34,11 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-download-files](https://github.com/nationalarchives/tdr-download-files/) - Task for transferring a file from S3 to EFS, where it can be used by the rest of the file checks
 - [tdr-file-format](https://github.com/nationalarchives/tdr-file-format/) - Task for determining the format of uploaded files
 
+### Export steps
+
+- [tdr-consignment-export](https://github.com/nationalarchives/tdr-consignment-export) - Task for exporting a consignment from TDR
+- [tdr-consignment-export-authoriser](https://github.com/nationalarchives/tdr-consignment-export-authoriser) - Lambda which authorises a request to export a consignment
+
 ### Infrastructure and deployment
 
 - [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
@@ -63,6 +68,12 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-dev-documentation](https://github.com/nationalarchives/tdr-dev-documentation) - For TDR development documentation
 - [tdr-design-documentation](https://github.com/nationalarchives/tdr-design-documentation) - Design decisions and wireframes
+
+### Prototype repos
+
+Prototypes and proofs of concept built during the Beta phase:
+
+- [tdr-prototype-json-logging](https://github.com/nationalarchives/tdr-prototype-json-logging) - Prototype of a Scala application which writes logs in a JSON format
 
 ### Alpha prototype repos
 
