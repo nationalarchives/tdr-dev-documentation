@@ -26,4 +26,4 @@ things like deploying code or debugging complex parts of the stack.
 ### Development processes
 
 * [Close a card](development-process/close-card.md)
-* [Plan a user story](plan-story.md)
+* [Plan a user story](development-process/plan-story.md)
