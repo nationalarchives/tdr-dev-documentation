@@ -1,13 +1,13 @@
-#Accessing the Integration database
+#Accessing an environment's database
 
-Connecting to the Integration database must be done through an AWS Bastion host, below are the steps detailing how to do this
+Connecting to a database must be done through an AWS Bastion host, below are the steps detailing how to do this
 
 ##1. Downloading and installing the Session Manager plugin
 First you need to download and install the AWS Session Manager plugin
 
    * [Instructions for Mac (Step 1 to 3)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-macos)
-   * [Instructions for Linux (Step 1 to 2)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-linux)
-   * [Instructions for Ubuntu Server (Step 1 to 2)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-debian)
+   * [Instructions for Ubuntu (Step 1 to 2)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-debian)
+   * [Instructions for Amazon Linux (Step 1 to 2)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-linux)
 
 You can check if it worked by running  `session-manager-plugin`, which should show you the message
 
@@ -19,7 +19,7 @@ Next, you need to get the instance id for the bastion instance which can be foun
 
 ###Via Command line (after you've updated your credentials)
 
-   Run this `aws ec2 describe-instances --profile integration` (or whatever the name of your integration profile is; if you are not sure or it's failing, omit the `--profile integration` part before running and see if it works)
+   Run this `aws ec2 describe-instances --profile integration` (or whatever the name of your integration profile is; if you are not sure or if it's failing, omit the `--profile integration` part before running and see if it works)
 
    It will print out a JSON like this:
 
@@ -58,11 +58,35 @@ Starting session with SessionId: <SessionId>
 sh-4.2
 ```
 
-* if you press the up arrow key on your keyboard once or twice (to cycle through the history), you should see a psql command
+* if you are connecting to an **existing** Bastion, press the up arrow key on your keyboard once or twice (to cycle through the history), you should see a psql command
 
 `psql -h <db url> -U <username> -d consignmentapi`
 
-If not, you can enter this command manually, replacing the parameters (in the angle brackets) with the actual values that you can find on the AWS Parameter Store
+If not, you can enter this command manually, replacing the parameters (in the angle brackets above) with the actual values that you can retrieve via a CLI command or find on the AWS Parameter Store
+
+###How to retrieve the values via CLI
+
+After updating the credentials for the environment you are interested in, just run this command
+
+`aws ssm get-parameters --names "/intg/consignmentapi/database/url" "/intg/consignmentapi/database/username" --with-decryption`
+
+This should print a JSON with two objects inside; the "Value" key of each will have the values for the PSQL command
+
+```
+{
+    "Parameters": [
+        {
+            "Name": "/intg/consignmentapi/database/url",
+            "Value": "<db url>",
+            ...etc
+        },
+        {
+            "Name": "/intg/consignmentapi/database/username",
+            "Value": "<username>",
+            ...etc
+        }
+
+```
 
 ###How to find the values on the Parameter Store
 
