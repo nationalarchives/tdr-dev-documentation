@@ -17,7 +17,7 @@ This should place git-secrets into your PATH, but if not you may need to move it
 
 Then run the following commands to add additional rules to check for AWS account numbers:
 * `git-secrets --add --global '([^0-9])*[0-9]{12}([^0-9])*'`: this will add a check for any 12 digit number.
-* `git-secrets --add --global --allowed '123456789012'`: this will add an allowed dummy AWS account number of *123456789012*. This can be used, for example, when writing example code in a README which uses an AWS account number.
+* `git-secrets --add --global --allowed '1234'`: this will add an allowed dummy AWS account number of *1234*. This can be used, for example, when writing example code in a README which uses an AWS account number.
 
 Once installed, you can use `git-secrets` or `git secrets` interchangeably within the command line
 
