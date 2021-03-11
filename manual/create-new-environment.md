@@ -1,5 +1,5 @@
 # Create a new environment
-This is a guide to creating a new tdr environment in a clean AWS account.
+This is a guide to creating a new tdr environment in a clean AWS account. This assumes you are creating one of the three environments which have already been configured in terraform (intg, staging, prod). To create a different environment, we would need additional terraform changes. 
 
 ## Create parameters in parameter store.
 There are five parameters which need to be set as they can't be created or found by terraform
@@ -7,7 +7,7 @@ There are five parameters which need to be set as they can't be created or found
 * /mgmt/cost_centre - This is a TNA property which is not available to terraform
 * /mgmt/management_account - There's no way to get this while running terraform for other accounts
 * /mgmt/trusted_ips - The IP list for the WAF. We could probably reconfigure this to come from `tdr-configurations` but for now, this needs to be set.
-* /prod/frontend/auth/thumbprint - The thumbprint used for the IAM external provider. 
+* /environmentname/frontend/auth/thumbprint - The thumbprint used for the IAM external provider. 
 
 ### External provider thumbprint
 The OIDC provider thumbprint comes from an AWS provided certificate and is the same for anything using their certificates in a region.
@@ -22,6 +22,10 @@ Copy the final certificate that is output starting from `-----BEGIN CERTIFICATE-
 Remove the colons from the output of this command and put it in lower case, this is your thumbprint.
 
 ## Run terraform
+`terraform workspace select environmentname`
+
+`terraform init`
+
 `terraform apply -var 'tdr_account_number=account_number`
 
 ## Deploy ECR images
@@ -56,3 +60,6 @@ All of these jenkins jobs need to be deployed with the stage set to the environm
 
 ## Run the database migrations
 [Migration run job](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Database%20Migrations%20Run/)
+
+## Deploy Cloud Custodian
+[Cloud Custodian deploy job](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Custodian%20Deploy/)
