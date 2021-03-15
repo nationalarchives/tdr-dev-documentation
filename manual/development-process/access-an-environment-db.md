@@ -19,8 +19,7 @@ Next, you need to get the instance id for the bastion instance which can be foun
 
 ###Via Command line (after you've updated your credentials)
 
-   Run this `aws ec2 describe-instances --profile <profile name>`
-   (replacing the angle bracket parameter, with the name of your profile; if you are not sure or if it's failing, omit the `--profile <profile name>` part before running and see if it works)
+   Run this `aws ec2 describe-instances`
 
    It will print out a JSON like this:
 
@@ -43,13 +42,13 @@ Alternatively, you can also get it from the console:
 - In the search bar, type in "EC2" 
 - Under "Resources", click "Instances"
 - Find the bastion ec2 instance, for e.g "bastion-ec2-instance-intg" for the intg environment
-- Copy the "Instance ID"
+- Copy the "InstanceId"
 
 ##3. Connecting via Session Manager
 Now you need to connect via the session manager by running the command
 
-   `aws ssm start-session --target <the InstanceId you've copied> --profile <profile name>`
-   (replacing the angle-bracket parameter, with the name of your profile; if you are not sure or if it's failing, omit the `--profile <profile name>` part before running and see if it works)
+   `aws ssm start-session --target <the InstanceId you've copied>`
+   (replacing the angle bracket parameter, with the InstanceId)
 
 ##4. Starting PSQL
 
