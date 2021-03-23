@@ -63,7 +63,7 @@ We are using the single file upload call in the export task which has a size lim
 ### Parallelism in the backend check lambdas
 It seems that AWS is passing a lot of messages to individual lambdas which is making them slow. We can reduce the number of messages passed to an individual lambda but this will increase the cost as more lambdas will run.
 
-###Too many requests to the API
+### Too many requests to the API
 The API update lambda is making a single request for every file which is partly why the API runs so slowly under load. 
 
 ### API being overloaded
