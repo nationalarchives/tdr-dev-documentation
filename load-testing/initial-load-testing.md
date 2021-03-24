@@ -16,7 +16,9 @@ These files have been uploaded to the tdr-upload-test-data bucket in the Sandbox
 
 I carried out the upload on a t3.medium EC2 instance with 2 CPU cores and 4GB RAM. Our first users will have a similar CPU with 8GB of RAM so the test machine is lower spec.
 
-I did have to make some changes to various timeouts otherwise none of these would have worked.
+The tests were carried out in Firefox. With the failing tests, I also tried them in Chrome.
+
+I did have to make some changes to various timeouts otherwise none of these would have worked. THe 
 * The akka request timeout on the API, which defaults to 20s, was switched off.
 * The akka server timeout on the API, which defaults to 60s, was switched off.
 * The load balancer idle timout, which was set at 60s, was increased to 10 minutes.
@@ -45,7 +47,7 @@ I did have to make some changes to various timeouts otherwise none of these woul
 ## Problems found during the tests
 
 ### Timeouts
-There are 4 timeouts that were preventing large consignments being processed.
+There are 4 timeouts that were preventing large consignments being processed. There were multiple queries that were slower but the slowest for large numbers of files was the `addFiles` mutation.
 * The akka request timeout. This is the maximum time a request can take
 * The akka server timeout. The maximum time a server response can take. This needs to be the same as the request timeout as they basically do the same thing.
 * The load balancer idle timout.
@@ -79,11 +81,13 @@ I'm going to group these roughly into quick fixes, medium effort fixes and more 
 * Add more logging to the lambdas and fix the multiline formatting so stack traces are printed correctly.
 * Change the graphql query used by the frontend to return less information.
 * Change the export task to use multipart uploads.
+* Throttle the lambdas by setting the [reserved concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) on the lambdas.
 
 ### Medium effort fixes
-* Change the timeouts mentioned above. Changing the timeouts won't be difficult but testing to see what they should be will take time.
+* Pagination in the queries in the front end. Instead of trying to add 10000 files at once or sending 100s of metadata updates in one go, we could send smaller batches which should reduce the load on the API.
 * Set up auto scaling on the API ECS service. Again, setting it in terraform won't be difficult but tweaking the settings so they're useful will take time.
 
-### Longer term fixes 
+### Longer term fixes
+* Change the timeouts mentioned above. Changing the timeouts won't be difficult but testing to see what they should be will take time.
 * Lambda profiling to determine the best number of input messages, the best amount of memory and the timeouts will help with the backend check processing speed but this will take a lot of time testing to see what they are and may end up not providing much improvement.
 * Try to aggregate the API update process to prevent too many queries being sent to the API. This may need a restructuring of how the backend processes work so this won't be easy.
