@@ -52,51 +52,50 @@ Now you need to connect via the session manager by running the command
 
 ##4. Starting PSQL
 
-Step 3 should bring up a prompt that looks something like this:
+There is a script in the home directory which allows you to connect to postgres using IAM DB authentication
 ```
-Starting session with SessionId: <SessionId>
-sh-4.2
-```
-
-* if you are connecting to an **existing** Bastion, press the up arrow key on your keyboard once or twice (to cycle through the history), you should see a psql command
-
-`psql -h <db url> -U <username> -d consignmentapi`
-
-If not, you can enter this command manually, replacing the angle bracket parameters (above) with the actual values that you can retrieve via a CLI command or find on the AWS Parameter Store
-
-###How to retrieve the values via CLI
-
-After updating the credentials for the environment you are interested in, just run this command replacing the parameter angle bracket parameter, with the environment, you are interested in, e.g. intg
-
-`aws ssm get-parameters --names "/<env>/consignmentapi/database/url" "/<env>/consignmentapi/database/username" --with-decryption`
-
-This should print a JSON with two objects inside; the "Value" key of each will have the values for the PSQL command
-
-```
-{
-    "Parameters": [
-        {
-            "Name": "/<env>/consignmentapi/database/url",
-            "Value": "<db url>",
-            ...etc
-        },
-        {
-            "Name": "/<env>/consignmentapi/database/username",
-            "Value": "<username>",
-            ...etc
-        }
-
+cd
+./connect.sh
 ```
 
-###How to find the values on the Parameter Store
+The script downloads the RDS public certificate if not already there, assumes a role which is allowed to connect to the database, generates a temporary password and uses this to connect to the database. 
 
-- In the AWS console:
-  - Navigate to the Parameter Store (type it in the search bar) to see the list of parameters
-  - Find the database url parameter, e.g. `/intg/consignmentapi/database/url`
-  - Copy the parameter's value
-  - This will replace the "db url" angle bracket parameter in the psql command
-  - Go back to the list of parameters and find the username parameter, e.g. `/intg/consignmentapi/database/username`
-  - Copy the parameter's value
-  - This will replace the "username" angle bracket parameter in the psql command
- 
-After running this command, you should be inside of psql.
+##5. Setting up an ssh tunnel
+This assumes you've added the ssh key when [creating the bastion](./applying-or-destroying-a-bastion-host.md#applying-a-bastion-host)
+
+* Add this to your ssh config.
+```
+# SSH over Session Manager
+host i-* mi-*
+    ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+```
+* Get the instance id from the instances page in the console or by running
+  `aws ec2 describe-instances --filters Name=instance-state-name,Values=running Name=tag:Name,Values=bastion-ec2-instance-intg`
+
+* Get the database endpoint. There are three ways:
+
+  You can get this from the AWS console by going to RDS, click DB Instances, choose the reader instance from the consignment api database and copy the endpoint.
+
+  You can call `aws rds describe-db-instances` and look for a field called `Address` for the consignment api.
+
+  You can open the `/home/ssm-user/connech.sh` script on the bastion host and the endpoint is in there assigned to the RDSHOST variable.
+* Run the ssh tunnel
+
+`ssh ec2-user@instance_id -N -L 65432:db_host_name:5432`
+
+* Get the cluster endpoint. There are two ways:
+  Select the cluster in the RDS Databases page in the console  
+  Run `aws rds describe-db-cluster-endpoints | jq '.DBClusterEndpoints[] | select(.EndpointType == "READER") | .Endpoint'
+  ` and select the endpoint for the consginment API.
+* Update your hosts file. In *nix systems, this is in `/etc/hosts`, on Windows, it is in `C:\Windows\System32\drivers\etc\hosts` You will need to add an entry like
+
+`127.0.0.1    cluster_endpoint `
+* Get the password for the database
+
+`aws rds generate-db-auth-token --profile integration --hostname $RDSHOST --port 5432 --region eu-west-2 --username bastion_user`
+
+* Download the rds certificate from https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+
+* Connect using the password and cluster endpoint
+
+`psql  "host=cluster_endpoint port=65432 sslmode=verify-full sslrootcert=/location/of/rds-combined-ca-bundle.pem dbname=consignmentapi user=bastion_user password=generated_password"`
