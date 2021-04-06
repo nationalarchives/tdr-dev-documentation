@@ -6,6 +6,8 @@ A 3Gb, 40000 second wav file, created using ffmpeg.
 
 2 2.8Gb bmp files created using ImageMagick's convert tool
 
+A 5Gb file with random data generated from /dev/urandom
+
 2000 PDFs created using ImageMagick's convert tool
 
 10000 PDFs created using ImageMagick's convert tool
