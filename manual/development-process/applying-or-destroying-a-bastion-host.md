@@ -8,7 +8,7 @@ To bring up a Bastion host you must:
 * Go to the Bastion deploy job on [Jenkins](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Bastion%20Deploy/build)
 * From the "Stage" dropdown, choose the environment that you want to apply the bastion host to
 * From the "Command" dropdown, select "Apply"
-* **Optionally**, if you want to create an ssh tunnel you can add an ssh key. [Instructions to setup the tunnel](./access-an-environment-db.md#5-setting-up-an-ssh-tunnel)
+* **Optionally**, if you want to create an ssh tunnel you can add an ssh public key in the jobs PUBLIC_KEY paramater. [Instructions to create a key pair](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 * Click the "Build" button
 
 ## Destroying a Bastion host

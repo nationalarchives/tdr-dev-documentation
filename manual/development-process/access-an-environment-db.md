@@ -1,6 +1,6 @@
 #Accessing an environment's database
 
-Connecting to a database must be done through an AWS Bastion host, below are the steps detailing how to do this
+Connecting to a database must be done through an [AWS Bastion host](./applying-or-destroying-a-bastion-host.md), below are the steps detailing how to do this
 
 ##1. Downloading and installing the Session Manager plugin
 First you need to download and install the AWS Session Manager plugin
@@ -61,6 +61,8 @@ cd
 The script downloads the RDS public certificate if not already there, assumes a role which is allowed to connect to the database, generates a temporary password and uses this to connect to the database. 
 
 ##5. Setting up an ssh tunnel
+If you want to connect to the database from your local machine, for example to use a locally installed application to connect, then you will need to set up an ssh tunnel.
+
 This assumes you've added the ssh key when [creating the bastion](./applying-or-destroying-a-bastion-host.md#applying-a-bastion-host)
 
 * Add this to your ssh config.
@@ -90,7 +92,7 @@ host i-* mi-*
 * Update your hosts file. In *nix systems, this is in `/etc/hosts`, on Windows, it is in `C:\Windows\System32\drivers\etc\hosts` You will need to add an entry like
 
 `127.0.0.1    cluster_endpoint `
-* Get the password for the database
+* Get the password for the database. This password has a 15 minute expiry. If you want to connect again after that, you will need to generate a new password.
 
 `aws rds generate-db-auth-token --profile integration --hostname $RDSHOST --port 5432 --region eu-west-2 --username bastion_user`
 
