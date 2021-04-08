@@ -17,16 +17,15 @@ TDR user administrators have rights and privileges to manage:
 ## Setting Up As TDR User Administrator
 
 1. Contact TDR team to request set up as a TDR user administrator: *[email address and other contact details to be confirmed]*
-2. You will receive add email from the TDR team with:
-  * your user name 
-  * a temporary password
-  * Url to the Keycloak application
-3. Ensure you have either Microsoft Authenticator (https://www.microsoft.com/en-us/account/authenticator), or Google Authenticator (https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB) available as you will need these to log on to the Keycloak application
-3. Log on to the Keycloak application for the first time:
+2. You will receive an email from the TDR team with:
+  * your user name
+  * URL to the Keycloak application
+3. A separate email will be sent with an URL link for you to set a password
+4. Ensure you have either Microsoft Authenticator (https://www.microsoft.com/en-us/account/authenticator), or Google Authenticator (https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB) available as you will need these to log on to the Keycloak application
+5. Log on to the Keycloak application for the first time:
   * **Note**: accessing Keycloak can only be done on the TNA network, via Citrix or connecting to TNA using PulseSecure
   * Go to the provided URL
   * You will be prompted to set scan a QR code with an authenticator application to set up MFA for Keycloak
-  * You will be prompted to reset your password
   
 ## Managing Transferring Body Users
 
@@ -54,25 +53,25 @@ If a new user belongs to a new transferring body not already added to Keycloak, 
 If a new user needs to be added, then:
 1. Go to the "Users" page: ![](images/tdr-user-administrator/adding_new_tb_user/users_1.png)
 2. Click on "Add user"
-3. Fill in the relevant fields for the new user's details: ![](images/tdr-user-administrator/adding_new_tb_user/users_2.png)
+3. Fill in the relevant fields for the new user's details: ![](images/tdr-user-administrator/adding_new_tb_user/users_2_v2.png)
   * The following fields are required to be filled in for a valid user to be created:
-    * User Name
+    * User Name (this should be the user's email address)
     * First Name
     * Last Name
-4. In the "Required User Actions" add the following options:
-  * Update Password *(this will force the user to change the temporary password when they first log on)*
+    * Email
+4. In the "Required User Actions" add the following options:  
   * Configure OTP: *(this will enforce MFA)*
     * **Note**: For the moment, do not configure OTP (one-time password). The TDR team are currently working out which multi-factor authentication methods will be supported.
 5. Click "save"
-6. Under the "Credentials" tab: ![](images/tdr-user-administrator/adding_new_tb_user/users_3.png)
-7. Set a temporary password for the user
-  * Ensure the "Temporary" option is set to "on"
-8. Click "set password"
-9. In the dialog box click "set password"
-10. Go to the "Groups" tab
-11. From the "Available Groups" box select the transferring body the new user belongs to: ![](images/tdr-user-administrator/adding_new_tb_user/users_4.png)
+6. Under the "Credentials" tab: ![](images/tdr-user-administrator/adding_new_tb_user/users_3_v2.png)
+7. Request the updates their password:
+  * Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option to the "Reset Actions"
+  * Click the "Send Email" button. This will send an email to the user with a URL link requesting they set a password
+  * An email confirmation dialog box will appear if the email was sent successfully.
+8. Go to the "Groups" tab
+9. From the "Available Groups" box select the transferring body the new user belongs to: ![](images/tdr-user-administrator/adding_new_tb_user/users_4.png)
   * If the transferring body does not appear go to the "Adding a new transferring body" section for details of how to add a new transferring body
-12. Add the new user to the relevant transferring body.
-13. Go back to the Users page
-14. Click "View all users"
-15. New user should appear in the list of all users: ![](images/tdr-user-administrator/adding_new_tb_user/users_5.png)
+10. Add the new user to the relevant transferring body.
+11. Go back to the Users page
+12. Click "View all users"
+13. New user should appear in the list of all users: ![](images/tdr-user-administrator/adding_new_tb_user/users_5.png)
