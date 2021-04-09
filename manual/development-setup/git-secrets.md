@@ -10,10 +10,14 @@ Usually each of these has their own defined behaviours and execution settings. P
 ### MacOS
 Use [Homebrew](https://brew.sh/) to install with the command `brew install git-secrets`. Once installed, quit the terminal application and then re-open.
 Homebrew downloads sometimes take a while, especially if you have not used Homebrew in a while as it will update Homebrew first.
+
 ### Linux
 Clone the git-secrets [repository](https://github.com/awslabs/git-secrets) to your preferred location, then cd into the main directory for the git-secrets repository you have cloned.
 Run `sudo make install`.
 This should place git-secrets into your PATH, but if not you may need to move it and run `sudo make install` again OR include the folder made by running `sudo make install` into your PATH.
+
+### Windows
+Follow the [Windows installation instructions](https://github.com/awslabs/git-secrets#windows) in the git-secrets project
 
 Once installed, you can run `git secrets` on the command line. Unix users can also run `git-secrets`
 
