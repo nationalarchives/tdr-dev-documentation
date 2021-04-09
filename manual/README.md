@@ -28,3 +28,8 @@ things like deploying code or debugging complex parts of the stack.
 
 * [Close a card](development-process/close-card.md)
 * [Plan a user story](development-process/plan-story.md)
+
+### Development setup
+
+* [New starters guide](development-setup/new-starters.md)
+* [Install git secrets](development-setup/git-secrets.md)
