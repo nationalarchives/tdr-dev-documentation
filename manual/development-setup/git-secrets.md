@@ -1,4 +1,4 @@
-# git-secrets
+# Install git secrets
 
 [git-secrets](https://github.com/awslabs/git-secrets) is used to prevent passwords/AWS keys/IDs etc from being committed to a git repository and compromising security.
 
