@@ -33,20 +33,6 @@ This was rejected because it would lack the control over user access to the diff
 
 For example a GovUK Notify service member would have the same level of access across all TDR environments.
 
-## Decision: GovUK Notify Staging Service made Live
-
-The "staging" GovUK Notify service is to be live to allow for user testing on this environment. Also it will mirror the TDR production environment as closely as possible.
-
-## Decision: No Fully Local Development Stack for GovUK Notify
-
-GovUK Notify does not interact with any other TDR systems, therefore setting up a full local development stack is not necessary.
-
-## Decision: Full Keycloak Generated Message Passed into GovUK Notify Template
-
-It was decided to pass the entire Keycloak message into the GovUK Notify template via the `keycloakMessage` personalisation parameter, rather than having a mix of text and parameters in the Keycloak template.
-
-This was because the Keycloak message is passed in as a complete constructed string. It would be very difficult to extract particular portions of this string, for example a link for use within the GovUK Notify template.
-
 ## Further Information
 
 Full GovUK Notify documentation can be found here: https://www.notifications.service.gov.uk/
