@@ -1,4 +1,4 @@
-# git-secrets
+# Install git secrets
 
 [git-secrets](https://github.com/awslabs/git-secrets) is used to prevent passwords/AWS keys/IDs etc from being committed to a git repository and compromising security.
 
@@ -10,18 +10,22 @@ Usually each of these has their own defined behaviours and execution settings. P
 ### MacOS
 Use [Homebrew](https://brew.sh/) to install with the command `brew install git-secrets`. Once installed, quit the terminal application and then re-open.
 Homebrew downloads sometimes take a while, especially if you have not used Homebrew in a while as it will update Homebrew first.
+
 ### Linux
 Clone the git-secrets [repository](https://github.com/awslabs/git-secrets) to your preferred location, then cd into the main directory for the git-secrets repository you have cloned.
 Run `sudo make install`.
 This should place git-secrets into your PATH, but if not you may need to move it and run `sudo make install` again OR include the folder made by running `sudo make install` into your PATH.
 
-Once installed, you can use `git-secrets` or `git secrets` interchangeably within the command line.
+### Windows
+Follow the [Windows installation instructions](https://github.com/awslabs/git-secrets#windows) in the git-secrets project
+
+Once installed, you can run `git secrets` on the command line. Unix users can also run `git-secrets`
 
 ## Checking for AWS account numbers
 
 Next, run the following commands to add additional rules to check for AWS account numbers:
-* `git-secrets --add --global '([^0-9])*[0-9]{12}([^0-9])*'`: this will add a check for any 12-digit number.
-* `git-secrets --add --global --allowed '1234'`: this will add an allowed dummy AWS account number of *1234*. This can be used, for example, when writing example code in a README which uses an AWS account number.
+* `git secrets --add --global '([^0-9])*[0-9]{12}([^0-9])*'`: this will add a check for any 12-digit number.
+* `git secrets --add --global --allowed '1234'`: this will add an allowed dummy AWS account number of *1234*. This can be used, for example, when writing example code in a README which uses an AWS account number.
 
 ## Initialising git-secrets on all local repositories
 
@@ -32,18 +36,18 @@ To initialise git-secrets for a specific git repository, `cd` into said reposito
 To install git-secrets in all of the repositories within a single parent directory, `cd` to the parent directory and run:
 
 ```
-for d in ./*/ ; do (cd "$d" && git-secrets --install); done
+for d in ./*/ ; do (cd "$d" && git secrets --install); done
 ```
 
 ### New repositories
 
-* Run `git-secrets --install ~/.git-templates/git-secrets`
+* Run `git secrets --install ~/.git-templates/git-secrets`
 * Then run `git config --global init.templateDir ~/.git-templates/git-secrets`
 
 This ensures that git-secrets is automatically installed in any repos that you clone or create in the future.
 
 ## Add settings to check for AWS keys
-As git-secrets was made by AWS, it includes a built-in method to detect AWS keys. To initialise this, run `git-secrets --register-aws --global`.
+As git-secrets was made by AWS, it includes a built-in method to detect AWS keys. To initialise this, run `git secrets --register-aws --global`.
 The `--global` part sets the AWS pattern search to all repositories covered by git-secrets.
 With this built-in command, git-secrets will search for common AWS patterns like:
 * AWS Access Key IDs
@@ -54,15 +58,15 @@ With this built-in command, git-secrets will search for common AWS patterns like
 ## Test git-secrets implementation
 
 Clone the [git-secrets-test](https://github.com/trenchesofit/git-secret-test) to your preferred location and `cd` into the main directory for the `git-secrets-test` project.
-Run `git-secrets --scan`. This should result in an output similar to below:
+Run `git secrets --scan`. This should result in an output similar to below:
 ![image](images/git-secrets-test-scan.png)
 
 You can also test by attempting to commit the same directory, you should see a similar output to that above:
 ![image](images/git-secrets-test-commit.png)
 
 If you do not see these errors (or something similar), git-secrets may not be installed properly on that specific directory, or the patterns you have set up to look for do not appear (though they should for this repo in particular).
-Try to run `git-secrets --install` in case it has not been initialised for that repo in particular.
+Try to run `git secrets --install` in case it has not been initialised for that repo in particular.
 
 ## Config
-To list all configurations, run `git-secrets --list` or `git config --get-all secrets.patterns`; the latter can be used to view only prohibited patterns.
-If you don't see a pattern you wish to be scanned for, run `git-secrets --add`. You can then add a prohibited or allowed pattern that you want git-secrets to look for; the patterns are defined using [regex](https://regexr.com/) to search for patterns in text being committed.
+To list all configurations, run `git secrets --list` or `git config --get-all secrets.patterns`; the latter can be used to view only prohibited patterns.
+If you don't see a pattern you wish to be scanned for, run `git secrets --add`. You can then add a prohibited or allowed pattern that you want git-secrets to look for; the patterns are defined using [regex](https://regexr.com/) to search for patterns in text being committed.
