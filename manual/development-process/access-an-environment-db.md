@@ -73,31 +73,22 @@ host i-* mi-*
 ```
 * Get the instance id from the instances page in the console or by running
   `aws ec2 describe-instances --filters Name=instance-state-name,Values=running Name=tag:Name,Values=bastion-ec2-instance-intg`
-
-* Get the database endpoint. There are three ways:
-
-  You can get this from the AWS console by going to RDS, click DB Instances, choose the reader instance from the consignment api database and copy the endpoint.
-
-  You can call `aws rds describe-db-instances` and look for a field called `Address` for the consignment api.
-
-  You can open the `/home/ssm-user/connech.sh` script on the bastion host and the endpoint is in there assigned to the RDSHOST variable.
-* Run the ssh tunnel
-
-`ssh ec2-user@instance_id -N -L 65432:db_host_name:5432`
-
-* Get the cluster endpoint. There are two ways:
-  Select the cluster in the RDS Databases page in the console  
+  
+* Get the reader cluster endpoint. There are two ways:
+  
+  Select the reader cluster in the RDS Databases page in the console  
   Run `aws rds describe-db-cluster-endpoints | jq '.DBClusterEndpoints[] | select(.EndpointType == "READER") | .Endpoint'
   ` and select the endpoint for the consginment API.
+* Run the ssh tunnel `ssh ec2-user@<instance_id> -N -L 65432:<db_cluster_endpoint>:5432`
 * Update your hosts file. In *nix systems, this is in `/etc/hosts`, on Windows, it is in `C:\Windows\System32\drivers\etc\hosts` You will need to add an entry like
 
-`127.0.0.1    cluster_endpoint `
+`127.0.0.1    <db_cluster_endpoint> `
 * Get the password for the database. This password has a 15 minute expiry. If you want to connect again after that, you will need to generate a new password.
 
-`aws rds generate-db-auth-token --profile integration --hostname $RDSHOST --port 5432 --region eu-west-2 --username bastion_user`
+`aws rds generate-db-auth-token --profile <profile_name> --hostname <db_cluster_endpoint> --port 5432 --region eu-west-2 --username bastion_user`
 
 * Download the rds certificate from https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
 
 * Connect using the password and cluster endpoint
 
-`psql  "host=cluster_endpoint port=65432 sslmode=verify-full sslrootcert=/location/of/rds-combined-ca-bundle.pem dbname=consignmentapi user=bastion_user password=generated_password"`
+`psql  "host=<db_cluster_endpoint> port=65432 sslmode=verify-full sslrootcert=</location/of/rds-combined-ca-bundle.pem> dbname=consignmentapi user=bastion_user password=<generated_password>"`
