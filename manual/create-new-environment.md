@@ -9,6 +9,15 @@ There are five parameters which need to be set as they can't be created or found
 * /mgmt/trusted_ips - The IP list for the WAF. We could probably reconfigure this to come from `tdr-configurations` but for now, this needs to be set.
 * /environmentname/frontend/auth/thumbprint - The thumbprint used for the IAM external provider. 
 
+## Update parameters in the parameter store
+
+The following parameters are added by Terraform, but have placeholder values, because the values are not available to Terraform.
+
+The placeholder values should be updated with the correct values in each case.
+
+* /environmentname/keycloak/govuk_notify/api_key - the placeholder value should be replaced with the relevant GovUK Notify API key from the GovUK Notify service for the environment
+* /environmentname/keycloak/govuk_notify/template_id - the placeholder value should be replaced with the relevant GovUK Notify template id from the GovUK Notify service for the environment
+
 ### External provider thumbprint
 The OIDC provider thumbprint comes from an AWS provided certificate and is the same for anything using their certificates in a region.
 You can find it by running:
