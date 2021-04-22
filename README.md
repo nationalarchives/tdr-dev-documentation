@@ -74,6 +74,7 @@ The current repositories relating to TDR, and their purpose are:
 Prototypes and proofs of concept built during the Beta phase:
 
 - [tdr-prototype-json-logging](https://github.com/nationalarchives/tdr-prototype-json-logging) - Prototype of a Scala application which writes logs in a JSON format
+- [tdr-interactive-prototype] (https://github.com/nationalarchives/tdr-interactive-prototype) - Interactive Prototype using the GOV.UK Prototype Kit
 
 ### Alpha prototype repos
 
