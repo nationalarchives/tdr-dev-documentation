@@ -52,22 +52,29 @@ All of these jenkins jobs need to be deployed with the stage set to the environm
 [yara-dependencies,yara-rules and yara](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Antivirus%20Build/)
 
 ## Deploy the lambdas
-[tdr-api-update-prod](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Api%20Update%20Deploy/)
+[tdr-api-update](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Api%20Update%20Deploy/)
 
-[tdr-checksum-prod](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Checksum%20Lambda%20Deploy)
+[tdr-checksum](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Checksum%20Lambda%20Deploy)
 
-[tdr-database-migrations-prod](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Database%20Migrations%20Deploy/)
+[tdr-database-migrations](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Database%20Migrations%20Deploy/)
 
-[tdr-download-files-prod](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Download%20Files%20Deploy/)
+[tdr-download-files](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Download%20Files%20Deploy/)
 
-[tdr-export-api-authoriser-prod](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Consignment%20Export%20Authoriser%20Deploy/)
+[tdr-export-api-authoriser](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Consignment%20Export%20Authoriser%20Deploy/)
 
-[tdr-file-format-prod](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20File%20Format%20Deploy/)
+[tdr-file-format](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20File%20Format%20Deploy/)
 
 [tdr-yara-av](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Antivirus%20Deploy/)
 
+[tdr-create-db-users](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Create%20DB%20User%20Deploy/)
+
 ## Run the database migrations
 [Migration run job](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Database%20Migrations%20Run/)
+
+## Run the user creation Lambdas
+
+* `aws lambda invoke --function-name tdr-create-db-users-$environment-name`
+* `aws lambda invoke --function-name tdr-create-keycloak-db-user-$environment-name`
 
 ## Deploy Cloud Custodian
 [Cloud Custodian deploy job](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Custodian%20Deploy/)
