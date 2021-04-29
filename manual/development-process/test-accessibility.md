@@ -42,7 +42,7 @@ Navigate through the page using a screen reader. Choose one which works on your
 operating system:
 
 * [VoiceOver] for MacOS (Built-in) - Safari should be used when testing with VoiceOver (rather than Chrome/Firefox etc).
-* [NVDA] for Windows
+* [Narrator] for Windows (Built-in) - An alternative would be [NVDA]
 * [Orca] for Linux (Built-in)
 
 What to test with the screen reader:
@@ -59,6 +59,7 @@ Ideally, we would also test every new page with a speech recognition tool like
 [Dragon], but we don't currently have a licence.
 
 [VoiceOver]: https://webaim.org/articles/voiceover/
+[Narrator]: https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1
 [NVDA]: https://www.nvaccess.org/
 [Orca]: https://help.gnome.org/users/orca/stable/
 [ARIA roles]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
