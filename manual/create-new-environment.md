@@ -68,13 +68,20 @@ All of these jenkins jobs need to be deployed with the stage set to the environm
 
 [tdr-create-db-users](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Create%20DB%20User%20Deploy/)
 
-## Run the database migrations
-[Migration run job](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Database%20Migrations%20Run/)
-
 ## Run the user creation Lambdas
+
+Run the following Lambdas:
+
+* tdr-create-db-users
+* tdr-create-keycloak-db-user
+
+From the command line run the following commands. Note need to ensure have credentials for the environment to run Lambdas:
 
 * `aws lambda invoke --function-name tdr-create-db-users-$environment-name`
 * `aws lambda invoke --function-name tdr-create-keycloak-db-user-$environment-name`
+
+## Run the database migrations
+[Migration run job](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Database%20Migrations%20Run/)
 
 ## Deploy Cloud Custodian
 [Cloud Custodian deploy job](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Custodian%20Deploy/)
