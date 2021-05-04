@@ -74,3 +74,13 @@ If a new user needs to be added, then:
 11. Go back to the Users page
 12. Click "View all users"
 13. New user should appear in the list of all users: ![](images/tdr-user-administrator/adding_new_tb_user/users_5.png)
+
+### Resetting existing user's password
+
+If an existing user's password needs resetting, then:
+1. Go to the "Users" page: ![](images/tdr-user-administrator/resetting_password/reset_password_1.png)
+2. Search for the user using their email address: ![](images/tdr-user-administrator/resetting_password/reset_password_2.png)
+3. Go to the user's details
+4. Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option to the "Reset Actions": ![](images/tdr-user-administrator/resetting_password/reset_password_3.png)
+5. Click the "Send Email" button. This will send an email to the user, with a URL link requesting they reset their password
+6. An email confirmation dialog box will appear if the email was sent successfully.
