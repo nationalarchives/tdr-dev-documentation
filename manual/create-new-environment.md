@@ -1,12 +1,11 @@
 # Create a new environment
-This is a guide to creating a new tdr environment in a clean AWS account. This assumes you are creating one of the three environments which have already been configured in terraform (intg, staging, prod). To create a different environment, we would need additional terraform changes. 
+This is a guide to creating a new tdr environment in a clean AWS account. This assumes you are creating one of the three environments which have already been configured in terraform (intg, staging, prod). To create a different environment, we would need additional terraform changes.
 
 ## Create parameters in parameter store.
 There are five parameters which need to be set as they can't be created or found by terraform
 * /mgmt/aws_elb_account - The parent account where the logs are sent. Maintained by digital services so no way to have this in terraform
 * /mgmt/cost_centre - This is a TNA property which is not available to terraform
 * /mgmt/management_account - There's no way to get this while running terraform for other accounts
-* /mgmt/trusted_ips - The IP list for the WAF. We could probably reconfigure this to come from `tdr-configurations` but for now, this needs to be set.
 * /environmentname/frontend/auth/thumbprint - The thumbprint used for the IAM external provider. 
 
 ### External provider thumbprint
