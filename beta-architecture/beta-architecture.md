@@ -1,7 +1,5 @@
 # Beta Architecture
 
-## Initial Design
-
 The current architectural design for beta is shown below.
 
 Diagram is available for editing here: https://www.lucidchart.com/documents/edit/caa0eee6-a9ef-4d2e-a03e-4a1d6fc7b7e4/0_0
@@ -10,22 +8,34 @@ This is not the final architecture, and it will change during the course of the 
 
 ![](./diagrams/tdr-beta-high-level-architecture.svg)
 
-#### AWS Accounts
+## AWS Accounts and TDR environments
 
-AWS accounts will be set up for each environment that will be used.
+TDR uses five AWS accounts:
 
-#### Environments
+* Management (mgmt): the top-level account, which is used for running
+  cross-environment services like Jenkins CI and Grafana.
+* Sandbox (sbox): used for technical spikes
+* Integration (intg): the first environment that code is deployed to. Most
+  services are deployed automatically to intg when code is merged to the
+  main/master branch. Most deployments are run programatically through Jenkins,
+  but we sometimes make temporary manual changes or deploy a branch when that's
+  the easiest way to test something.
+* Staging (staging): a more stable environment used to check changes just before
+  deployment to production. Developers need to manually start a Jenkins job to
+  deploy code to this environment. Used for user research sessions.
+* Production (prod): the environment used by real users. Deployment is the same
+  as for staging.
 
-Multiple environments will be used:
-* Continuous Integration (CI)
-* Test
-* Production
+This diagram shows the interactions between the different AWS accounts:
 
-#### TDR
+![](./diagrams/aws-accounts.png)
 
-The application stack will run within the defined environments.
+### TDR
 
-### Assumptions
+The applications which make up TDR run within each environments. For example,
+each environment has a frontend application, API, auth server, etc.
+
+### Initial assumptions
 
 * We don't yet need to integrate TDR with any other systems, though we might
   reuse the login system to let department users view their own records
@@ -33,12 +43,3 @@ The application stack will run within the defined environments.
   for this to be a developer task, even though eventually we might build an
   admin UI or integrate with the planned catalogue API
 * Data stored in the export bucket can be transferred to the preservation system
-
-### Open Questions
-
-* Is the browser going to access the API or should it use the Play MVC frontend?
-* What is the purge queue strategy?
-* Should the backend checks run in containers (using batches) or just use lambda functions for each file?
-* Should the GraphQL update the DB directly?
-* What auditing is required?
-* Whether to make use of AWS SNS topics
