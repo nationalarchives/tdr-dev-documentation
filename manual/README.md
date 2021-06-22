@@ -29,6 +29,9 @@ things like deploying code or debugging complex parts of the stack.
 
 * [Create a repo](create-repo.md)
 
+### Database restore
+* [Restore either the Keycloak or Consignment API database](https://github.com/nationalarchives/tdr-scripts/blob/master/terraform/restore-database/README.md)
+
 ### Debugging
 
 * [Debug failing file checks](debugging/file-checks-do-not-run.md)
