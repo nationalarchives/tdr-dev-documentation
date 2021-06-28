@@ -26,7 +26,7 @@ TDR user administrators have rights and privileges to manage:
   * **Note**: accessing Keycloak can only be done on the TNA network, via Citrix or connecting to TNA using PulseSecure
   * Go to the provided URL
   * You will be prompted to set scan a QR code with an authenticator application to set up MFA for Keycloak
-  
+
 ## Managing Transferring Body Users
 
 ### Adding a new transferring body
@@ -41,8 +41,8 @@ If a new user belongs to a new transferring body not already added to Keycloak, 
 7. On the new group's page go to the attributes tab
 8. Enter a new "body" attribute:
   * In the "key" field enter: body
-  * In the "value" filed enter the name of the transferring body 
-    * **Note**: the name of the transferring body is only temporary, and in future this will be replaced by a permanent ID value
+  * In the "value" field enter the code of the transferring body
+    * This must match the `TdrCode` field added to the `Body` table in the database, so coordinate this change with the development team. It should begin with `TDR-`, e.g. `TDR-MOJ` or `TDR-WA`. We use the `TDR-` prefix to make it clear that the codes don't necessarily match departmental codes used in other catalogues.
 9. Click the "add" button under the "actions" column
 10. Then click "save": ![](images/tdr-user-administrator/adding_new_transferring_body/groups_5.png)
 11. Go back to the "Group" page and under the "transferring_body" group the new transferring body should be visible: ![](images/tdr-user-administrator/adding_new_transferring_body/groups_6.png)
