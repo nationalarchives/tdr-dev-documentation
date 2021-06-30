@@ -16,7 +16,7 @@ Claire will be talking to cataloguing about each series so will know what the se
 
 The series IDs are not sensitive, so it is OK for them to appear in the [tdr-consignment-api-data] repository.
 
-1. Create a new sql migration in the `tdr-consignment-api-data` repository to add the new series. See the [adding a migration script] instructions.
+1. Create a new sql migration file in the `tdr-consignment-api-data` repository to add the new series. See the [adding a migration script] instructions.
 
 2. If the transferring body has not been added to the `Body` table, include a script in the new sql migration file to add it to the table:
    ```
@@ -39,7 +39,7 @@ The series IDs are not sensitive, so it is OK for them to appear in the [tdr-con
    * `[series_name]`: this is the series reference value, eg "LCO 72"
    * `[series_description]`: this is the series reference value, eg "LCO 72"
    
-4. Once the necessary scripts have been added to the new wql migration file following the [migration deployment] instructions to deploy the changes to the database.
+4. Once the necessary scripts have been added to the new sql migration file follow the [migration deployment] instructions to deploy the changes to the database.
     
 ## Add new transferring body to Keycloak
 
@@ -51,6 +51,3 @@ Follow the instructions for adding a [new transferring body to Keycloak].
 [adding a migration script]: https://github.com/nationalarchives/tdr-consignment-api-data#adding-a-migration-script
 [migration deployment]: https://github.com/nationalarchives/tdr-consignment-api-data#deployment
 [new transferring body to Keycloak]: https://github.com/nationalarchives/tdr-dev-documentation/blob/master/tdr-admins/tdr-user-administrator.md#adding-a-new-transferring-body
-
-
-
