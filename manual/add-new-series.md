@@ -8,7 +8,7 @@ The final step will be an admin UI that lets admins add new series themselves.
 
 ## Get the series reference
 
-Get the series reference from Claire.
+Get the series reference from Claire Driver.
 
 Claire will be talking to cataloguing about each series so will know what the series reference should be.
 
