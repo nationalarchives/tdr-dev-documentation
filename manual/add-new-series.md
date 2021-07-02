@@ -12,6 +12,16 @@ Get the series reference from Claire Driver.
 
 Claire will be talking to cataloguing about each series so will know what the series reference should be.
 
+## Get Transferring Body details
+
+If it is a new transferring body that has not done a transfer through TDR before, then its details need to decided on.
+
+These include:
+* Transferring body name
+* Transferring body TDR code
+
+This should be discussed with the TDR team initially.
+
 ## Create database migration script
 
 The series IDs are not sensitive, so it is OK for them to appear in the [tdr-consignment-api-data] repository.
@@ -46,6 +56,10 @@ The series IDs are not sensitive, so it is OK for them to appear in the [tdr-con
 If the transferring body is new, and has not done a transfer through TDR, then it will need to be added to Keycloak.
 
 Follow the instructions for adding a [new transferring body to Keycloak].
+
+This change should be deployed to all the TDR environments: integration, staging and production.
+
+The changes should be manually tested in integration first, then staging, before final deployment to production.
 
 [tdr-consignment-api-data]: https://github.com/nationalarchives/tdr-consignment-api-data
 [adding a migration script]: https://github.com/nationalarchives/tdr-consignment-api-data#adding-a-migration-script
