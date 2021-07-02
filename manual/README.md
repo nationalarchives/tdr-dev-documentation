@@ -12,7 +12,7 @@ things like deploying code or debugging complex parts of the stack.
 * [Leavers checklist (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/GovUK%20Notify%20Access.docx?d=w65cef45462604245872143e1703f26f8&csf=1&web=1&e=NIEumr)
 * [Update AWS SSO group permissions (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/Security%20log%20queries.docx?d=w757b4033c718479eb0b1050a8328eb46&csf=1&web=1&e=fh1pOE)
 
-### Adding a series
+### Admin Tasks
 
 * [How to add a new series](add-new-series.md)
 
