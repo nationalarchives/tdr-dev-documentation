@@ -190,3 +190,11 @@ thousands of database rows. When we implement this, we'll have to decide _when_
 to update that status. The results of each file check arrive independently, so
 there's no obvious point when they're all finished without looking up all the
 rest of the results.
+
+## Later refinements
+
+We discovered performance issues when large numbers of files were uploaded. We
+didn't change the architecture described above, but we did decide to change some
+of the configuration values. See [ADR 20] for more details.
+
+[ADR 20]: 0020-sqs-visibility-timeout.md
