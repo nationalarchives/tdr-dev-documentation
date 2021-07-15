@@ -14,6 +14,7 @@ things like deploying code or debugging complex parts of the stack.
 
 ### Admin Tasks
 
+* [Deploy the service unavailable page](deploy-the-service-unavailable-page.md)
 * [How to add a new series](add-new-series.md)
 
 ### Alerts
