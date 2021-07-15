@@ -5,7 +5,7 @@
 ## Context
 We need a mechanism to manually deploy a service unavailable page. There are two main reasons we might want to do this. 
 * There is a serious issue with the site that we can't fix immediately.
-* We want to carry out maintenance which will affect service. 
+* We want to carry out maintenance which will affect the service. 
 
 The page will be a single static html page which will be displayed when a user goes to any of the https://tdr.nationalarchives.gov.uk/* urls.
 
@@ -15,6 +15,8 @@ The page will be a single static html page which will be displayed when a user g
 * We must be able to deploy the page manually.
 * We should avoid creating any permanently running services for this page as it will be used rarely.
 * The switch to the new page should only take seconds.
+* It should be easy for anyone on the TDR team to deploy.
+* It should be easy to switch back to the TDR app.
 
 ## Options considered
 
