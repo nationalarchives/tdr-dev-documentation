@@ -23,10 +23,12 @@ Go to the Jenkins script console at https://jenkins.tdr-management.nationalarchi
 Run:
 
 ```
-def job = Jenkins.instance.getItemByFullName("your-project-name/master")
+def job = Jenkins.instance.getItemByFullName("your-project-url-slug/master")
 job.nextBuildNumber = 1234
 job.save()
 ```
 
-Where `your-project-name` is the name of the Jenkins build, and `1234` is the
+Where `your-project-name` is the url slug of the Jenkins build, and `1234` is the
 next available release tag.
+
+The branch specifier, `/master`, is only required for multibranch pipelines. 
