@@ -30,3 +30,22 @@ Use this command to clean up any docker images not being used by running contain
 Run this command to show the free space. You should have around 20% in use.
 
 `df -h -t ext4`
+
+## Re-create EC2 Instance
+
+In some cases it may be impossible to connect to the Jenkins EC2 instance because it is too full.
+
+In this circumstance the EC2 instance will need to be re-created.
+
+**NOTE**: This option should **only** be used if connecting the Jenkins instance option has failed.
+
+1. Go to the terraform directory: `$ cd terraform`
+2. Check that there are no unexpected Terraform changes: `$ terraform plan`
+3. If the Terraform appears as expected then run the following command:
+  * For the integration Jenkins instance: `$ terraform taint module.jenkins_integration_ec2.aws_instance.instance`
+  * For the production Jenkins instance: `$ terraform taint module.jenkins_ec2_prod.aws_instance.instance`
+  * For more details on the `taint` command see here: https://www.terraform.io/docs/cli/commands/taint.html 
+4. Run this command: `$ terraform apply`
+  * The plan from the `apply` command should include any expected changes from step 2, and creation of new EC2 instance
+5. If the plan appears correct proceed with the apply of the Terraform changes
+6. Log into the AWS console and check that a new EC2 instance is created and the ECS service deploys. This may take some time.
