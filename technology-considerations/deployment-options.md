@@ -18,10 +18,10 @@ Kubernetes is a properietary cloud orchestrator that provides functionality that
 
 ### AWS ECS Fargate
 
-AWS ECS Fargate is a managed orchestrator offered by AWS. It abstracts the underlying EC2 instances, so the only items you need to worry about are containers, the network interfaces between them, and IAM permissions. Auto-scaling is available out of the box and so is the load balancing. 
+AWS ECS Fargate is a managed orchestrator offered by AWS. It abstracts the underlying EC2 instances, so the only items you need to worry about are containers, the network interfaces between them, and IAM permissions. Auto-scaling is available out of the box and so is the load balancing.
 
 Kubernetes | AWS ECS Fargate
---- | --- 
+--- | ---
 Complex setup | More straight forward setup
 High learning required | Some team experience already
 Highly opinionated leading to consistency of approach | Multiple approaches possible ("roll your own")
