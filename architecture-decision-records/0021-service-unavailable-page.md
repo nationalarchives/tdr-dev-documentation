@@ -47,7 +47,7 @@ This can either be through API gateway or through an existing load balancer depe
 * Cheap
 * Can keep everything in eu-west-2
 #### Disadvantages
-* This has to be done using a web server of some kind, most likely in Python or Javascript. I've created an example project
+* This has to be done using a web server of some kind, most likely in Python or Javascript. We've prototyped this to check it would work.
 
 ### Options for carrying out the switchover
 
@@ -99,6 +99,19 @@ When we want to switch back, we update the image again so it pulls the transfer-
 
 #### Disadvantages
 * Takes a couple of minutes to switch to the new image.
+
+### Cloudfront error pages
+![Cloudfront error pages](images/cloudfront-error-pages.png)
+
+If we set up Cloudfront to point the load balancer, we can also set up a custom error page in a private S3 bucket. To switch to the service unavailable page, we will change the load balancer listener to return a 500 error instead of forwarding to the ECS target group. This will cause Cloudfront to switch to using the service unavailable page.
+
+#### Advantages
+* The service unavailable page can be rendered using a static html page without a lambda web server.
+* This is the recommended approach from AWS.
+
+#### Disadvantages
+* Adding Cloudfront is a large change to our infrastructure which is not necessary to render this page at the moment although we may use Cloudfront for other reasons later.
+* We still need the ACM certificate in us-east-1
 
 ## Decision
 
