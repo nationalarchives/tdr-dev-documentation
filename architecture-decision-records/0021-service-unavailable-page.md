@@ -103,7 +103,7 @@ When we want to switch back, we update the image again so it pulls the transfer-
 ### Cloudfront error pages
 ![Cloudfront error pages](images/cloudfront-error-pages.png)
 
-If we set up Cloudfront to point the load balancer, we can also set up a custom error page in a private S3 bucket. To switch to the service unavailable page, we will change the load balancer listener to return a 500 error instead of forwarding to the ECS target group. This will cause Cloudfront to switch to using the service unavailable page.
+If we set up Cloudfront to point the load balancer, we can also set up a custom error page in a private S3 bucket. To switch to the service unavailable page, we will change the load balancer listener to return a 503 error instead of forwarding to the ECS target group. This will cause Cloudfront to switch to using the service unavailable page.
 
 #### Advantages
 * The service unavailable page can be rendered using a static html page without a lambda web server.
