@@ -10,7 +10,11 @@ Install a GPG Client:
 A GPG Client needs to be installed on your development machine. For Windows this can be [GPG4Win](https://www.gpg4win.org/). For MacOS, Use [Homebrew](https://brew.sh/): `brew install gpg`. For Linux, you probably have GPG installed out of the box, but if not GPG packages should be easily obtainable via your package manager of choice.
 
 Generate a key via the command line terminal:
-`gpg --gen-key`
+
+On Windows: `gpg --gen-key`
+
+On Linux: `gpg --full-generate-key`
+
 Use the options:
 
 Type: `(4) RSA (sign only)`
