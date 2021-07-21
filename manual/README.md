@@ -53,6 +53,7 @@ things like deploying code or debugging complex parts of the stack.
 * [Access TDR accounts as a developer (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/Access%20TDR%20AWS%20accounts%20as%20a%20developer.docx?d=wcaf74cb6342f4235983405fb528d3eb1&csf=1&web=1&e=uGUZ6A)
 * [Install git secrets](development-setup/git-secrets.md)
 * [New starters guide](development-setup/new-starters.md)
+* [Set up signed commits](development-setup/signed-commits.md)
 
 ### Environment setup
 
