@@ -30,7 +30,7 @@ Otherwise, whenever you commit you need to use the -S flag, e.g.:
 You'll need the PGP block for your key, which you can obtain through:
 `gpg --armor --export <keyID>`
 
-Next log on to GitHub vis the web site, then go to your account settings > SSH and GPG Keys > New GPG key
+Next log on to GitHub via the web site, then go to your account settings > SSH and GPG Keys > New GPG key
 Paste in the PGP block and save.
 
 ### Testing Configuration 
