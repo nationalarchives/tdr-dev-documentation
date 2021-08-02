@@ -39,6 +39,7 @@ things like deploying code or debugging complex parts of the stack.
 
 ### Debugging
 
+* [Creating or creating a bastion host for database access](debugging/applying-or-destroying-a-bastion-host.md)
 * [Debug failing file checks](debugging/file-checks-do-not-run.md)
 * [Find S3 upload folder](debugging/find-s3-upload-folder.md)
 * [Security log queries (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/Security%20log%20queries.docx?d=w757b4033c718479eb0b1050a8328eb46&csf=1&web=1&e=fh1pOE)
