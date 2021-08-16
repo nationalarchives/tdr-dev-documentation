@@ -33,7 +33,7 @@ health of the backend checks.
 For example, here are the messages in each file check queue during an upload of
 500 small files:
 
-![Graph showing message counts during an upload](images/user-data-model.png)
+![Graph showing message counts during an upload](images/sqs-extra-failure-queue-messages.png)
 
 The yellow and red peaks show the API update and download file messages waiting
 to be processed. (The antivirus, checksum and file format messages don't appear
