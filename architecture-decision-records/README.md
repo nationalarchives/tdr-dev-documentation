@@ -23,7 +23,7 @@ Examples of decisions that are worth documenting: choosing a database or
 JavaScript framework, or a plan for how different applications will communicate
 using an asynchronous message queue.
 
-Examples of other team's ADRs:
+Examples of other teams' ADRs:
 
 - https://github.com/alphagov/govuk-aws/tree/master/doc/architecture/decisions
 - https://github.com/alphagov/search-api/tree/master/doc/arch
