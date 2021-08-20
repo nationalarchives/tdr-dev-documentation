@@ -57,5 +57,5 @@ based on Alpine Linux.
 
 [TDR Transfer Front End Test/master]: https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Transfer%20Front%20End%20Test/job/master/
 [Jenkins deployment]: https://github.com/nationalarchives/tdr-jenkins#deployment
-[TDR Build Jenkins Node Images]: https://to_be_added
+[TDR Build Jenkins Node Images]: https://jenkins-prod.tdr-management.nationalarchives.gov.uk/job/TDR%20Build%20Jenkins%20Node%20Images/
 [sandbox-ecr]: https://github.com/nationalarchives/tdr-scripts/tree/master/terraform/ecr-sandbox
