@@ -41,19 +41,14 @@ redeploying the image to see if it fixes the alert:
 * To rebuild a TDR service image, run the build for the master branch of that
   service's repository, e.g. [TDR Transfer Front End Test/master]
 * To rebuild the Jenkins Docker image, or one of the build node images, follow
-  the [Jenkins deployment] instructions. Add the `--pull --no-cache` flags when
-  running `docker build` to make sure you get the latest version of the base
-  image and that all of the image layers are rebuilt. This means that if the
-  Dockerfile tries to install any packages, Docker will install the latest
-  version rather than using the old version which is installed on the cached
-  image layer.
+  the [Jenkins deployment] instructions using the [TDR Build Jenkins Node Images] Jenkins job 
 
 Check ECR again once the new image has been pushed. Scan results appear within a
 few seconds.
 
 If you want to check the results of a scan without triggering more Slack and
 email alerts, create a [temporary ECR repo in the Sandbox account][sandbox-ecr],
-and push the images to that repo first.
+and push the images to that repo first, using the [TDR Build Jenkins Node Images] Jenkins job
 
 If the scan still reports the vulnerability, follow the instructions in the CVE
 report to fix it. A common fix is to upgrade the affected package, for example
@@ -62,4 +57,5 @@ based on Alpine Linux.
 
 [TDR Transfer Front End Test/master]: https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Transfer%20Front%20End%20Test/job/master/
 [Jenkins deployment]: https://github.com/nationalarchives/tdr-jenkins#deployment
+[TDR Build Jenkins Node Images]: https://to_be_added
 [sandbox-ecr]: https://github.com/nationalarchives/tdr-scripts/tree/master/terraform/ecr-sandbox
