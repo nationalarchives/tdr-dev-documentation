@@ -1,8 +1,8 @@
-#Accessing an environment's database
+# Accessing an environment's database
 
 Connecting to a database must be done through an [AWS Bastion host](./applying-or-destroying-a-bastion-host.md), below are the steps detailing how to do this
 
-##1. Downloading and installing the Session Manager plugin
+## 1. Downloading and installing the Session Manager plugin
 First you need to download and install the AWS Session Manager plugin
 
    * [Instructions for Mac (Step 1 to 3)](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-macos)
@@ -13,11 +13,11 @@ You can check if it worked by running `session-manager-plugin`, which should sho
 
 `The Session Manager plugin is installed successfully. Use the AWS CLI to start a session.`
 
-##2. Obtaining the Instance ID for the Bastion instance
+## 2. Obtaining the Instance ID for the Bastion instance
 
 Next, you need to get the instance id for the bastion instance which can be found via command line or through the AWS console.
 
-###Via Command line (after you've updated your credentials)
+### Via Command line (after you've updated your credentials)
 
    Run this `aws ec2 describe-instances`
 
@@ -35,7 +35,7 @@ Next, you need to get the instance id for the bastion instance which can be foun
 
 Copy the value of the `InstanceId`
 
-###Via Console
+### Via Console
 
 Alternatively, you can also get it from the console:
 
@@ -44,13 +44,13 @@ Alternatively, you can also get it from the console:
 - Find the bastion ec2 instance, for e.g "bastion-ec2-instance-intg" for the intg environment
 - Copy the "InstanceId"
 
-##3. Connecting via Session Manager
+## 3. Connecting via Session Manager
 Now you need to connect via the session manager by running the command
 
    `aws ssm start-session --target <the InstanceId you've copied>`
    (replacing the angle bracket parameter, with the InstanceId)
 
-##4. Starting PSQL
+## 4. Starting PSQL
 
 There is a script in the home directory which allows you to connect to postgres using IAM DB authentication
 ```
@@ -60,7 +60,7 @@ cd
 
 The script downloads the RDS public certificate if not already there, assumes a role which is allowed to connect to the database, generates a temporary password and uses this to connect to the database. 
 
-##5. Setting up an ssh tunnel
+## 5. Setting up an ssh tunnel
 If you want to connect to the database from your local machine, for example to use a locally installed application to connect, then you will need to set up an ssh tunnel.
 
 This assumes you've added the ssh key when [creating the bastion](./applying-or-destroying-a-bastion-host.md#applying-a-bastion-host)
