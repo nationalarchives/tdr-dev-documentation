@@ -75,7 +75,7 @@ If after committing and pushing to GitHub, you notice that your commits are stil
 
 ## Undoing/Starting again
 
-If you've messed up somewhere and would like to start again, run these commands:
+If something has gone wrong, and you would like to start again with the set up, run these commands:
 * `git config --global --unset user.signingkey`
 * `gpg --delete-secret-keys <keyID>`
-  * it will ask you twice if you'd like to delete, just enter `y` each time
+  * it will ask you twice if you'd like to delete, just enter `y` each time.
