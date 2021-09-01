@@ -70,8 +70,12 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 
 ## Troubleshooting
 
-If after committing and pushing to GitHub, you notice that your commits are still not verified, try running `git config commit.gpgsign` in the repo from which you are making the commit.
-* Since this command is missing the `--global`, you'd have to run it in all the repos you'd like signed commits applied to.
+1. If after committing and pushing to GitHub, you notice that your commits are still not verified, try running `git config commit.gpgsign` in the repo from which you are making the commit.
+   * Since this command is missing the `--global`, you'd have to run it in all the repos you'd like signed commits applied to.
+2. If you would like to disable GPG signing:
+   * for all repositories, run this command `git config --global commit.gpgsign false`
+   * for a single repository, run this command `git config commit.gpgsign false`
+
 
 ## Undoing/Starting again
 
