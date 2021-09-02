@@ -38,13 +38,12 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
     * passphrase (which you will need whenever you commit unless using GPG tools that store your passphrase; so keep it safe.)
         * If you don't enter a passphrase quickly enough, it will timeout, and you'll have to start again from step 2
 
-7. You'll need your KeyID, which either:
-    * has the format `rsa4096/xxxxxxxx` where 'xxxxxxxx' is a hexadecimal pattern.
-    * or `sec   rsa4096 {date} [SC] [expires: {date}]`
+7. You'll need your KeyID, which you can get this keyID through the command: `gpg --list-secret-keys --keyid-format=long`. Depending on what you see in the output, the KeyID is either:
+    * the 'xxxxxxxx' (hexadecimal pattern) part of the `rsa4096/xxxxxxxx` key
+    * or the 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' (hexadecimal pattern) from this output
+      `sec rsa4096 {date} [SC] [expires: {date}]`
 
-      `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX` where 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' is a hexadecimal pattern.
-
-   You can get this through the command: `gpg --list-secret-keys --keyid-format=long`
+      `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
 
 8. Configure your own git client to use the key: `git config --global user.signingkey <keyID>`
 
