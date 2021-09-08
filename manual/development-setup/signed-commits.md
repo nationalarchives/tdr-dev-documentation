@@ -52,6 +52,9 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 
 10. run `export GPG_TTY=$(tty)` (remove the `$` if you are using Fish shell)
 
+11. On Windows run 
+	`git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
+
 ## GitHub Configuration
 1. You'll need the PGP block for your key, which you can obtain through: `gpg --armor --export <keyID>`
 
