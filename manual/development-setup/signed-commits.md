@@ -54,6 +54,9 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 
 11. On Windows run 
 	`git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
+	
+12. Make sure you local  and github user have the correct email address as used above
+	 For local git use `$ git config --global user.email`
 
 ## GitHub Configuration
 1. You'll need the PGP block for your key, which you can obtain through: `gpg --armor --export <keyID>`
