@@ -15,8 +15,7 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 
 2. Generate a key via the command line terminal:
 
-    * On Windows: `gpg --gen-key`
-    * On Mac & Linux: `gpg --full-generate-key`
+    * On Windows, Mac & Linux: `gpg --full-generate-key`
 
 3. You will be asked for the type of key you want to use:
 
