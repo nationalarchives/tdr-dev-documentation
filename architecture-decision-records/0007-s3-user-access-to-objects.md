@@ -2,6 +2,8 @@
 
 **Date:** 2020-04-01
 
+This decision has been superseded by decision: [0022 Proxy S3 uploads through CloudFront](0022-cloudfront-upload-proxy.md)
+
 ## Context
 
 Ensure that TDR users are not able to overwrite/view another user’s objects in the TDR AWS S3 upload bucket.
@@ -32,7 +34,7 @@ Note: The `cognito-identity.amazonaws.com:sub` refers to the identity id associa
 
 ```
     {
-        "Version": "2012-10-17", 
+        "Version": "2012-10-17",
         "Statement": [
             {
                 "Sid": "WriteYourObjects",
@@ -50,14 +52,14 @@ See the following for more details: https://docs.aws.amazon.com/IAM/latest/UserG
 
 ### Using AWS IAM Policy With TDR
 
-TDR is using Keycloak to manage and authenticate users. 
+TDR is using Keycloak to manage and authenticate users.
 
 To be able to make use of an IAM policy outlined above to control access to AWS S3 objects, Keycloak needs to be integrated with AWS Cognito as an identity provider.
 
 This is because Keycloak users will need to be associated with an AWS Cognito identity, which can be used with the AWS IAM policy.
 
 Keycloak can be made an AWS Cognito authentication provider in two ways as:
-* a custom Developer authentication provider; or 
+* a custom Developer authentication provider; or
 * an OpenId authentication provider.
 
 Details of how to set up an AWS Cognito identity pool using these two approaches are available here:
@@ -111,7 +113,7 @@ Note: An AWS IAM user created to provide access to the AWS Cognito client
 ### Setting up Keycloak As An OpenId Authentication Provider In AWS Cognito
 
 In order to set up Keycloak as an OpenId Authentication Provider do the following:
-1. Obtain the root CA thumbprint for Keycloak. 
+1. Obtain the root CA thumbprint for Keycloak.
 * See the following guide: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html
 2. Set up Keycloak as OIDC Identity provider in AWS Cognito using the AWS CLI (there is currently a bug with doing it through the AWS console)
 * See the following guide: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html#manage-oidc-provider-cli
