@@ -15,8 +15,7 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 
 2. Generate a key via the command line terminal:
 
-    * On Windows: `gpg --gen-key`
-    * On Mac & Linux: `gpg --full-generate-key`
+    * On Windows, Mac & Linux: `gpg --full-generate-key`
 
 3. You will be asked for the type of key you want to use:
 
@@ -52,6 +51,12 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
     * Otherwise, whenever you commit you need to use the -S flag, e.g.: `git commit -S -m "commit message"`
 
 10. run `export GPG_TTY=$(tty)` (remove the `$` if you are using Fish shell)
+
+11. On Windows run 
+	`git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
+	
+12. Make sure you local  and github user have the correct email address as used above
+	 For local git use `$ git config --global user.email`
 
 ## GitHub Configuration
 1. You'll need the PGP block for your key, which you can obtain through: `gpg --armor --export <keyID>`
