@@ -31,7 +31,7 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 
 6. You'll also be asked for your (after each, you'd press enter):
     * full name
-    * email address (use the address associated with your GitHub account)
+    * email address (use the address associated with your GitHub account). It must match the git config email, you can verify this by running `git config --global user.email`
     * comment (this could be left blank)
     * confirmation `Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?`
         * enter a letter (uppercased) to choose an option
