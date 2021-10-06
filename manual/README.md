@@ -7,10 +7,10 @@ things like deploying code or debugging complex parts of the stack.
 
 ### Accounts and permissions
 
-* [Add a new AWS SSO group (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/Add%20an%20AWS%20SSO%20group.docx?d=w083a19f8e9704d209e93163a3a776992&csf=1&web=1&e=judnGD)
-* [GOV.UK notify access (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/GovUK%20Notify%20Access.docx?d=w65cef45462604245872143e1703f26f8&csf=1&web=1&e=NIEumr)
-* [Leavers checklist (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/GovUK%20Notify%20Access.docx?d=w65cef45462604245872143e1703f26f8&csf=1&web=1&e=NIEumr)
-* [Update AWS SSO group permissions (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/Security%20log%20queries.docx?d=w757b4033c718479eb0b1050a8328eb46&csf=1&web=1&e=fh1pOE)
+* [Add a new AWS SSO group (internal manual)](https://github.com/nationalarchives/tdr-dev-documentation-internal/blob/main/manual/aws-sso-add-group.md)
+* [GOV.UK notify access (internal manual)](https://github.com/nationalarchives/tdr-dev-documentation-internal/blob/main/manual/govuk-notify-access.md)
+* [Leavers checklist (internal manual)](https://github.com/nationalarchives/tdr-dev-documentation-internal/blob/main/manual/leavers-checklist.md)
+* [Update AWS SSO group permissions (internal manual)](https://github.com/nationalarchives/tdr-dev-documentation-internal/blob/main/manual/aws-sso-update-permissions.md)
 
 ### Admin Tasks
 
@@ -42,7 +42,7 @@ things like deploying code or debugging complex parts of the stack.
 * [Creating or creating a bastion host for database access](debugging/applying-or-destroying-a-bastion-host.md)
 * [Debug failing file checks](debugging/file-checks-do-not-run.md)
 * [Find S3 upload folder](debugging/find-s3-upload-folder.md)
-* [Security log queries (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/Security%20log%20queries.docx?d=w757b4033c718479eb0b1050a8328eb46&csf=1&web=1&e=fh1pOE)
+* [Security log queries (internal manual)](https://github.com/nationalarchives/tdr-dev-documentation-internal/blob/main/manual/security-log-queries.md)
 
 ### Development processes
 
@@ -52,7 +52,7 @@ things like deploying code or debugging complex parts of the stack.
 
 ### Development setup
 
-* [Access TDR accounts as a developer (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/Access%20TDR%20AWS%20accounts%20as%20a%20developer.docx?d=wcaf74cb6342f4235983405fb528d3eb1&csf=1&web=1&e=uGUZ6A)
+* [Access TDR accounts as a developer (internal manual)](https://github.com/nationalarchives/tdr-dev-documentation-internal/blob/main/manual/aws-sso-signin.md)
 * [Install git secrets](development-setup/git-secrets.md)
 * [New starters guide](development-setup/new-starters.md)
 * [Set up signed commits](development-setup/signed-commits.md)
@@ -60,7 +60,7 @@ things like deploying code or debugging complex parts of the stack.
 ### Environment setup
 
 * [Creating a new environment](create-new-environment.md)
-* [Securing the Keycloak root user (Sharepoint)](https://nationalarchivesuk.sharepoint.com/:w:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual/GovUK%20Notify%20Access.docx?d=w65cef45462604245872143e1703f26f8&csf=1&web=1&e=NIEumr)
+* [Securing the Keycloak root user (internal manual)](https://github.com/nationalarchives/tdr-dev-documentation-internal/blob/main/manual/secure-keycloak-admin.md)
 * [Setup TDR AWS Infrastructure](tdr-create-aws-instructure-setup.md)
 
 ### Keycloak
