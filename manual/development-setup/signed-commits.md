@@ -13,6 +13,11 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
     * For macOS, Use [Homebrew](https://brew.sh/): `brew install gpg`.
     * For Linux, you probably have GPG installed out of the box, but if not GPG packages should be easily obtainable via your package manager of choice.
 
+    a. If you are using a Mac, depending on what shell you use, you'd need to open on of these files add this command `export GPG_TTY=$(tty)` to the end and save:
+    * Bash: ~/.bash_profile or ~/.bashrc
+    * Z shell: ~/.zshrc
+    * Fish: ~/.config/fish/config.fish
+
 2. Generate a key via the command line terminal by running `gpg --full-generate-key`
 
 3. You will be asked for the type of key you want to use:
