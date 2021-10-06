@@ -56,10 +56,8 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 10. run `export GPG_TTY=$(tty)` (remove the `$` if you are using Fish shell)
 
 11. On Windows run 
-	`git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
-	
-12. Make sure you local  and github user have the correct email address as used above
-	 For local git use `$ git config --global user.email`
+    `git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
+
 
 ## GitHub Configuration
 1. You'll need the PGP block for your key, which you can obtain through: `gpg --armor --export <keyID>`
@@ -79,7 +77,9 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 
 1. If after committing and pushing to GitHub, you notice that your commits are still not verified, try running `git config commit.gpgsign` in the repo from which you are making the commit.
    * Since this command is missing the `--global`, you'd have to run it in all the repos you'd like signed commits applied to.
-2. If you would like to disable GPG signing:
+2. If after committing and pushing to GitHub, you notice that your commits are labelled as "Unverified", check if the email address that you've configured locally is the same as the one labelled as "Primary" on [Github](https://github.com/settings/emails).
+   * To see the email address that you configured locally run this command `$ git config --global user.email`
+3. If you would like to disable GPG signing:
    * for all repositories, run this command `git config --global commit.gpgsign false`
    * for a single repository, run this command `git config commit.gpgsign false`
 
