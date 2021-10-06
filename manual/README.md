@@ -47,6 +47,7 @@ things like deploying code or debugging complex parts of the stack.
 ### Development processes
 
 * [Close a card](development-process/close-card.md)
+* [Deploy code to production](development-process/production-deployemnt.md)
 * [Plan a user story](development-process/plan-story.md)
 
 ### Development setup
