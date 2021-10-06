@@ -7,16 +7,17 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 ## Local Configuration
 1. Install a GPG Client:
 
-   A GPG Client needs to be installed on your development machine.
+    A GPG Client needs to be installed on your development machine.
 
     * For Windows, this can be [GPG4Win](https://www.gpg4win.org/).
+      * Once installed, you need to associate gpg with the executable, in order to do this in order to get run
+      `git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
     * For macOS, Use [Homebrew](https://brew.sh/): `brew install gpg`.
+        * Depending on what shell you use, you'd need to open one of these files and add this command `export GPG_TTY=$(tty)` to the end and save:
+          * Bash: ~/.bash_profile or ~/.bashrc
+          * Z shell: ~/.zshrc
+          * Fish: ~/.config/fish/config.fish
     * For Linux, you probably have GPG installed out of the box, but if not GPG packages should be easily obtainable via your package manager of choice.
-
-    a. If you are using a Mac, depending on what shell you use, you'd need to open on of these files add this command `export GPG_TTY=$(tty)` to the end and save:
-    * Bash: ~/.bash_profile or ~/.bashrc
-    * Z shell: ~/.zshrc
-    * Fish: ~/.config/fish/config.fish
 
 2. Generate a key via the command line terminal by running `gpg --full-generate-key`
 
@@ -52,12 +53,6 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 9. You can configure Git to sign all of your commits automatically: `git config --global commit.gpgsign true`
 
     * Otherwise, whenever you commit you need to use the -S flag, e.g.: `git commit -S -m "commit message"`
-
-10. run `export GPG_TTY=$(tty)` (remove the `$` if you are using Fish shell)
-
-11. On Windows run 
-    `git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"`
-
 
 ## GitHub Configuration
 1. You'll need the PGP block for your key, which you can obtain through: `gpg --armor --export <keyID>`
