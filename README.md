@@ -67,6 +67,7 @@ The current repositories relating to TDR, and their purpose are:
 ### Documentation repos
 
 - [tdr-dev-documentation](https://github.com/nationalarchives/tdr-dev-documentation) - For TDR development documentation
+- [tdr-dev-documentation-internal](https://github.com/nationalarchives/tdr-dev-documentation-internal) - A private repo with development documentation that cannot be added to the public docs
 - [tdr-design-documentation](https://github.com/nationalarchives/tdr-design-documentation) - Design decisions and wireframes
 
 ### Prototype repos
