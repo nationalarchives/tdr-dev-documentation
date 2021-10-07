@@ -67,12 +67,14 @@ The current repositories relating to TDR, and their purpose are:
 ### Documentation repos
 
 - [tdr-dev-documentation](https://github.com/nationalarchives/tdr-dev-documentation) - For TDR development documentation
+- [tdr-dev-documentation-internal](https://github.com/nationalarchives/tdr-dev-documentation-internal) - A private repo with development documentation that cannot be added to the public docs
 - [tdr-design-documentation](https://github.com/nationalarchives/tdr-design-documentation) - Design decisions and wireframes
 
 ### Prototype repos
 
 Prototypes and proofs of concept built during the Beta phase:
 
+- [tdr-prototype-cookie-signing](https://github.com/nationalarchives/tdr-prototype-cloudfront-cookie-signing) - Prototype of a Lambda function which generates signed cookies for S3 uploads
 - [tdr-prototype-json-logging](https://github.com/nationalarchives/tdr-prototype-json-logging) - Prototype of a Scala application which writes logs in a JSON format
 - [tdr-interactive-prototype](https://github.com/nationalarchives/tdr-interactive-prototype) - Interactive prototype using the GOV.UK Prototype Kit
 
