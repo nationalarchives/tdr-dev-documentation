@@ -106,9 +106,13 @@ start.
 
 ## Turning off images for Chrome
 
-Within Chrome, select the three horizontal dots in the upper right-hand corner and select 'Settings'.
-Within the 'Settings' menu, go to 'Privacy and security', then 'Site settings'. Under the content heading,
-you can choose to block or show images.
+Within Chrome:
+1. Select the three horizontal dots in the upper right-hand corner and select 'Settings'
+2. Within the 'Settings' menu, go to 'Privacy and security'
+3. Select 'Site settings'
+4. Scroll down until you see the "Content" heading
+5. Under the "Content" heading, you should see "Images", click that to be able to choose to block or show images
+6. Select "Don't allow sites to show images"
 
 ## Turning off CSS
 
@@ -118,7 +122,7 @@ To block `CSS` styling (only until the page is refreshed) follow the steps below
 * Access the TDR environment you wish to test (local or intg)
 * Open the developer tools by right-clicking anywhere on the page and selecting 'Inspect'
 * The default tab should be the 'Elements'/'Inspector'; if not, click that tab
-* In the HTML, find the <head> tag and expand it by clicking the '>'
+* In the HTML, find the `<head>` tag and expand it by clicking the '>'
 * Right-click the 'link' tag(s) that starts with '<link rel="stylesheet"' and select "Delete element/node"
 
 ### Persistently (Only for Chrome, Edge and Brave)
