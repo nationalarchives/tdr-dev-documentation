@@ -71,9 +71,18 @@ If a new user needs to be added, then:
 9. From the "Available Groups" box select the transferring body the new user belongs to: ![](images/tdr-user-administrator/adding_new_tb_user/users_4.png)
   * If the transferring body does not appear go to the "Adding a new transferring body" section for details of how to add a new transferring body
 10. Add the new user to the relevant transferring body.
+11. From the "Available Groups" box select "user type" for the user:
+  * *Judgment User*: 
+    * **Note**: this group should only be applied to users who will be transferring court judgments
+    * add the new user to the "user_type/judgment_user" group: ![](images/tdr-user-administrator/adding_new_tb_user/users_5.png)
+    * the user should show two groups in "Group Membership", "transferring body" and "user type": ![](images/tdr-user-administrator/adding_new_tb_user/users_6.png)   
+  * *Standard User*:
+    * **Note**: this group should be applied to all users, other than those who will be transferring court judgments
+    * add the new user to the "user_type/standard_user": ![](images/tdr-user-administrator/adding_new_tb_user/users_7.png)
+    * the user should show two groups in "Group Membership", "transferring body" and "user type": ![](images/tdr-user-administrator/adding_new_tb_user/users_8.png)
 11. Go back to the Users page
 12. Click "View all users"
-13. New user should appear in the list of all users: ![](images/tdr-user-administrator/adding_new_tb_user/users_5.png)
+13. New user should appear in the list of all users: ![](tdr-dev-documentation/tdr-admins/images/tdr-user-administrator/adding_new_tb_user/users_9.png)
 
 ### Resetting existing user's password
 
