@@ -10,17 +10,17 @@ The court judgment transfers require a different UI and functionality compared t
 
 ## Decision
 
-To help support the court judgment transfers it was decided to use a different url scheme for such transfers.
+To help support the court judgment transfers, it was decided to use a different url scheme for such transfers.
 
 The advantages of doing this are:
 * providing a more descriptive url for court judgment transfer users.
-* improve accessibility for court judgment transfers.
-* provide a more isolated domain for court judgment transfers to future proof against further requirements.
-* better support for any web analytics on TDR that are required.
+* improving accessibility for court judgment transfers.
+* providing a more isolated domain for court judgment transfers to future proof against further requirements.
+* providing better support for any web analytics on TDR that are required.
 
 The advantages of introducing a different url scheme for court judgment transfers was felt to outweigh using the same url scheme for both types of transfers.
 
-## Standard and Court Judgment Transfers Url Schemes
+## Standard and Court Judgment Transfers' Url Schemes
 
 The two url schemes will be as follows:
 * *standard transfer*: `{tdr domain address}/consignment/{consignmentId}/{pageName}`
