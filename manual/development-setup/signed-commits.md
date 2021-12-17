@@ -77,6 +77,8 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 3. If you would like to disable GPG signing:
    * for all repositories, run this command `git config --global commit.gpgsign false`
    * for a single repository, run this command `git config commit.gpgsign false`
+4. If you are using WSL2 and are receiving the error "gpg failed to sign the data" after committing.
+   * Run the following command `export GPG_TTY=$(tty)`
 
 
 ## Undoing/Starting again
