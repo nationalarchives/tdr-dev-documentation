@@ -70,7 +70,7 @@ An alternative setup guide is [here](https://withblue.ink/2020/05/17/how-and-why
 
 ## Troubleshooting
 
-1. If after committing and pushing to GitHub, you notice that your commits are still not verified, try running `git config commit.gpgsign` in the repo from which you are making the commit.
+1. If after committing and pushing to GitHub, you notice that your commits are still not verified, try running `git config commit.gpgsign true` in the repo from which you are making the commit.
    * Since this command is missing the `--global`, you'd have to run it in all the repos you'd like signed commits applied to.
 2. If after committing and pushing to GitHub, you notice that your commits are labelled as "Unverified", check if the email address that you've configured locally is the same as the one labelled as "Primary" on [Github](https://github.com/settings/emails).
    * To see the email address that you configured locally run this command `$ git config --global user.email`
