@@ -42,4 +42,3 @@ With our Jenkins setup, we weren't able to test code from forks, with GitHub act
 ### Disadvantages
 #### Time to migrate
 It will take time to move all of our CI jobs to GitHub actions. We should make this back from the time saved on server maintenance though.
-
