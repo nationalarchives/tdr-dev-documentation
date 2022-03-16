@@ -8,7 +8,7 @@ To bring up a Bastion host you must:
 * Go to the Bastion deploy job on [Jenkins](https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Bastion%20Deploy/build)
 * From the "Stage" dropdown, choose the environment that you want to apply the bastion host to
 * From the "Command" dropdown, select "Apply"
-* Select the checkbox of what you'd like to connect to (more information about what wach one does can be found [here](https://github.com/nationalarchives/tdr-scripts#bastion-host-creation-script):
+* Select the checkbox of what you'd like to connect to (more information about what each one does can be found [here](https://github.com/nationalarchives/tdr-scripts#bastion-host-creation-script):
   * CONNECT_TO_BACKEND_CHECKS_EFS
   * CONNECT_TO_DATABASE
   * CONNECT_TO_EXPORT_EFS
