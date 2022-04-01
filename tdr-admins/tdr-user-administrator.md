@@ -93,3 +93,23 @@ If an existing user's password needs resetting, then:
 4. Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option to the "Reset Actions": ![](images/tdr-user-administrator/resetting_password/reset_password_3.png)
 5. Click the "Send Email" button. This will send an email to the user, with a URL link requesting they reset their password
 6. An email confirmation dialog box will appear if the email was sent successfully.
+
+### Disabled user account
+
+A user's account maybe become disabled for several reasons:
+
+* too many failed log in attempts
+* manually disabled
+
+A disabled user account will look like this: ![](images/tdr-user-administrator/disabled-user-account/disabled_account.png)
+
+On the Details tab the `User Enabled` toggle will be set to `Off`
+
+If a user's account is disabled it is not possible to send an email to the user.
+
+#### Re-enable a user account
+
+To re-enable the user's account, and allow the sending of email:
+1. Change the `User Enabled` toggle to `On`; and 
+2. Click `Save`
+3. The user account should then look like this: ![](images/tdr-user-administrator/disabled-user-account/enabled_account.png)
