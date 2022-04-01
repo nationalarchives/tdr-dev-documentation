@@ -4,7 +4,7 @@
 
 ## Context
 We have two services now, dependabot and Scala Steward, which create pull requests for dependency updates. 
-We are getting around 5 or 6 of these per day which need to be merged in turn and can take a lot of time. We looked at using an automatic merging service.
+We are getting around 5 or 6 of these per day which need to be merged in turn and can take a lot of time. We looked at using an automatic merging service to reduce the amount of time needed on merging dependency updates.
 
 ## Options considered
 We considered continuing merging the pull requests manually.
@@ -24,5 +24,9 @@ We decided to use Mergify to merge our dependency updates.
 
 There are disadvantages around not having a human view every change committed to the repository but Mergify allows the checks mentioned above, so we can be confident that nothing malicious can be automatically merged.
 
-This will save a lot of developer time, as they no longer need to spend time updating dependency upgrade pull requests. 
+This will save a lot of developer time, as they no longer need to spend time updating dependency upgrade pull requests.
+
 It also makes sure that our dependencies are always at the latest version which means we are less likely to be affected by security vulnerabilities in our libraries.
+
+Access to mergify is through SSO with GitHub credentials. This restricts access to users who have write access to the repository. 
+It also means that when the user is removed from the nationalarchives organisation, their access to Mergify will be removed too.
