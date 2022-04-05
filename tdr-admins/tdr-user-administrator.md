@@ -59,7 +59,7 @@ If a new user needs to be added, then:
     * First Name
     * Last Name
     * Email
-4. In the "Required User Actions" add **one** the following options:  
+4. In the "Required User Actions" add one of the following options:  
   * Configure OTP: *(this will enforce MFA using an authenticator app)*
   * Webauthn Register: *(this will enforce MFA using a hardware USB token)*
 5. Click "save"
