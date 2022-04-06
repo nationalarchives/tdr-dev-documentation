@@ -59,12 +59,15 @@ If a new user needs to be added, then:
     * First Name
     * Last Name
     * Email
-4. In the "Required User Actions" add the following options:  
-  * Configure OTP: *(this will enforce MFA)*
+4. In the "Required User Actions" add one of the following options:  
+  * Configure OTP: *(this will enforce MFA using an authenticator app)*
+  * Webauthn Register: *(this will enforce MFA using a hardware USB token)*
 5. Click "save"
 6. Under the "Credentials" tab: ![](images/tdr-user-administrator/adding_new_tb_user/users_3_v3.png)
 7. Request the user updates their password:
-  * Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option and the "Configure OTP (CONFIGURE_TOTP)" option to the "Reset Actions"
+  * Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option 
+  * If the user will be using an app for MFA, add the "Configure OTP (CONFIGURE_TOTP)" option to the "Reset Actions"
+  * If the user will be using a hardware USB token for MFA, add the "Webauthn Register (webauthn-register)" option to the "Reset Actions"
   * Click the "Send Email" button. This will send an email to the user, with a URL link requesting they configure TOTP and set a password
   * An email confirmation dialog box will appear if the email was sent successfully.
 8. Go to the "Groups" tab
