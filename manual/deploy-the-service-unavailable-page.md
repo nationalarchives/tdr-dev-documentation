@@ -4,12 +4,12 @@ There is now a service unavailable page which can be deployed. Users will see th
 
 ## Switch to the service unavailable page
 
-There is a [Jenkins job] to deploy the page.  
+There is a [GitHub actions job] to deploy the page.  
 
-Choose the environment you want to deploy it to and select `ServiceUnavailable` in the `SERVICE_TO_DEPLOY` parameter.
+Choose the environment you want to deploy it to and select `ServiceUnavailable` in the `service-to-deploy` parameter.
 
 ## Switch back to the TDR app.
 
-The same [Jenkins job] will restore the TDR app. Select the environment you want to restore and select `TDRApp` in the `SERVICE_TO_DEPLOY` parameter. 
+The same [GitHub actions job] will restore the TDR app. Select the environment you want to restore and select `TDRApp` in the `service-to-deploy` parameter. 
 
-[Jenkins job]: https://jenkins.tdr-management.nationalarchives.gov.uk/job/TDR%20Service%20Unavailable%20Run/build 
+[GitHub actions job]: https://github.com/nationalarchives/tdr-service-unavailable/actions/workflows/run.yml 
