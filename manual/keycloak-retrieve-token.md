@@ -5,13 +5,13 @@ Based on the following blog post: https://medium.com/@bcarunmail/securing-rest-a
 ## Authorisation Token 
 
 The Keycloak OpenID Connection configuration URL to get details about all security endpoints is: 
-`GET https://{keycloak url}/auth/realms/{realm name}/.well-known/openid-configuration`
+`GET https://{keycloak url}/realms/{realm name}/.well-known/openid-configuration`
 
-So for example for locally running TDR Keycloak this would be: `http://localhost:8081/auth/realms/tdr/.well-known/openid-configuration`
+So for example for locally running TDR Keycloak this would be: `http://localhost:8081/realms/tdr/.well-known/openid-configuration`
 
 Important URLS returned from the response are:
-* *issuer*: `https://{keycloak url}/auth/realms/{realm name}`
-* *authorization_endpoint*: `{issuer}/protocol/openid-connect/auth`
+* *issuer*: `https://{keycloak url}/realms/{realm name}`
+* *authorization_endpoint*: `{issuer}/protocol/openid-connect`
 * *token_endpoint*: `{issuer}/protocol/openid-connect/token`
 * *token_introspection_endpoint*: `{issuer}/protocol/openid-connect/token/introspect`
 * *userinfo_endpoint*: `{issuer}/protocol/openid-connect/userinfo`
@@ -35,8 +35,8 @@ To do this Postman will require an authorisation token from Keycloak. Postman ca
  * *Token Name*: keycloak-bearer-token
  * *Grant Type*: Authorization Code
  * *Callback URL*: http://localhost:9000 *[or whatever is the call back url for the Keycloak client that is being used]*
- * *Auth URL*: http://localhost:8081/auth/realms/tdr/protocol/openid-connect/auth *[or whatever is the authorisation url for the Keycloak client that is being used]*
- * *Access Token URL*: http://localhost:8081/auth/realms/tdr/protocol/openid-connect/token *[or whatever is the access token url for the Keycloak client that is being used]*
+ * *Auth URL*: http://localhost:8081/realms/tdr/protocol/openid-connect/auth *[or whatever is the authorisation url for the Keycloak client that is being used]*
+ * *Access Token URL*: http://localhost:8081/realms/tdr/protocol/openid-connect/token *[or whatever is the access token url for the Keycloak client that is being used]*
  * *Client ID*: tdr
  * *Client Secret*: *[the TDR client secret in Keycloak]*
  * *Scope*: openid
