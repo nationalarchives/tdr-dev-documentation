@@ -49,7 +49,7 @@ The Transfer Engine service sits within a different AWS account. To allow commun
 * If the Transform Engine requires a retry of any transfer, it sends a message to a TDR SQS queue that triggers a new notification to be sent back from TDR to the Transform Engine SQS queue.
   * Note: the retry message from the Transform Engine does not trigger a re-export of the transfer.
   
-It is like in the future that this functionality will be expanded to include all transfers from TDR, and not just judgment transfers.
+It is likely in the future that this functionality will be expanded to include all transfers from TDR, and not just judgment transfers.
 
 ### Initial assumptions
 
