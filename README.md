@@ -60,6 +60,10 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-e2e-tests](https://github.com/nationalarchives/tdr-e2e-tests) - End to end tests for TDR
 
+### Reporting
+
+- [tdr-reporting](https://github.com/nationalarchives/tdr-reporting) - TDR reporting
+
 ### Local development
 
 - [tdr-local-aws](https://github.com/nationalarchives/tdr-local-aws) - Emulate backend file checks in the development environment
