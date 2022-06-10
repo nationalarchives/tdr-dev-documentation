@@ -98,6 +98,7 @@ Go to "General" settings (as the top), and scroll down to "Automatically delete 
 
 * Go back to the repo and select the "Settings"
 * Select "Branches"
+* Under "Branch protection rules", click the "edit" button for the main branch that you created a few steps ago
 * Under "Require branches to be up to date before merging" (that you selected previously), you should now see a search
   bar with the placeholder text "Search for status checks in the last week for this repository"
 * type in "test / test" and select that status check option
