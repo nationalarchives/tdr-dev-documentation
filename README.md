@@ -38,6 +38,7 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-consignment-export](https://github.com/nationalarchives/tdr-consignment-export) - Task for exporting a consignment from TDR
 - [tdr-consignment-export-authoriser](https://github.com/nationalarchives/tdr-consignment-export-authoriser) - Lambda which authorises a request to export a consignment
+- [tdr-export-status-update](https://github.com/nationalarchives/tdr-export-status-update) - Lambda which changes the export status of a consignment
 
 ### Infrastructure and deployment
 
