@@ -8,7 +8,17 @@ Create a repo in <https://github.com/nationalarchives> by clicking the "New" but
 * The repo should be public unless you have a [good reason to make it closed][open-code]
 * Click "Create Repository"
 
-## 2. Add a README
+## 2. Add Terraform Secrets
+
+### Add terraform backend secrets
+
+Add a Terraform backend secrets module for your new repo to the `root_github.tf` file of the Terraform backend project [like so][terraform-backends-module-example] and make a PR for this change.
+
+### Add terraform environment secrets
+
+Add a Terraform secrets module for your new repo to the `root_github.tf` file of the Terraform environments project [like so][terraform-environments-module-example] and make a PR for this change.
+
+## 3. Add a README
 
 On the next page, steps should appear for how to create a repo via the command line, if they do follow those
 instructions, if not, follow these instructions:
@@ -22,7 +32,7 @@ instructions, if not, follow these instructions:
 7. git remote add origin `git@github.com:nationalarchives/{name of repo}.git`
 8. git push -u origin main
 
-## 3. Add a licence
+## 4. Add a licence
 
 In the parent directory add an open source licence with the name "licence"
 
@@ -31,16 +41,16 @@ In the parent directory add an open source licence with the name "licence"
 * For documentation, add an MIT licence for the code and an [Open Government Licence][ogl] for the content. See this
   repo's LICENCE file the licence note in the README for an example.
 
-## 4. Add a config file
+## 5. Add a config file
 
 **If** the project contains a [dependabot supported package manager][supported-package-managers] then add
 a [dependabot config file][dependabot-config]
 to the `workflows` folder in the `.github` folder (create a .github folder if one doesn't exist). If the project doesn't
 contain a dependabot supported package manager then skip this step.
 
-## 5. Choose the correct settings for the repo
+## 6. Choose the correct settings for the repo
 
-### 5a. Add teams
+### 6a. Add teams
 
 Once in the repo, click the "Settings" button (at the top) to update the repo's settings:
 
@@ -53,11 +63,11 @@ Once in the repo, click the "Settings" button (at the top) to update the repo's 
         * give **admin** access to this team
         * click the green "Add" button to add it
 
-### 5b. Automatically delete head branches
+### 6b. Automatically delete head branches
 
 Go to "General" settings (as the top), and scroll down to "Automatically delete head branches" and select this
 
-### 5c. Set rules for main branch
+### 6c. Set rules for main branch
 
 * In "Branches", you should see the "main" branch.
 * Under "Branch protection rules" select "Add rule"
@@ -72,14 +82,14 @@ Go to "General" settings (as the top), and scroll down to "Automatically delete 
         * **Require status checks to pass before merging**
             * **Require branches to be up-to-date before merging** *(sub option)*
                 * **Note**: the GitHub Actions test job will need to be configured first before this status check will
-                  appear; see step 6 (below) for more information on how to do this.
+                  appear; see step 7 (below) for more information on how to do this.
     * **Require signed commits**
     * **Include administrators**
 * Click the "Save changes" button
 
-### 6. Add file dependencies
+### 7. Add file dependencies
 
-#### 6a. Add workflow files
+#### 7a. Add workflow files
 
 We use GiHub Actions in order to test, build and deploy our projects; since step 5 was all about requiring status checks,
 The GitHub Actions files it runs would need to be added.
@@ -99,7 +109,7 @@ The GitHub Actions files it runs would need to be added.
 * Once this is done, commit the files and push them to the repo; you will notice that the test job will start running
     * **Note**: In order to push to the repo, you'll need to create a new branch
 
-#### 6b. Add the files that the workflow files rely on
+#### 7b. Add the files that the workflow files rely on
 
 The workflow files might have a rule that runs a command like `sbt assembly`; in order for it to do that it would need
 the `build.sbt` file to be present. Add the files that are necessary for the workflow files to run for example:
@@ -111,7 +121,7 @@ the `build.sbt` file to be present. Add the files that are necessary for the wor
 
 and make sure that each of the files you add, contain all the dependencies/commands necessary
 
-### 7. Select status checks that are required before merging
+### 8. Select status checks that are required before merging
 
 * Go back to the repo and select the "Settings"
 * Select "Branches"
@@ -120,7 +130,7 @@ and make sure that each of the files you add, contain all the dependencies/comma
   bar with the placeholder text "Search for status checks in the last week for this repository"
 * type in "test / test" and select that status check option
 
-### 8. Remove yourself from list of who can manage access
+### 9. Remove yourself from list of who can manage access
 
 * Go to the "Settings"
 * Under In the "Manage access" section, you should see your account that has been given admin
@@ -128,7 +138,7 @@ and make sure that each of the files you add, contain all the dependencies/comma
     * *Since you are either a part of the "Transfer Digital Records" or "Transfer Digital Records Admins", you will
       still be able to at least write to this repo*
 
-### 9. Link other repos to project
+### 10. Link other repos to project
 
 * Add a link from the new project's README to this documentation, to add context for anyone who finds the project
 * Add the new project to the repo list in the README of **this** project
@@ -147,5 +157,9 @@ and make sure that each of the files you add, contain all the dependencies/comma
 [ogl]: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 
 [list of repos maintained by Scala Steward]: https://github.com/nationalarchives/tdr-github-actions/blob/main/repos.md
+
+[terraform-backends-module-example]: https://github.com/nationalarchives/tdr-terraform-backend/blob/50be75b8a76d7a3694c38e5772ad689e743e7530/root_github.tf#L456
+
+[terraform-environments-module-example]: https://github.com/nationalarchives/tdr-terraform-environments/blob/master/root_github.tf#L407
 
 [workflow-files]: https://github.com/nationalarchives/tdr-github-actions/tree/main/.github/workflows
