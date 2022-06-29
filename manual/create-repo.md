@@ -71,15 +71,20 @@ Go to "General" settings (as the top), and scroll down to "Automatically delete 
       rules should be set for the *main* rule:
         * **Require status checks to pass before merging**
             * **Require branches to be up-to-date before merging** *(sub option)*
-                * **Note**: the GitHub Actions job will need to be configured first before this status check will
-                  appear.
+                * **Note**: the GitHub Actions test job will need to be configured first before this status check will
+                  appear; see step 6 (below) for more information on how to do this.
     * **Require signed commits**
     * **Include administrators**
 * Click the "Save changes" button
 
-### 6. Add workflow files
+### 6. Add file dependencies
 
-* In the repo, if there isn't a `.github` directory create one
+#### 6a. Add workflow files
+
+We use GiHub Actions in order to test, build and deploy our projects; since step 5 was all about requiring status checks,
+The GitHub Actions files it runs would need to be added.
+
+* In the repo, if there isn't already a `.github` directory, create one
 * Within that `.github` directory, create a `workflows` directory
 * copy the `build.yml`, `deploy.yml` and `test.yml` from a similar repo ([example][example-repo-workflow-files])
 * For the build.yml
@@ -93,6 +98,18 @@ Go to "General" settings (as the top), and scroll down to "Automatically delete 
       project needs to test its code
 * Once this is done, commit the files and push them to the repo; you will notice that the test job will start running
     * **Note**: In order to push to the repo, you'll need to create a new branch
+
+#### 6b. Add the files that the workflow files rely on
+
+The workflow files might have a rule that runs a command like `sbt assembly`; in order for it to do that it would need
+the `build.sbt` file to be present. Add the files that are necessary for the workflow files to run for example:
+
+1. Dependencies
+2. plugins.sbt
+3. build.sbt
+4. package.json
+
+and make sure that each of the files you add, contain all the dependencies/commands necessary
 
 ### 7. Select status checks that are required before merging
 
