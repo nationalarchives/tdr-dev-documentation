@@ -18,4 +18,4 @@ The advantages of doing this are:
 
 This does mean that TDR is dependant on the Cataloguing team for a quick turn around for series assignment
 
-
+![Chart to show workflow](images/temp-series-workflow.png)
