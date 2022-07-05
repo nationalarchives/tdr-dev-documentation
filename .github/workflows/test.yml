@@ -1,0 +1,15 @@
+name: TDR Run Git Secrets
+on:
+  pull_request:
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: nationalarchives/tdr-github-actions/.github/actions/run-git-secrets@main
+      - uses: nationalarchives/tdr-github-actions/.github/actions/slack-send@main
+        if: failure()
+        with:
+          message: ":warning: Secrets found in repository tdr-dev-documentation"
+          slack-url: ${{ secrets.SLACK_WEBHOOK }}
