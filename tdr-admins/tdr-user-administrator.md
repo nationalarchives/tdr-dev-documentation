@@ -16,12 +16,12 @@ TDR user administrators have rights and privileges to manage:
 
 ## Setting Up As TDR User Administrator
 
-1. Contact TDR team to request set up as a TDR user administrator: *[email address and other contact details to be confirmed]*
+1. Contact TDR team to request set up as a TDR user administrator: tdr@nationalarchives.gov.uk
 2. You will receive an email from the TDR team with:
   * your user name
   * URL to the Keycloak application: https://auth.tdr.nationalarchives.gov.uk/auth/admin/tdr/console
 3. A separate email will be sent with an URL link for you to set a password
-4. Ensure you have either Microsoft Authenticator (https://www.microsoft.com/en-us/account/authenticator), or Google Authenticator (https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB) available as you will need these to log on to the Keycloak application
+4. Ensure you have either Google Authenticator (https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB) or Microsoft Authenticator (https://www.microsoft.com/en-us/account/authenticator) available as you will need these to log on to the Keycloak application
 5. Log on to the Keycloak application for the first time:
   * **Note**: accessing Keycloak can only be done on the TNA network, via Citrix or connecting to TNA using PulseSecure
   * Go to the provided URL
@@ -59,21 +59,42 @@ If a new user needs to be added, then:
     * First Name
     * Last Name
     * Email
-4. In the "Required User Actions" add the following options:  
-  * Configure OTP: *(this will enforce MFA)*
-5. Click "save"
-6. Under the "Credentials" tab: ![](images/tdr-user-administrator/adding_new_tb_user/users_3_v3.png)
-7. Request the user updates their password:
-  * Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option and the "Configure OTP (CONFIGURE_TOTP)" option to the "Reset Actions"
+4. Click "save"
+5. Go to the "Groups" tab
+6. From the "Available Groups" box select the transferring body the new user belongs to: ![](images/tdr-user-administrator/adding_new_tb_user/users_4.png)
+  * If the transferring body does not appear go to the "Adding a new transferring body" section for details of how to add a new transferring body
+7. Add the new user to the relevant transferring body by clicking "Join"
+8. From the "Available Groups" box select "user type" for the user:
+  * *Judgment User*: 
+    * **Note**: this group should only be applied to users who will be transferring judgments
+    * add the new user to the "user_type/judgment_user" group: ![](images/tdr-user-administrator/adding_new_tb_user/users_5.png)
+    * the user should show two groups in "Group Membership", "transferring body" and "user type": ![](images/tdr-user-administrator/adding_new_tb_user/users_6.png)   
+  * *Standard User*:
+    * **Note**: this group should be applied to all users, other than those who will be transferring judgments
+    * add the new user to the "user_type/standard_user": ![](images/tdr-user-administrator/adding_new_tb_user/users_7.png)
+    * the user should show two groups in "Group Membership", "transferring body" and "user type": ![](images/tdr-user-administrator/adding_new_tb_user/users_8.png)
+9. Under the "Credentials" tab: ![](images/tdr-user-administrator/adding_new_tb_user/users_3_v3.png)
+10. Request the user updates their password:
+  * Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option 
+  * If the user will be using an app for MFA, add the "Configure OTP (CONFIGURE_TOTP)" option to the "Reset Actions"
+  * If the user will be using a hardware USB token for MFA, add the "Webauthn Register (webauthn-register)" option to the "Reset Actions"
   * Click the "Send Email" button. This will send an email to the user, with a URL link requesting they configure TOTP and set a password
   * An email confirmation dialog box will appear if the email was sent successfully.
-8. Go to the "Groups" tab
-9. From the "Available Groups" box select the transferring body the new user belongs to: ![](images/tdr-user-administrator/adding_new_tb_user/users_4.png)
-  * If the transferring body does not appear go to the "Adding a new transferring body" section for details of how to add a new transferring body
-10. Add the new user to the relevant transferring body.
 11. Go back to the Users page
 12. Click "View all users"
-13. New user should appear in the list of all users: ![](images/tdr-user-administrator/adding_new_tb_user/users_5.png)
+13. New user should appear in the list of all users: ![](tdr-dev-documentation/tdr-admins/images/tdr-user-administrator/adding_new_tb_user/users_9.png)
+
+### Resetting existing user's OTP
+
+If an existing user's OTP needs resetting, then:
+1. Go to the "Users" page: ![](images/tdr-user-administrator/resetting_password/reset_password_1.png)
+2. Search for the user using their email address: ![](images/tdr-user-administrator/resetting_password/reset_password_2.png)
+3. Go to the user's details
+4. Under "Required User Actions" section add the "Configure OTP (CONFIGURE_TOTP)" option
+5. Go to the user's Credentials tab
+6. Select "Delete" next to their existing OTP entry to remove their current OTP credentials
+7. Inform the user to delete any previous OTP accounts in their authenticator app before they set up their new OTP
+8. When the user signs in with their existing email and password they will be prompted on screen to scan a new QR code to set up their OTP 
 
 ### Resetting existing user's password
 
@@ -81,6 +102,28 @@ If an existing user's password needs resetting, then:
 1. Go to the "Users" page: ![](images/tdr-user-administrator/resetting_password/reset_password_1.png)
 2. Search for the user using their email address: ![](images/tdr-user-administrator/resetting_password/reset_password_2.png)
 3. Go to the user's details
-4. Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option to the "Reset Actions": ![](images/tdr-user-administrator/resetting_password/reset_password_3.png)
-5. Click the "Send Email" button. This will send an email to the user, with a URL link requesting they reset their password
-6. An email confirmation dialog box will appear if the email was sent successfully.
+4. Go to the user's Credentials tab
+5. Select "Delete" next to their existing password to remove their password credentials
+6. Under the "Credentials Reset" section add the "Update Password (UPDATE_PASSWORD)" option to the "Reset Actions": ![](images/tdr-user-administrator/resetting_password/reset_password_3.png)
+7. Click the "Send Email" button. This will send an email to the user, with a URL link requesting they reset their password
+8. An email confirmation dialog box will appear if the email was sent successfully.
+
+### Disabled user account
+
+A user's account maybe become disabled for several reasons:
+
+* too many failed log in attempts
+* manually disabled
+
+A disabled user account will look like this: ![](images/tdr-user-administrator/disabled-user-account/disabled_account.png)
+
+On the Details tab the `User Enabled` toggle will be set to `Off`
+
+If a user's account is disabled it is not possible to send an email to the user.
+
+#### Re-enable a user account
+
+To re-enable the user's account, and allow the sending of email:
+1. Change the `User Enabled` toggle to `On`; and 
+2. Click `Save`
+3. The user account should then look like this: ![](images/tdr-user-administrator/disabled-user-account/enabled_account.png)

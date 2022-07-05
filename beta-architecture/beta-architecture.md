@@ -35,6 +35,22 @@ This diagram shows the interactions between the different AWS accounts:
 The applications which make up TDR run within each environments. For example,
 each environment has a frontend application, API, auth server, etc.
 
+## Transform Engine Service
+
+As part of the Find Case law service TDR accepts judgment transfers.
+
+TDR communicates with the Transfer Engine service to support the Find Case law service.
+
+The Transfer Engine service sits within a different AWS account. To allow communication between the two accounts, relevant IAM roles are given permission to access the AWS resources across the accounts.
+
+### Communication Between TDR and Transform Engine
+
+* Upon export of a judgment transfer TDR send a message to an SQS queue belonging to the Transform Engine with details of the transfer allowing the Transform Engine to process the judgment.
+* If the Transform Engine requires a retry of any transfer, it sends a message to a TDR SQS queue that triggers a new notification to be sent back from TDR to the Transform Engine SQS queue.
+  * Note: the retry message from the Transform Engine does not trigger a re-export of the transfer.
+  
+It is likely in the future that this functionality will be expanded to include all transfers from TDR, and not just judgment transfers.
+
 ### Initial assumptions
 
 * We don't yet need to integrate TDR with any other systems, though we might
