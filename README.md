@@ -38,6 +38,7 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-consignment-export](https://github.com/nationalarchives/tdr-consignment-export) - Task for exporting a consignment from TDR
 - [tdr-consignment-export-authoriser](https://github.com/nationalarchives/tdr-consignment-export-authoriser) - Lambda which authorises a request to export a consignment
+- [tdr-export-status-update](https://github.com/nationalarchives/tdr-export-status-update) - Lambda which changes the export status of a consignment
 
 ### Infrastructure and deployment
 
@@ -60,6 +61,10 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-e2e-tests](https://github.com/nationalarchives/tdr-e2e-tests) - End to end tests for TDR
 
+### Reporting
+
+- [tdr-reporting](https://github.com/nationalarchives/tdr-reporting) - TDR reporting
+
 ### Local development
 
 - [tdr-local-aws](https://github.com/nationalarchives/tdr-local-aws) - Emulate backend file checks in the development environment
@@ -67,12 +72,14 @@ The current repositories relating to TDR, and their purpose are:
 ### Documentation repos
 
 - [tdr-dev-documentation](https://github.com/nationalarchives/tdr-dev-documentation) - For TDR development documentation
+- [tdr-dev-documentation-internal](https://github.com/nationalarchives/tdr-dev-documentation-internal) - A private repo with development documentation that cannot be added to the public docs
 - [tdr-design-documentation](https://github.com/nationalarchives/tdr-design-documentation) - Design decisions and wireframes
 
 ### Prototype repos
 
 Prototypes and proofs of concept built during the Beta phase:
 
+- [tdr-prototype-cookie-signing](https://github.com/nationalarchives/tdr-prototype-cloudfront-cookie-signing) - Prototype of a Lambda function which generates signed cookies for S3 uploads
 - [tdr-prototype-json-logging](https://github.com/nationalarchives/tdr-prototype-json-logging) - Prototype of a Scala application which writes logs in a JSON format
 - [tdr-interactive-prototype](https://github.com/nationalarchives/tdr-interactive-prototype) - Interactive prototype using the GOV.UK Prototype Kit
 
