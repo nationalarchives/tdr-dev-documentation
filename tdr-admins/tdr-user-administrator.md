@@ -127,3 +127,10 @@ To re-enable the user's account, and allow the sending of email:
 1. Change the `User Enabled` toggle to `On`; and 
 2. Click `Save`
 3. The user account should then look like this: ![](images/tdr-user-administrator/disabled-user-account/enabled_account.png)
+
+## Find a user on Keycloak with just the user ID
+
+To locate a specific user when you only have their user ID code:
+1. Navigate to any user's details 
+2. In the url, you'll see the users ID. Change that by overtyping the ID of the user you want to find.
+3. Refresh the page and it will take you to that user's full details.
