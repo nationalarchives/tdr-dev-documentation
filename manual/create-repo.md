@@ -10,6 +10,8 @@ Create a repo in <https://github.com/nationalarchives> by clicking the "New" but
 
 ## 2. Add Terraform Secrets
 
+If environment secrets are going to be needed in the workflow files (mentioned later), if you haven't already, you are going to have to define them in the `root_github.tf` file(s) of the Terraform projects:
+
 ### Add terraform backend secrets
 
 Add a Terraform backend secrets module for your new repo to the `root_github.tf` file of the Terraform backend project [like so][terraform-backends-module-example] and make a PR for this change.
