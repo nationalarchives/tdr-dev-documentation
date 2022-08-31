@@ -14,7 +14,7 @@ If environment secrets are going to be needed in the workflow files (mentioned l
 
 ### Add terraform backend secrets
 
-Add a Terraform backend secrets module for your new repo to the `root_github.tf` file of the Terraform backend project [like so][terraform-backends-module-example] and make a PR for this change.
+Add a Terraform backend secrets module for your new repo to the `root_github.tf` file of the Terraform backend project [like so][terraform-backend-module-example] and make a PR for this change.
 
 ### Add terraform environment secrets
 
@@ -47,8 +47,9 @@ In the parent directory add an open source licence with the name "licence"
 
 **If** the project contains a [dependabot supported package manager][supported-package-managers] then add
 a [dependabot config file][dependabot-config]
-to the `workflows` folder in the `.github` folder (create a .github folder if one doesn't exist). If the project doesn't
-contain a dependabot supported package manager then skip this step.
+to the `workflows` folder in the `.github` folder (create a .github folder if one doesn't exist). 
+
+If the project doesn't contain a dependabot supported package manager, then skip this step.
 
 ## 6. Choose the correct settings for the repo
 
@@ -94,7 +95,7 @@ Go to "General" settings (as the top), and scroll down to "Automatically delete 
 #### 7a. Add workflow files
 
 We use GiHub Actions in order to test, build and deploy our projects; since step 5 was all about requiring status checks,
-The GitHub Actions files it runs would need to be added.
+the GitHub Actions files it runs, need to be added.
 
 * In the repo, if there isn't already a `.github` directory, create one
 * Within that `.github` directory, create a `workflows` directory
@@ -121,24 +122,24 @@ the `build.sbt` file to be present. Add the files that are necessary for the wor
 3. build.sbt
 4. package.json
 
-and make sure that each of the files you add, contain all the dependencies/commands necessary
+Make sure that each of the files you add, contain all the dependencies/commands necessary
 
 ### 8. Select status checks that are required before merging
 
 * Go back to the repo and select the "Settings"
 * Select "Branches"
-* Under "Branch protection rules", click the "edit" button for the main branch that you created a few steps ago
-* Under "Require branches to be up to date before merging" (that you selected previously), you should now see a search
+* Under "Branch protection rules", click the "edit" button for the main branch that you created
+* Under "Require branches to be up-to-date before merging" (that you selected previously), you should now see a search
   bar with the placeholder text "Search for status checks in the last week for this repository"
 * type in "test / test" and select that status check option
 
 ### 9. Remove yourself from list of who can manage access
 
 * Go to the "Settings"
-* Under In the "Manage access" section, you should see your account that has been given admin
+* Under the "Manage access" section, you should see your account that has been given admin access
 * Next to your account, Click "remove"
     * *Since you are either a part of the "Transfer Digital Records" or "Transfer Digital Records Admins", you will
-      still be able to at least write to this repo*
+      still have access rights to this repo*
 
 ### 10. Link other repos to project
 
@@ -160,7 +161,7 @@ and make sure that each of the files you add, contain all the dependencies/comma
 
 [list of repos maintained by Scala Steward]: https://github.com/nationalarchives/tdr-github-actions/blob/main/repos.md
 
-[terraform-backends-module-example]: https://github.com/nationalarchives/tdr-terraform-backend/blob/50be75b8a76d7a3694c38e5772ad689e743e7530/root_github.tf#L456
+[terraform-backend-module-example]: https://github.com/nationalarchives/tdr-terraform-backend/blob/50be75b8a76d7a3694c38e5772ad689e743e7530/root_github.tf#L456
 
 [terraform-environments-module-example]: https://github.com/nationalarchives/tdr-terraform-environments/blob/master/root_github.tf#L407
 
