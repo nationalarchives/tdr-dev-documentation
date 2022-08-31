@@ -22,6 +22,7 @@ things like deploying code or debugging complex parts of the stack.
 * [ECR scans](alerts/ecr-scans.md)
 * [Missed Jenkins backups](alerts/missed-jenkins-backups.md)
 * [Rotate AWS keys](alerts/rotate-aws-keys.md)
+* [Rotate Client Secrets](alerts/client-secret-rotation.md)
 
 ### CI/CD
 
@@ -33,6 +34,9 @@ things like deploying code or debugging complex parts of the stack.
 ### Code repositories
 
 * [Create a repo](create-repo.md)
+
+### Database permissions
+* [Fix permission denied errors for new tables](fix-database-permissions.md)
 
 ### Database restore
 * [Restore either the Keycloak or Consignment API database](https://github.com/nationalarchives/tdr-scripts/blob/master/terraform/restore-database/README.md)
