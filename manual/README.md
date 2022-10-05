@@ -54,6 +54,7 @@ things like deploying code or debugging complex parts of the stack.
 * [Deploy code to production](development-process/production-deployemnt.md)
 * [Plan a user story](development-process/plan-story.md)
 * [Test accessibility of a feature](development-process/test-accessibility.md)
+* [Add a user as an outside collaborator](development-process/add-user-as-outside-collaborator.md)
 
 ### Development setup
 
@@ -71,3 +72,6 @@ things like deploying code or debugging complex parts of the stack.
 ### Keycloak
 
 * [Retrieve Authorisation Token From Keycloak](keycloak-retrieve-token.md)
+
+### Reporting
+* [Running TDR reports using GitHub actions](tdr-reporting.md)
