@@ -17,6 +17,7 @@ Go to the [tdr-reporting actions page](https://github.com/nationalarchives/tdr-r
 Click "Run workflow" which will give you options like this:
 
 ![](./images/reporting_drop_down.png)
+
 You can ignore the first dropdown with Branch: main in it. The other three can be configured:
 
 ### Environment
@@ -39,7 +40,7 @@ This report has fewer details than the standard report and only shows judgment t
 
 ### Emails
 The job will send the report through to Slack so this needs to be the email address associated with your TNA slack account. You can add more than one email address for multiple recipients but each needs to be enclosed in double quotes and separated by a comma. For example:
-"user1@nationalarchives.gov.uk"
-"user1@nationalarchives.gov.uk","user2@nationalarchives.gov.uk"
+* "user1@nationalarchives.gov.uk"
+* "user1@nationalarchives.gov.uk","user2@nationalarchives.gov.uk"
 
 The report will run and when it has finished, you should get a message from a Slack bot with a CSV file with your requested report.
