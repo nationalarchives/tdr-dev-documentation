@@ -51,6 +51,18 @@ The Transfer Engine service sits within a different AWS account. To allow commun
   
 It is likely in the future that this functionality will be expanded to include all transfers from TDR, and not just judgment transfers.
 
+#### Transform Engine Version 2 Architecture
+
+Transform Engine is changing the way it communicates with external systems.
+
+See details of this here:
+* [TRE version 2 Architecture](https://github.com/nationalarchives/da-transform-dev-documentation/blob/master/architecture-decision-records/002-New-messaging-architecture.md)
+* [TDR to TRE Integration](https://github.com/nationalarchives/da-transform-dev-documentation/blob/master/architecture-decision-records/003-New-TDR-TRE-integration.md)
+
+TDR will support this new architecture, in parallel with the original, until TRE fully migrates to version 2.
+
+Once the migration from the original architecture to the new architecture is complete, the TDR resources used to support the original architecture will be removed.
+
 ### Initial assumptions
 
 * We don't yet need to integrate TDR with any other systems, though we might
