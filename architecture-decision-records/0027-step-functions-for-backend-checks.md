@@ -7,7 +7,7 @@ Once the files in TDR are uploaded, we run antivirus, a server side checksum and
 
 We also need to set various file and consignment statuses based on the results of the checks.
 
-We also need to now the status of any redacted files in the consignment.
+We also need to know the status of any redacted files in the consignment.
 
 ## Options considered
 ### Use the existing process
@@ -29,14 +29,15 @@ It will be triggered by API Gateway and authenticated with the existing consignm
 
 #### Advantages
 * It is run once per consignment which won't block smaller transfers with larger ones. 
-* We can run a lambda once all the file checks are complete which means updating consignment statuses which apply to all files easier.
+* We can run a lambda once all the file checks are complete, this makes it easier to update consignment statuses, which require all files statuses.
 * It allows a lot of the status updates related to the backend checks to be decoupled from the API.
 * It allows us to centralise the error handling, sending errors to the notifications service when there is any exception in the process.
 
 #### Disadvantes
-* It will be more expensive, as we have to pay for step function transitions as well as the lambda invocations we were already paying for.
+* It will be more expensive, as we have to pay for step function transitions as well as the lambda invocations we were already paying for. We do need prevent the blocking of smaller transfers and another solution, for example, a larger DB  instance, would mean increased costs elsewhere.
 
 ## Decision
-We have decided to move the backend checks to use step functions. The main reason is that this will prevent larger consignments blocking smaller ones. 
+We have decided to move the backend checks to use step functions. The main reason is that this will prevent larger consignments blocking smaller ones.
+TDR now supports the transfers of judgments, which means a lot of small, single file transfers happen daily, which was not considered as something TDR would need to support in the original design. In addition there are SLAs regarding the time taken to process judgment transfers
 By moving a lot of the status logic out of the API and into the step function, we can make the API less complicated and easier to maintain.
-As we are only updating the API once per consignmnent, we can run more of the checks in parallel which shoudl reduce the time taken for the checks on large numbers of files.
+As we are only updating the API once per consignmnent, we can run more of the checks in parallel which should reduce the time taken for the checks on large numbers of files.
