@@ -96,12 +96,12 @@ host i-* mi-*
   
   Select the reader cluster in the RDS Databases page in the console  
   Run `aws rds describe-db-cluster-endpoints | jq '.DBClusterEndpoints[] | select(.EndpointType == "READER") | .Endpoint'
-  ` and select the endpoint for the consginment API.
+  ` and select the endpoint for the consignment API.
 * Run the ssh tunnel `ssh ec2-user@<instance_id> -N -L 65432:<db_cluster_endpoint>:5432`
 * Update your hosts file. In *nix systems, this is in `/etc/hosts`, on Windows, it is in `C:\Windows\System32\drivers\etc\hosts` You will need to add an entry like
 
 `127.0.0.1    <db_cluster_endpoint> `
-* Get the password for the database. This password has a 15 minute expiry. If you want to connect again after that, you will need to generate a new password.
+* Get the password for the database. This password has a 15-minute expiry. If you want to connect again after that, you will need to generate a new password.
 
 `aws rds generate-db-auth-token --profile <profile_name> --hostname <db_cluster_endpoint> --port 5432 --region eu-west-2 --username bastion_user`
 
