@@ -5,7 +5,7 @@ Using a bastion to connect to the database should be a last resort. For business
 
 To bring up a Bastion host you must:
 
-* Go to the "TDR scripts" repo on GitHub and select the ["Actions" tab](https://github.com/nationalarchives/tdr-scripts/actions/workflows/bastion_deploy.yml)
+* Go to the "TDR scripts" repo on GitHub and select the ["Deploy bastion"](https://github.com/nationalarchives/tdr-scripts/actions/workflows/bastion_deploy.yml), under the "Actions" tab
 * Click the "Run workflow" button
 * For "The stage to deploy the bastion to" - Enter the environment you wish to access e.g. `intg`
 * For "Whether to apply or destroy the bastion" - keep as `apply`
