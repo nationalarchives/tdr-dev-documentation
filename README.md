@@ -14,10 +14,13 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-auth-server](https://github.com/nationalarchives/tdr-auth-server) - Jenkins and docker configuration to build and deploy the Keycloak server
 - [tdr-auth-utils](https://github.com/nationalarchives/tdr-auth-utils) - A library of useful auth functions
+- [tdr-keycloak-user-management](https://github.com/nationalarchives/tdr-keycloak-user-management) - Library to create Keycloak users
+- [tdr-signed-cookies](https://github.com/nationalarchives/tdr-signed-cookies) - generates signed cookie for upload
 
 ### Frontend libraries
 
 - [tdr-file-metadata](https://github.com/nationalarchives/tdr-file-metadata) - Library for extracting file metadata like client-side checksums
+- [tdr-components](https://github.com/nationalarchives/tdr-components) - Library of re-usable UI components
 
 ### Data migrations and backend libraries
 
@@ -30,9 +33,13 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-antivirus](https://github.com/nationalarchives/tdr-antivirus/) - Task for scanning uploaded files for malware
 - [tdr-api-update](https://github.com/nationalarchives/tdr-api-update/) - Task for sending the results of file checks to the API
+- [tdr-backend-checks-utils](https://github.com/nationalarchives/tdr-backend-checks-utils) - Reads/Writes step function states to S3 to track file checks during processing
+- [tdr-backend-checks-results](https://github.com/nationalarchives/tdr-backend-checks-results) - Aggregates the results of each file check and writes to the S3 in a format readable by other file checks
 - [tdr-checksum](https://github.com/nationalarchives/tdr-checksum/) - Task for calculating the server-side checksum of uploaded files
-- [tdr-download-files](https://github.com/nationalarchives/tdr-download-files/) - Task for transferring a file from S3 to EFS, where it can be used by the rest of the file checks
+- [tdr-file-upload-data](https://github.com/nationalarchives/tdr-file-upload-data/) - Task for retrieving file data to be used by the rest of the file checks
 - [tdr-file-format](https://github.com/nationalarchives/tdr-file-format/) - Task for determining the format of uploaded files
+- [tdr-redacted-files](https://github.com/nationalarchives/tdr-redacted-files) - Task for checking redacted files include original version in upload
+- [tdr-statuses](https://github.com/nationalarchives/tdr-statuses) - Lambda process to update task statuses
 
 ### Export steps
 
@@ -43,11 +50,14 @@ The current repositories relating to TDR, and their purpose are:
 ### Infrastructure and deployment
 
 - [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
+- [tdr-create-db-users](https://github.com/nationalarchives/tdr-create-db-users) - Task that creates DB users for other processes to use, so master user doesn't have to be used
 - [tdr-configurations](https://github.com/nationalarchives/tdr-configurations) - Private repository for configuration files and parameters
 - [tdr-ecr-scan](https://github.com/nationalarchives/tdr-ecr-scan) - Task which starts an ECR image scan for Docker images which are currently in use
 - [tdr-ecr-scan-notifications](https://github.com/nationalarchives/tdr-ecr-scan-notifications) - Task which sends alerts when ECR scans detect a Docker image vulnerability
-- [tdr-jenkins](https://github.com/nationalarchives/tdr-jenkins) - Terraform scripts and Dockerfiles to create the Jenkins server and its build nodes.
-- [tdr-jenkinslib](https://github.com/nationalarchives/tdr-jenkinslib) - Shared groovy scripts for TDR jenkins jobs.
+- [tdr-github-actions](https://github.com/nationalarchives/tdr-github-actions) - shared set of GitHub actions, workflows and other scripts 
+- [tdr-rotate-keycloak-secrets](https://github.com/nationalarchives/tdr-rotate-keycloak-secrets) - Script to rotate secrets used on Keycloak
+- [tdr-service-unavailable](https://github.com/nationalarchives/tdr-service-unavailable) - script to deploy the service unavailable page
+- [tdr-scripts](https://github.com/nationalarchives/tdr-scripts) - set of individual scripts to support automation of regular development operations tasks
 - [tdr-terraform-backend](https://github.com/nationalarchives/tdr-terraform-backend) - Terraform scripts for setting up the Terraform backends in the TDR management account
 - [tdr-terraform-environments](https://github.com/nationalarchives/tdr-terraform-environments) - Terraform scripts for provisioning AWS resources to support the TDR application within the different environments
 - [tdr-terraform-modules](https://github.com/nationalarchives/tdr-terraform-modules) - Terraform modules for use by other Terraform repositories
@@ -55,7 +65,7 @@ The current repositories relating to TDR, and their purpose are:
 
 ### Monitoring
 
-- [tdr-grafana](https://github.com/nationalarchives/tdr-grafana) - Implementation of Grafana for TDR
+- [tdr-notification](https://github.com/nationalarchives/tdr-notifications) - Lambda to send TDR messages.
 
 ### Testing
 
