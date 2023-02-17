@@ -34,12 +34,12 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-antivirus](https://github.com/nationalarchives/tdr-antivirus/) - Task for scanning uploaded files for malware
 - [tdr-api-update](https://github.com/nationalarchives/tdr-api-update/) - Task for sending the results of file checks to the API
 - [tdr-backend-checks-utils](https://github.com/nationalarchives/tdr-backend-checks-utils) - Reads/Writes step function states to S3 to track file checks during processing
-- [tdr-backend-checks-results](https://github.com/nationalarchives/tdr-backend-checks-results) - Aggregates the results of each file check and writes to the S3 in a format readable by other file checks
+- [tdr-backend-checks-results](https://github.com/nationalarchives/tdr-backend-checks-results) - Aggregates the results of each file check and writes to S3 in a format readable by other file checks
 - [tdr-checksum](https://github.com/nationalarchives/tdr-checksum/) - Task for calculating the server-side checksum of uploaded files
 - [tdr-file-upload-data](https://github.com/nationalarchives/tdr-file-upload-data/) - Task for retrieving file data to be used by the rest of the file checks
 - [tdr-file-format](https://github.com/nationalarchives/tdr-file-format/) - Task for determining the format of uploaded files
 - [tdr-redacted-files](https://github.com/nationalarchives/tdr-redacted-files) - Task for checking redacted files include original version in upload
-- [tdr-statuses](https://github.com/nationalarchives/tdr-statuses) - Lambda process to update task statuses
+- [tdr-statuses](https://github.com/nationalarchives/tdr-statuses) - Lambda process to generate task statuses and pass them on to API update task
 
 ### Export steps
 
@@ -56,7 +56,7 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-ecr-scan-notifications](https://github.com/nationalarchives/tdr-ecr-scan-notifications) - Task which sends alerts when ECR scans detect a Docker image vulnerability
 - [tdr-github-actions](https://github.com/nationalarchives/tdr-github-actions) - shared set of GitHub actions, workflows and other scripts 
 - [tdr-rotate-keycloak-secrets](https://github.com/nationalarchives/tdr-rotate-keycloak-secrets) - Script to rotate secrets used on Keycloak
-- [tdr-service-unavailable](https://github.com/nationalarchives/tdr-service-unavailable) - script to deploy the service unavailable page
+- [tdr-service-unavailable](https://github.com/nationalarchives/tdr-service-unavailable) - TDR service unavailable page. Deployed through script in `tdr-scripts` repo
 - [tdr-scripts](https://github.com/nationalarchives/tdr-scripts) - set of individual scripts to support automation of regular development operations tasks
 - [tdr-terraform-backend](https://github.com/nationalarchives/tdr-terraform-backend) - Terraform scripts for setting up the Terraform backends in the TDR management account
 - [tdr-terraform-environments](https://github.com/nationalarchives/tdr-terraform-environments) - Terraform scripts for provisioning AWS resources to support the TDR application within the different environments
