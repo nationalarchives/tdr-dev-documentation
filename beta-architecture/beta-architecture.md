@@ -35,6 +35,12 @@ This diagram shows the interactions between the different AWS accounts:
 The applications which make up TDR run within each environments. For example,
 each environment has a frontend application, API, auth server, etc.
 
+## Upload and Transfer Sequence
+
+This diagram shows a high level view of the interactions between the different AWS services during the upload and transfer of files:
+
+![](./diagrams/tdr-transfer-sequence.svg)
+
 ## Transform Engine Service
 
 As part of the Find Case law service TDR accepts judgment transfers.
