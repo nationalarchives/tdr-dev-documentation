@@ -1,10 +1,12 @@
 # 28. Using Storybook for TDR Components library
 
+Date: 2023-03-14
+
 ## Context
 
 [TDR Components](https://github.com/nationalarchives/tdr-components) is a library of front-end components currently based on the way [GDS Frontend](https://github.com/alphagov/govuk-frontend) is setup. Proposal is to replace the current setup of TDR Components with [Storybook](https://storybook.js.org/). 
 
-That would involvde replacing the current custom express app that renders UI with Storybook. And rewriting the UI/interaction tests written in Puppeteer with Storybook's built in testing-library. 
+That would involve replacing the current custom express app that renders UI with Storybook. And rewriting the UI/interaction tests written in Puppeteer with Storybook's built in testing-library. 
 
 ## Considerations
 
@@ -16,7 +18,7 @@ Storybook provides an out-of-box inteface that isolates each component UI state.
 
 Each story is a JS or TS file that contain exports, which configure variations of the UI. Each variation is rendered in the Storybook interface allowing for much more detailed QA and acceptance testing for design, dev and other team members. 
 
-Storybook provides a play function that 'is a small snippet of code that runs after a story finishes rendering. You can use this to test user workflows.' ([source](https://storybook.js.org/docs/react/writing-tests/interaction-testing)) Within the play function you can use a convenient [API from Testing-Library](https://testing-library.com/docs/queries/about) for querying the DOM. This library focusses on allow you to access only the visible items or those made available to the [accessiblity tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree). As it states in the docs for this API:
+Storybook provides a play function that 'is a small snippet of code that runs after a story finishes rendering. You can use this to test user workflows.' ([source](https://storybook.js.org/docs/react/writing-tests/interaction-testing)) Within the play function you can use a convenient [API from Testing-Library](https://testing-library.com/docs/queries/about) for querying the DOM. This library focusses on allowing you to access only the visible items or those made available to the [accessiblity tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree). As it states in the docs for this API:
 
 >  (if you can't [use these functions to access the elements], it's possible your UI is inaccessible).
 
@@ -25,6 +27,10 @@ The elements state or content is then asserted against expectations using Jest f
 Storybook also provides out-of-the-box accessibility testing using Axe Core, which would be a straight swap for existing setup. 
 
 The interaction tests are run using storybook addons, which are effectively wrappers for Jest and Testing Library. This means we are paritially 'buying into' the ecosystem of Storybook, however there is evidence of the library's maturity and widespread use. The alternative is to write more verbose testing code for sometimes quite simple components. The labour saved amongst other benefits means we are more likely to write robust and comprehensive tests covering the multiple states a component can exist in. 
+
+## Decision
+
+After some exploratory testing of Storybook with the TDR Components library and comparison against the existing bespoke set-up using a Node/Express application we decided to implement Storybook and convert our existing tests to use the extensions built into Storybook. 
 
 ## Examples
 
