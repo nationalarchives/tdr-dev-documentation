@@ -1,5 +1,24 @@
 # TDR User Administrator Manual
 
+## Determining legitimate user requests
+
+### Standard Users
+
+All requests for a new TDR account should be referred to our Digital Transfer Advisors on [tdr@nationalarchives.gov.uk](mailto:tdr@nationalarchives.gov.uk) to validate the request before proceeding.
+
+### Judgment Users
+
+As agreed with the Judicial Office, any TDR new account requests can be automatically added providing that their email domain ends in:
+
+* @judiciary.net
+
+* @justice.gov.uk
+
+Any requests made from @supremecourt.uk should be checked with [paul.sandles@supremecourt.uk](mailto:paul.sandles@supremecourt.uk)
+
+All other requests received should be validated by the Judgments Judicial Helpdesk on [judgmentshelpdesk@judiciary.uk](mailto:judgmentshelpdesk@judiciary.uk)
+
+
 ## Role Description
 
 TDR user administrators have rights and privileges to manage:
