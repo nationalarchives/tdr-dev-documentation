@@ -10,7 +10,7 @@ All requests for a new TDR account should be referred to our Digital Transfer Ad
 
 As agreed with the Judicial Office, any TDR new account requests can be automatically added providing that their email domain ends in:
 
-* @judiciary.net
+* @ejudiciary.net
 
 * @justice.gov.uk
 
