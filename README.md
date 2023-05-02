@@ -75,6 +75,10 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-reporting](https://github.com/nationalarchives/tdr-reporting) - TDR reporting
 
+### Logging
+
+- [tdr-xray-logging](https://github.com/nationalarchives/tdr-xray-logging) - Custom open telemetry image for X-Ray logging
+
 ### Local development
 
 - [tdr-local-aws](https://github.com/nationalarchives/tdr-local-aws) - Emulate backend file checks in the development environment
