@@ -1,6 +1,6 @@
 # 29. AWS X-Ray for request monitoring
 
-**Date:** 2023-01-19
+**Date:** 2023-05-19
 
 ## Context
 We need a way to monitor requests made from our application, in addition to allowing us to view, filter and gain insights into that data to identify issues and opportunities for optimisation.
