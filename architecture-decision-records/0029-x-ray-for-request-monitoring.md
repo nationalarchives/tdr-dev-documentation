@@ -47,14 +47,14 @@ We need a way to monitor requests made from our application, in addition to allo
 * Limited Non-AWS Support: X-Ray's support for non-AWS services or environments is not as extensive compared to other monitoring solutions available in the market. 
 
 ## Decision
-We have decided to use AWS-Xray for it's ease of setup and integration with other AWS services. In addition, other teams on AWS can use similar setup, and we can aggregate the X-Ray logs into a central account.
+We have decided to use AWS-Xray for its ease of setup and integration with other AWS services. In addition, other teams on AWS can use similar setup, and we can aggregate the X-Ray logs into a central account.
 Other bonuses include 
 * The first 100,000 traces recorded each month are free.
 * The first 1,000,000 traces retrieved or scanned each month are free.
 
 There are two main ways to send trace data to AWS.
 * Use the AWS X-Ray SDK. This needs quite a few code changes within the application to collect the data although there are plugins for Play and Akka that will make this easier. This doesn’t help much if we’re trying to run traces from Keycloak though. As part of this, we need to run a container with the X-Ray daemon.
-* Use the AWS Distro for open telemetry This is much easier to integrate in that you add a jar to the docker image when it’s being built and set some java options and it works out of the box. You do need to run another container with the amazon/aws-otel-collector docker image. If you want custom annotations on your traces, for example consignment ID so we can track individual consignments through the system, then you need a custom build of the collector docker image.  There is a frontend branch and a terraform branch which show roughly how this will work.
+* Use the AWS Distro for open telemetry This is much easier to integrate in that you add a jar to the docker image when it’s being built and set some java options and it works out of the box. You do need to run another container with the amazon/aws-otel-collector docker image. If you want custom annotations on your traces, for example, consignment ID so we can track individual consignments through the system, then you need a custom build of the collector docker image.
 
 Because of the ease of setting this up and the fact that both solutions need a separate container running, option 2 seems to be the preferred one. For now, we can add this to the frontend and run the container in the same service. When we start using this across the API and Keycloak, we can run a single collector container and use something like Service Connect but that’s a future problem.
 
