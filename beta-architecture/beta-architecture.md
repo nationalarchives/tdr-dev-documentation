@@ -77,3 +77,22 @@ Once the migration from the original architecture to the new architecture is com
   for this to be a developer task, even though eventually we might build an
   admin UI or integrate with the planned catalogue API
 * Data stored in the export bucket can be transferred to the preservation system
+
+## Reference Generator Service
+
+The reference generator is a standalone service for generating unique 'references' for files and folders. The current architecture for the reference generator service:
+
+![](./diagrams/reference-generator.svg)
+
+The service consist of 3 main components
+* API Gateway: Provides access to the service from other AWS services and external clients outside of AWS. 
+* Lambda: the Lambda generates the "references" based on an incremented counter;
+* DynamoDb: the table contains the counter to generate the unique "references";
+
+For more details on the service refer to here: 
+* [Reference Generator Service](https://github.com/nationalarchives/da-reference-generator)
+
+TNA will be changing where we assign citeable references for individual born-digital records 
+This is currently done by our Digital Preservation Service. Following this change it will be done by our Digital Selection and Transfer Service.
+At the moment, TDR generates a system reference (UUID) which is not readily citeable and does not persist into the preservation system or Discovery.
+The reference generator service will be used to assign citeable references.
