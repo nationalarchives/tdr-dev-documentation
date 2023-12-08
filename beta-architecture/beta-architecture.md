@@ -13,16 +13,16 @@ This is not the final architecture, and it will change during the course of the 
 TDR uses five AWS accounts:
 
 * Management (mgmt): the top-level account, which is used for running
-  cross-environment services like Jenkins CI and Grafana.
+  cross-environment services like central logging, Terraform state tracking, ECR and Grafana.
 * Sandbox (sbox): used for technical spikes
 * Integration (intg): the first environment that code is deployed to. Most
   services are deployed automatically to intg when code is merged to the
-  main/master branch. Most deployments are run programatically through Jenkins,
+  main/master branch. Most deployments are run programatically through Github actions,
   but we sometimes make temporary manual changes or deploy a branch when that's
   the easiest way to test something.
 * Staging (staging): a more stable environment used to check changes just before
-  deployment to production. Developers need to manually start a Jenkins job to
-  deploy code to this environment. Used for user research sessions.
+  deployment to production. Developers need to manually start a Githud action to
+  deploy code to this environment. Used for user research sessions and demonstrations to key stakeholders.
 * Production (prod): the environment used by real users. Deployment is the same
   as for staging.
 
@@ -41,42 +41,19 @@ This diagram shows a high level view of the interactions between the different A
 
 ![](./diagrams/tdr-transfer-sequence.svg)
 
-## Transform Engine Service
+## Digital Archiving Event Bus
 
-As part of the Find Case law service TDR accepts judgment transfers.
+TDR communicates with other Digital Archiving services using the Digital Archiving event bus hosted in the Transform Engine AWS accounts.
 
-TDR communicates with the Transfer Engine service to support the Find Case law service.
+TDR sends export messages to the event bus for other services to consume.
 
-The Transfer Engine service sits within a different AWS account. To allow communication between the two accounts, relevant IAM roles are given permission to access the AWS resources across the accounts.
+## Access Your Records (AYR) Service Integration
 
-### Communication Between TDR and Transform Engine
+The Access Your Records (AYR) service shares the same user base as TDR.
 
-* Upon export of a judgment transfer TDR send a message to an SQS queue belonging to the Transform Engine with details of the transfer allowing the Transform Engine to process the judgment.
-* If the Transform Engine requires a retry of any transfer, it sends a message to a TDR SQS queue that triggers a new notification to be sent back from TDR to the Transform Engine SQS queue.
-  * Note: the retry message from the Transform Engine does not trigger a re-export of the transfer.
-  
-It is likely in the future that this functionality will be expanded to include all transfers from TDR, and not just judgment transfers.
+AYR uses the TDR Keycloak instance to manage its users and provide authentication and authorisaion for AYR's functionality.
 
-#### Transform Engine Version 2 Architecture
-
-Transform Engine is changing the way it communicates with external systems.
-
-See details of this here:
-* [TRE version 2 Architecture](https://github.com/nationalarchives/da-transform-dev-documentation/blob/master/architecture-decision-records/002-New-messaging-architecture.md)
-* [TDR to TRE Integration](https://github.com/nationalarchives/da-transform-dev-documentation/blob/master/architecture-decision-records/003-New-TDR-TRE-integration.md)
-
-TDR will support this new architecture, in parallel with the original, until TRE fully migrates to version 2.
-
-Once the migration from the original architecture to the new architecture is complete, the TDR resources used to support the original architecture will be removed.
-
-### Initial assumptions
-
-* We don't yet need to integrate TDR with any other systems, though we might
-  reuse the login system to let department users view their own records
-* Series and departments won't need to be updated very often, so for MVP it's OK
-  for this to be a developer task, even though eventually we might build an
-  admin UI or integrate with the planned catalogue API
-* Data stored in the export bucket can be transferred to the preservation system
+AYR makes use of Keycloak's provided APIs.
 
 ## Reference Generator Service
 
@@ -96,3 +73,12 @@ TNA will be changing where we assign citeable references for individual born-dig
 This is currently done by our Digital Preservation Service. Following this change it will be done by our Digital Selection and Transfer Service.
 At the moment, TDR generates a system reference (UUID) which is not readily citeable and does not persist into the preservation system or Discovery.
 The reference generator service will be used to assign citeable references.
+
+## Initial assumptions (historic)
+
+* We don't yet need to integrate TDR with any other systems, though we might
+  reuse the login system to let department users view their own records
+* Series and departments won't need to be updated very often, so for MVP it's OK
+  for this to be a developer task, even though eventually we might build an
+  admin UI or integrate with the planned catalogue API
+* Data stored in the export bucket can be transferred to the preservation system
