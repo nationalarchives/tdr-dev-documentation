@@ -7,7 +7,7 @@ You will need a GitHub account. If you don't already have one, [you can create o
 
 If you are already a member of the `nationalarchives` GitHub organisation then you will already have access.
 
-If not, ask the TDR team to add you to the `tdr-reporting` repository as a collaborator. You can contact us [on our Slack channel](https://tna-digital.slack.com/archives/CJYJYG54L) Once this is done, we will let you know.
+If not, ask the TDR team to add you to the `tdr-reporting` repository as a collaborator. You can contact us [on our Slack channel](https://tna-digital.slack.com/archives/CJYJYG54L) Once this is done, we will let you know. You will also need to request access to the Reporting Slack channel: `da-tdr-reporting`
 
 ## Run the reports
 Go to the [tdr-reporting actions page](https://github.com/nationalarchives/tdr-reporting/actions/workflows/run.yml). You will see a page similar to this
@@ -18,7 +18,7 @@ Click "Run workflow" which will give you options like this:
 
 ![](./images/reporting_drop_down.png)
 
-You can ignore the first dropdown with Branch: main in it. The other three can be configured:
+You can ignore the first dropdown with Branch: main in it. The other two can be configured:
 
 ### Environment
 This determines which of the three TDR environments the report runs against and has three options:
@@ -29,7 +29,7 @@ This will give you live data.
 This is one of our test systems. It contains less data than Intg.
 
 #### Intg
-This is used for most of our testing and has a large amount of test data in it.
+This is used for most of our testing and has a large amount of test data in it. The report will only return the first page of results when run on intg.
 
 ### Report Type
 #### Standard
@@ -38,9 +38,5 @@ This is a detailed report containing all TDR consignments and includes the trans
 #### CaseLaw
 This report has fewer details than the standard report and only shows judgment transfers.
 
-### Emails
-The job will send the report through to Slack so this needs to be the email address associated with your TNA slack account. You can add more than one email address for multiple recipients but each needs to be enclosed in double quotes and separated by a comma. For example:
-* "user1@nationalarchives.gov.uk"
-* "user1@nationalarchives.gov.uk","user2@nationalarchives.gov.uk"
 
-The report will run and when it has finished, you should get a message from a Slack bot with a CSV file with your requested report.
+The report will run and when it has finished, the Slack bot will post the CSV file with your requested report to the `da-tdr-reporting` Slack channel.
