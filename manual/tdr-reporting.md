@@ -38,5 +38,5 @@ This is a detailed report containing all TDR consignments and includes the trans
 #### CaseLaw
 This report has fewer details than the standard report and only shows judgment transfers.
 
-
+### Output
 The report will run and when it has finished, the Slack bot will post the CSV file with your requested report to the `da-tdr-reporting` Slack channel.
