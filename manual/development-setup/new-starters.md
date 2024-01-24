@@ -1,8 +1,5 @@
 # New starters
 
-## Laptop setup
-TBC
-
 ## Essential setup
 
 - Install [git secrets](git-secrets.md). You **must** do this before working on
