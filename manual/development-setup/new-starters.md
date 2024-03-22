@@ -8,7 +8,7 @@ Ubuntu is the recommended OS to install on the development laptop.
 
 Instruction for installation can be found here: https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview
 
-**Full hard drive encryption must be implemented**: https://jumpcloud.com/blog/how-to-encrypt-ubuntu-20-04-desktop-post-installation
+**Full hard drive encryption must be implemented**
 
 ### Install Virus Scanning / Firewall
 
@@ -24,6 +24,7 @@ Install ClamAV: https://help.ubuntu.com/community/ClamAV
 * *Git*: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 * *Git Secrets*: [git secrets](git-secrets.md). You **must** do this before working on TDR code changes
 * *AWS CLI*: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+* *Java*: https://ubuntu.com/tutorials/install-jre#1-overview
 * *Sbt*: https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Linux.html
 * *Intellij*: You should have a licence for the version (https://www.jetbrains.com/help/idea/installation-guide.html)
 * *Docker*: https://docs.docker.com/engine/install/ubuntu/
