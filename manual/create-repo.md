@@ -8,7 +8,14 @@ Create a repo in <https://github.com/nationalarchives> by clicking the "New" but
 * The repo should be public unless you have a [good reason to make it closed][open-code]
 * Click "Create Repository"
 
-## 2. Add Terraform Secrets
+## 2. Add new repo to Synk
+
+* Log into Synk via Github: 
+* Switch to `nationalarchives` Organisation
+* From the Homepage use the `Add projects` dropdown to select Github
+* Find the new repo and add it to Synk (this can take a few moments to add the repo)
+
+## 3. Add Terraform Secrets
 
 If environment secrets are going to be needed in the workflow files (mentioned later), if you haven't already, you are going to have to define them in the `root_github.tf` file(s) of the Terraform projects:
 
@@ -20,7 +27,7 @@ Add a Terraform backend secrets module for your new repo to the `root_github.tf`
 
 Add a Terraform secrets module for your new repo to the `root_github.tf` file of the Terraform environments project [like so][terraform-environments-module-example] and make a PR for this change.
 
-## 3. Add a README
+## 4. Add a README
 
 On the next page, steps should appear for how to create a repo via the command line, if they do follow those
 instructions, if not, follow these instructions:
@@ -34,7 +41,7 @@ instructions, if not, follow these instructions:
 7. git remote add origin `git@github.com:nationalarchives/{name of repo}.git`
 8. git push -u origin main
 
-## 4. Add a licence
+## 5. Add a licence
 
 In the parent directory add an open source licence with the name "licence"
 
@@ -43,7 +50,7 @@ In the parent directory add an open source licence with the name "licence"
 * For documentation, add an MIT licence for the code and an [Open Government Licence][ogl] for the content. See this
   repo's LICENCE file the licence note in the README for an example.
 
-## 5. Add a config file
+## 6. Add a config file
 
 **If** the project contains a [dependabot supported package manager][supported-package-managers] then add
 a [dependabot config file][dependabot-config]
@@ -51,9 +58,9 @@ to the `workflows` folder in the `.github` folder (create a .github folder if on
 
 If the project doesn't contain a dependabot supported package manager, then skip this step.
 
-## 6. Choose the correct settings for the repo
+## 7. Choose the correct settings for the repo
 
-### 6a. Add teams
+### 7a. Add teams
 
 Once in the repo, click the "Settings" button (at the top) to update the repo's settings:
 
@@ -66,11 +73,11 @@ Once in the repo, click the "Settings" button (at the top) to update the repo's 
         * give **admin** access to this team
         * click the green "Add" button to add it
 
-### 6b. Automatically delete head branches
+### 7b. Automatically delete head branches
 
 Go to "General" settings (as the top), and scroll down to "Automatically delete head branches" and select this
 
-### 6c. Set rules for main branch
+### 7c. Set rules for main branch
 
 * In "Branches", you should see the "main" branch.
 * Under "Branch protection rules" select "Add rule"
@@ -86,13 +93,14 @@ Go to "General" settings (as the top), and scroll down to "Automatically delete 
             * **Require branches to be up-to-date before merging** *(sub option)*
                 * **Note**: the GitHub Actions test job will need to be configured first before this status check will
                   appear; see step 7 (below) for more information on how to do this.
+                * **Note**: Snyk should be added to this list if available for the repo.
     * **Require signed commits**
     * **Include administrators**
 * Click the "Save changes" button
 
-### 7. Add file dependencies
+## 8. Add file dependencies
 
-#### 7a. Add workflow files
+### 8a. Add workflow files
 
 We use GiHub Actions in order to test, build and deploy our projects; since step 5 was all about requiring status checks,
 the GitHub Actions files it runs, need to be added.
@@ -112,7 +120,7 @@ the GitHub Actions files it runs, need to be added.
 * Once this is done, commit the files and push them to the repo; you will notice that the test job will start running
     * **Note**: In order to push to the repo, you'll need to create a new branch
 
-#### 7b. Add the files that the workflow files rely on
+### 8b. Add the files that the workflow files rely on
 
 The workflow files might have a rule that runs a command like `sbt assembly`; in order for it to do that it would need
 the `build.sbt` file to be present. Add the files that are necessary for the workflow files to run for example:
@@ -124,7 +132,7 @@ the `build.sbt` file to be present. Add the files that are necessary for the wor
 
 Make sure that each of the files you add, contain all the dependencies/commands necessary
 
-### 8. Select status checks that are required before merging
+## 9. Select status checks that are required before merging
 
 * Go back to the repo and select the "Settings"
 * Select "Branches"
@@ -133,7 +141,7 @@ Make sure that each of the files you add, contain all the dependencies/commands 
   bar with the placeholder text "Search for status checks in the last week for this repository"
 * type in "test / test" and select that status check option
 
-### 9. Remove yourself from list of who can manage access
+## 10. Remove yourself from list of who can manage access
 
 * Go to the "Settings"
 * Under the "Manage access" section, you should see your account that has been given admin access
@@ -141,7 +149,7 @@ Make sure that each of the files you add, contain all the dependencies/commands 
     * *Since you are either a part of the "Transfer Digital Records" or "Transfer Digital Records Admins", you will
       still have access rights to this repo*
 
-### 10. Link other repos to project
+## 11. Link other repos to project
 
 * Add a link from the new project's README to this documentation, to add context for anyone who finds the project
 * Add the new project to the repo list in the README of **this** project
