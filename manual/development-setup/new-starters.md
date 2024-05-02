@@ -44,4 +44,12 @@ Install ClamAV: https://help.ubuntu.com/community/ClamAV
 * To access the TDR GitHub repos, ask an admin of The National Archives' GitHub
   organisation to add you to the Transfer Digital Records team
 
+## Familiarisation
+
+### Accessibility
+
+Please read through this presentation for [background on accessibility][accessibility-presentation]
+
 [sharepoint-dev-manual]: https://nationalarchivesuk.sharepoint.com/:f:/r/sites/DA_Proj/Transfer%20Digital%20Records/Documentation/Developer%20manual
+
+[accessibility-presentation]: https://nationalarchivesuk.sharepoint.com/:f:/r/sites/DA_Proj/Transfer%20Digital%20Records/TDR%20UX%20and%20Accessibility/Accessibility/Introduction%20to%20Accessibility%20Testing%20May%202024?csf=1&web=1&e=RYRyi2
