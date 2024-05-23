@@ -1,25 +1,26 @@
-# 31. Hosting Service Integration Endpoints
+# 31. Hosting Service Integrations
 
 **Date:** 2024-MM-DD
 
 ## Context
 
-TDR needs to support transfers from additional sources other than network drives, for example Sharepoint, Google Drive, hard drives etc.
+TDR needs to support transfers from additional sources other than network drives, for example SharePoint, Google Drive, hard drives etc.
 
-This requires the exposure of endpoints so other services can integrate with TDR to allow the transfers from such sources.
+This will require the exposure of endpoints so other services can integrate with TDR to allow the transfers from such sources, along with additional processing of metadata and records.
 
-These endpoints will need to be hosted by the TDR infrastructure.
+The additional processing and endpoints will need to be hosted by the TDR infrastructure.
 
-Such transfers are likely to involve much larger volume transfers in terms of number of records and overall size.
+Such transfers are likely to involve much larger volume transfers in terms of number of records and overall size. In addition bespoke processing of the data is likely to be needed.
 
 ## Decision
 
-Decision to host the endpoints on a new AWS ECS Task within TDR's VPC.
+Decision to host the necessary code for supporting transfer from additional sources on a new AWS ECS Task within existing TDR's VPC.
 
 This provides the following advantages:
 * Service integrations always available
 * Flexibility to extend with future requirements
-* Potential to handle high volume transfers
+* Potential to handle higher volume transfers
+* Less burden on existing TDR infrastructure used to support network transfers
 * Take advantage of TDR's existing access controls to the VPC (for example WAF rules)
 
 ### Disadvantages to hosting on new ECS Task
@@ -47,7 +48,7 @@ This provides the following advantages:
 #### Advantages
 
 * Serverless architecture with potential cost savings
-* AWS API Gateway features
+* Use AWS API Gateway features
 
 #### Disadvantages
 
