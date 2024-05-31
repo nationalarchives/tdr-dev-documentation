@@ -9,6 +9,7 @@ The current repositories relating to TDR, and their purpose are:
 
 - [tdr-consignment-api](https://github.com/nationalarchives/tdr-consignment-api) - API for managing consignment and file details
 - [tdr-transfer-frontend](https://github.com/nationalarchives/tdr-transfer-frontend) - Code for the TDR frontend to allow users to transfer files
+- [tdr-transfer-service](https://github.com/nationalarchives/tdr-transfer-service) - Code for supporting non-network drive transfers
 
 ### Auth
 
