@@ -36,12 +36,10 @@ Although alternative spreadsheet applications are available, Excel is used as th
 #### Disadvantages
 * Very limited feature set - basic style support, formatting and writing data
 * Smaller community - less documentation and examples
+* Can only create spreadsheets and unable to open existing files to edit them.
 
 ## Decision
-We have decided to use FastExcel initially because of the advantages it has in being lightweight, quicker and easier to code. Although POI has more features available, these are not needed initially and may not get added at all.
+We have decided to use FastExcel initially because of the advantages it has in being lightweight, quicker and easier to code. Currently only creation of spreadsheets is required so not being able to edit them is not currently an issue. Although POI has more features available, these are not needed initially and may not get added at all.
 If the need to use features available in POI but not FastExcel arises in the future then following can be considered:
 * Testing to replace FastExcel with POI proved to be straightforward (other than recoding functions in POIs API) and quick to do
-* Testing has also shown that the libraries are compatible: a spreadsheet can be written in FastExcel and then passed to Apache POI for further manipulation. 
-
-
-
+* Testing has also shown that the libraries are compatible: a spreadsheet can be written in FastExcel and then passed to Apache POI for further manipulation (although reverse does not appear to be true). 
