@@ -38,7 +38,7 @@ TDR user administrators have rights and privileges to manage:
 1. Contact TDR team to request set up as a TDR user administrator: tdr@nationalarchives.gov.uk
 2. You will receive an email from the TDR team with:
   * your user name
-  * URL to the Keycloak application: https://auth.tdr.nationalarchives.gov.uk/auth/admin/tdr/console
+  * URL to the Keycloak application: https://auth.tdr.nationalarchives.gov.uk/admin/tdr/console
 3. A separate email will be sent with an URL link for you to set a password
 4. Ensure you have either Google Authenticator (https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_GB) or Microsoft Authenticator (https://www.microsoft.com/en-us/account/authenticator) available as you will need these to log on to the Keycloak application
 5. Log on to the Keycloak application for the first time:
