@@ -1,4 +1,4 @@
-# Create a repo
+~~# Create a repo
 
 ## 1. Create Repo on GitHub
 
@@ -155,6 +155,14 @@ Make sure that each of the files you add, contain all the dependencies/commands 
 * Add the new project to the repo list in the README of **this** project
 * If the project is a Scala project, add the repository to the [list of repos maintained by Scala Steward]
 
+## 11. Add the repo in the tdr-configurations
+* Go to [github_repositories][github-repositories] and add your newly created repository to the list. If your repo starts with `tdr-` then add it in the `github_tdr_active_repositories` or if it starts with `da-`
+then add it in the `github_da_active_repositories` list
+  * Update the submodule hash for the tdr-configurations in the following repositories and then deploy the changes
+  * [tdr-terraform-environments][terraform-environments]
+  * [tdr-terraform-backend][terraform-backend]
+  * [tdr-terraform-github][terraform-github]
+
 [dependabot-config]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/enabling-and-disabling-version-updates
 
 [example-repo-workflow-files]: https://github.com/nationalarchives/tdr-consignment-api/tree/master/.github/workflows
@@ -174,3 +182,8 @@ Make sure that each of the files you add, contain all the dependencies/commands 
 [terraform-environments-module-example]: https://github.com/nationalarchives/tdr-terraform-environments/blob/master/root_github.tf#L407
 
 [workflow-files]: https://github.com/nationalarchives/tdr-github-actions/tree/main/.github/workflows
+
+[github-repositories]: https://github.com/nationalarchives/tdr-configurations/blob/master/terraform/github_repositories.tf
+[terraform-environments]: https://github.com/nationalarchives/tdr-terraform-environments
+[terraform-backend]: https://github.com/nationalarchives/tdr-terraform-backend
+[terraform-github]: https://github.com/nationalarchives/tdr-terraform-github
