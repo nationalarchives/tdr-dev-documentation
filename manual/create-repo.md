@@ -1,4 +1,4 @@
-~~# Create a repo
+# Create a repo
 
 ## 1. Create Repo on GitHub
 
