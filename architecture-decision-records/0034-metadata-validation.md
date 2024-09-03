@@ -38,9 +38,9 @@ We decided to adopt a Hybrid Approach for metadata validation, combining both ma
 
 ### Automated Validation
 
-- **Schema Validation**: Ensure metadata conforms to the predefined base schema (individual elements).
+- **Schema Validation**: Ensure metadata conforms to the [predefined base schema](https://github.com/nationalarchives/da-metadata-schema/blob/main/metadata-schema/baseSchema.schema.json) (individual elements).
 - **Content Validation**: Check the accuracy and consistency of metadata values.
-- **Dependency Validation**: Automatically verify relationships and dependencies between metadata elements (partly schema-driven). Examples include closure data.
+- **Dependency Validation**: Automatically verify relationships and dependencies between metadata elements (partly schema-driven). Examples include [closure data](https://github.com/nationalarchives/da-metadata-schema/blob/main/metadata-schema/closureSchema.schema.json).
 
 ### Manual Validation (Out of Scope)
 
@@ -48,7 +48,7 @@ We decided to adopt a Hybrid Approach for metadata validation, combining both ma
 
 ### Error Handling
 
-The automated validation API will return the errors.
+The [automated validation API](https://github.com/nationalarchives/tdr-metadata-validation/blob/main/validation/src/main/scala/uk/gov/nationalarchives/tdr/validation/schema/MetadataValidationJsonSchema.scala) will return the errors.
 
 - **Save Errors**: The TDR validation process (that will invoke the `tdr-metadata-validation` API) must save the errors in a format that can be programmatically retrieved and provided to the user. The first solution will be to save the errors in JSON format to S3. Versioning will be set for the S3 bucket so the history of the errors can be seen if required. (TODO: Decide if errors need to be processed/stored for analytics and other reasons.)
 - **Provide Errors to the User**: The user must be able to view errors detected in the automated process so they can fix them and submit new metadata.
