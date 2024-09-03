@@ -157,7 +157,8 @@ The JSON can now be validated against the schema.
 
 ### Validation Error Structure
 
-Validation of the data can be performed by different processes. The interface to metadata validation will return a collection of `ValidationError`:
+Validation of the data can be performed by different processes. The interface to metadata validation will return a collection of `ValidationError`:  
+This will support schema validation and other form of validation such as file integrity (is it CSV/UTF 8) 
 
 ```scala
 case class ValidationError(validationProcess: ValidationProcess, property: String, errorKey: String)
