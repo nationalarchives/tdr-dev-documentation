@@ -38,16 +38,15 @@ We decided to adopt a Hybrid Approach for metadata validation, combining both ma
 
 ### Automated Validation
 
-- **Schema Validation**: Ensure metadata conforms to the predefined schemas (individual elements).
-- **File Validation**: Is CSV UTF8 and a CSV
+- **Schema Validation**: Ensure metadata conforms to the [predefined base schema](https://github.com/nationalarchives/da-metadata-schema/blob/main/metadata-schema/baseSchema.schema.json) (individual elements).
 - **Content Validation**: Check the accuracy and consistency of metadata values.
-- **Dependency Validation**: Automatically verify relationships and dependencies between metadata elements (partly schema-driven). Examples include closure data.
+- **Dependency Validation**: Automatically verify relationships and dependencies between metadata elements (partly schema-driven). Examples include [closure data](https://github.com/nationalarchives/da-metadata-schema/blob/main/metadata-schema/closureSchema.schema.json).
 
 ### Manual Validation (Out of Scope)
 
 ### Error Handling
 
-The automated validation API will return the errors.
+The [automated validation API](https://github.com/nationalarchives/tdr-metadata-validation/blob/main/validation/src/main/scala/uk/gov/nationalarchives/tdr/validation/schema/MetadataValidationJsonSchema.scala) will return the errors.
 
 - **Save Errors**: The TDR validation process (that will invoke the `tdr-metadata-validation` API) must save the errors in a format that can be programmatically retrieved and provided to the user. The first solution will be to save the errors in JSON format to S3. Versioning will be set for the S3 bucket so the history of the errors can be seen if required. (TODO: Decide if errors need to be processed/stored for analytics and other reasons.)
 - **Provide Errors to the User**: The user must be able to view errors detected in the automated process so they can fix them and submit new metadata.
@@ -156,7 +155,8 @@ The JSON can now be validated against the schema.
 
 ### Validation Error Structure
 
-Validation of the data can be performed by different processes. The interface to metadata validation will return a collection of `ValidationError`:
+Validation of the data can be performed by different processes. The interface to metadata validation will return a collection of `ValidationError`:  
+This will support schema validation and other form of validation such as file integrity (is it CSV/UTF 8) 
 
 ```scala
 case class ValidationError(validationProcess: ValidationProcess, property: String, errorKey: String, message:Option[String])
@@ -260,13 +260,13 @@ To process and/or store these errors, they need to be converted into a format (J
 }
 ```
 
-```consignmentId```: An identifier used to determine the csv file validated    
-```date```: Date of validation  
-```fileError```: Type of errors. There are several steps in the validation. When errors are found further validation stops
-- ```UTF-8```
-- ```SCHEMA_VALIDATION```
-- ```SCHEMA_REQUIRED```
-- ```.....```  
+* ```consignmentId```: An identifier used to determine the csv file validated    
+* ```date```: Date of validation  
+* ```fileError```: Type of errors. There are several steps in the validation. When errors are found further validation stops
+  *   ```UTF-8```
+  * ```SCHEMA_VALIDATION```
+  * ```SCHEMA_REQUIRED```
+  * ```.....```  
 
 ```validationErrors```: List of errors
 ```
@@ -276,8 +276,8 @@ To process and/or store these errors, they need to be converted into a format (J
         { ....
        
 ```
-```assetId```: Link a record to the errors (row in csv or file)  
-```errors```
+* ```assetId```: Link a record to the errors (row in csv or file)  
+* ```errors``` 
 ```
 {
      "validationProcess": "SCHEMA_CLOSURE",
