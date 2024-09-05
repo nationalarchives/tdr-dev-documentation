@@ -38,13 +38,12 @@ We decided to adopt a Hybrid Approach for metadata validation, combining both ma
 
 ### Automated Validation
 
-- **Schema Validation**: Ensure metadata conforms to the predefined base schema (individual elements).
+- **Schema Validation**: Ensure metadata conforms to the predefined schemas (individual elements).
+- **File Validation**: Is CSV UTF8 and a CSV
 - **Content Validation**: Check the accuracy and consistency of metadata values.
 - **Dependency Validation**: Automatically verify relationships and dependencies between metadata elements (partly schema-driven). Examples include closure data.
 
 ### Manual Validation (Out of Scope)
-
-## Error Handling
 
 ### Error Handling
 
@@ -160,10 +159,161 @@ The JSON can now be validated against the schema.
 Validation of the data can be performed by different processes. The interface to metadata validation will return a collection of `ValidationError`:
 
 ```scala
-case class ValidationError(validationProcess: ValidationProcess, property: String, errorKey: String)
+case class ValidationError(validationProcess: ValidationProcess, property: String, errorKey: String, message:Option[String])
 
 object ValidationProcess extends Enumeration {
   type ValidationProcess = Value
-  val SCHEMA_BASE, SCHEMA_CLOSURE = Value
+  val SCHEMA_BASE, SCHEMA_CLOSURE_CLOSED, SCHEMA_CLOSURE_OPEN, FILE_CHECK = Value
 }
 ```
+**validationProcess**: Indicates the validation process used.
+
+**property**: the property name from the schema being evaluated .
+
+**errorKey**: A key used to indicate type of error
+
+## Error Conversion and Storage
+
+To process and/or store these errors, they need to be converted into a format (JSON expected) that can be stored and then provided to the digital transfer in a user-friendly way.
+
+### JSON response examples:
+- Schema Validation
+```{
+  "consignmentId": "22dbf727-3410-4e47-8e16-fa1d51904950",
+  "date": "2024-12-12",
+  "fileError": "SCHEMA_VALIDATION",
+  "validationErrors": [
+    {
+      "assetId": "7fc876d7-bab0-493c-b685-5e8b5affbb2f",
+      "errors": [
+        {
+          "validationProcess": "SCHEMA_CLOSURE",
+          "property": "FOI exemption code",
+          "errorKey": "enum",
+          "message": "This must be a pipe delimited list of valid FOI codes, (eg. 31|33). Please see the guidance for more detail on valid codes"
+        },
+        {
+          "validationProcess": "SCHEMA_BASE",
+          "property": "date_last_modified",
+          "errorKey": "format.date",
+          "message": "Must be a date in the format yyyy-mm-dd"
+        }
+      ],
+      "data": [
+        {
+          "name": "FOI exemption code",
+          "value": "eee"
+        },
+        {
+          "name": "Date last modified",
+          "value": "eee"
+        },
+        {
+          "name": "Filepath",
+          "value": "/gggg/jj"
+        },
+      ]
+    }
+  ]
+}
+```
+- UTF-8 Error
+```
+{
+  "consignmentId": "22dbf727-3410-4e47-8e16-fa1d51904950",
+  "date": "2024-12-12",
+  "fileError": "UTF-8",
+  "validationErrors": [
+    {
+      "assetId": "22dbf727-3410-4e47-8e16-fa1d51904950",
+      "errors": [
+        {
+          "validationProcess": "FILE_VALIDATION",
+          "property": "draftmetadata.csv",
+          "errorKey": "UTF_8",
+          "message": "The Metadata csv must be saved as UTF-8"
+        }
+      ]
+    }
+  ]
+}
+```
+- Required columns
+```
+{
+  "consignmentId": "22dbf727-3410-4e47-8e16-fa1d51904950",
+  "date": "2024-12-12",
+  "fileError": "SCHEMA_REQUIRED"
+  "validationErrors": [
+    {
+      "assetId": "22dbf727-3410-4e47-8e16-fa1d51904950",
+      "errors": [
+        {
+          "validationProcess": "SCHEMA_REQUIRED",
+          "property": "FOI decision asserted",
+          "errorKey": "required",
+          "message": "FOI decision asserted"
+        }
+      ]
+    }
+  }
+}
+```
+
+```consignmentId```: An identifier used to determine the csv file validated    
+```date```: Date of validation  
+```fileError```: Type of errors. There are several steps in the validation. When errors are found further validation stops
+- ```UTF-8```
+- ```SCHEMA_VALIDATION```
+- ```SCHEMA_REQUIRED```
+- ```.....```  
+
+```validationErrors```: List of errors
+```
+{
+      "assetId": "7fc876d7-bab0-493c-b685-5e8b5affbb2f",
+      "errors": [
+        { ....
+       
+```
+```assetId```: Link a record to the errors (row in csv or file)  
+```errors```
+```
+{
+     "validationProcess": "SCHEMA_CLOSURE",
+     "property": "FOI exemption code",
+     "errorKey": "enum",
+     "message": "SCHEMA_CLOSURE.foi_exmption_code.enum"
+ }
+ ```
+- ```validationProcess```: [Automated Validation](#automated-validation)
+- ```property```: The property key of data passed for validation
+- ```errorKey```: key to indicate error
+- ```message``` : User friendly message
+
+## User Friendly Error Messages
+
+A message properties file will be used to define the user-friendly message returned to the user.
+
+Each error will have a key in the following format:
+
+```
+{validationProcess}.{property}.{errorKey}
+```  
+- ```property``` is the value in the base schema
+### Key example
+```SCHEMA_BASE.foi_exemption_code.enum```  
+
+### Properties File Example
+```SCHEMA_BASE.foi_exemption_code.enum=An invalid FOI exemption code has been used.```
+
+## User-Friendly Error Messages
+
+To provide clear and actionable feedback to the user, the error messages should be:
+
+- **Clarity**: Clear and specific, avoiding technical jargon.
+- **Actionable**: Providing guidance on how to correct the error.
+- **Contextual**: Including the erroneous value and the expected value or format.
+- **Consistent**: Using a consistent format for all error messages to help users quickly identify and resolve issues.
+
+By adhering to these guidelines, metadata validation ensures robust data integrity and improves user experience.
