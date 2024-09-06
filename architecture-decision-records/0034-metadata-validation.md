@@ -280,16 +280,16 @@ To process and/or store these errors, they need to be converted into a format (J
 * ```errors``` 
 ```
 {
-     "validationProcess": "SCHEMA_CLOSURE",
+     "validationProcess": "SCHEMA_BASE",
      "property": "FOI exemption code",
      "errorKey": "enum",
-     "message": "SCHEMA_CLOSURE.foi_exmption_code.enum"
+     "message": "SCHEMA_BASE.foi_exmption_code.enum"
  }
  ```
 - ```validationProcess```: [Automated Validation](#automated-validation)
 - ```property```: The property key of data passed for validation
 - ```errorKey```: key to indicate error
-- ```message``` : User friendly message expected to be from the properties file
+- ```message``` : User friendly message expected to be from the properties file (If expecting to use properties and no message use the key eg ```SCHEMA_BASE.foi_exmption_code.enum```) 
 
 ## User Friendly Error Messages
 
