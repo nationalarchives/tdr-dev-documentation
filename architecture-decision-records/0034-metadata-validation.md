@@ -293,7 +293,7 @@ To process and/or store these errors, they need to be converted into a format (J
 
 ## User Friendly Error Messages
 
-A message properties file will be used to define the user-friendly message returned to the user.
+A [message properties](https://github.com/nationalarchives/da-metadata-schema/blob/main/validation-messages/validation-messages.properties) file will be used to define the user-friendly message returned to the user.
 
 Each error will have a key in the following format:
 
