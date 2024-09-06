@@ -300,7 +300,25 @@ Each error will have a key in the following format:
 ```
 {validationProcess}.{property}.{errorKey}
 ```  
-- ```property``` is the value in the base schema
+- ```property``` is the value in the base schema (```foi_exemption_code``` NOT ```FOI exemption code```)
+- ``` "foi_exemption_code": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "propertyType": "Supplied",
+      "items": {
+        "type": "string",
+        "$ref": "classpath:/metadata-schema/definitionsSchema.schema.json#/definitions/foi_codes"
+      },
+      "alternateKeys": [
+        {
+          "tdrFileHeader": "FOI exemption code",
+          "tdrDataLoadHeader": "FoiExemptionCode"
+        }
+      ]
+    }
+  ```
 ### Key example
 ```SCHEMA_BASE.foi_exemption_code.enum```  
 
