@@ -38,7 +38,7 @@ We decided to adopt a Hybrid Approach for metadata validation, combining both ma
 
 ### Automated Validation
 
-- **Schema Validation**: Ensure metadata conforms to the [predefined base schema](https://github.com/nationalarchives/da-metadata-schema/blob/main/metadata-schema/baseSchema.schema.json) (individual elements).
+- **Schema Validation**: Ensure metadata conforms to the [predefined base schema](https://github.com/nationalarchives/da-metadata-schema/blob/main/metadata-schema/baseSchema.schema.json) (individual elements) and [other schemas](https://github.com/nationalarchives/da-metadata-schema/blob/main/metadata-schema )
 - **Content Validation**: Check the accuracy and consistency of metadata values.
 - **Dependency Validation**: Automatically verify relationships and dependencies between metadata elements (partly schema-driven). Examples include [closure data](https://github.com/nationalarchives/da-metadata-schema/blob/main/metadata-schema/closureSchema.schema.json).
 
