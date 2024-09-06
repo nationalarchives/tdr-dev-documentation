@@ -289,7 +289,7 @@ To process and/or store these errors, they need to be converted into a format (J
 - ```validationProcess```: [Automated Validation](#automated-validation)
 - ```property```: The property key of data passed for validation
 - ```errorKey```: key to indicate error
-- ```message``` : User friendly message
+- ```message``` : User friendly message expected to be from the properties file
 
 ## User Friendly Error Messages
 
