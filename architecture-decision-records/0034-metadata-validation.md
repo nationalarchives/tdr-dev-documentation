@@ -300,8 +300,8 @@ Each error will have a key in the following format:
 ```
 {validationProcess}.{property}.{errorKey}
 ```  
-- ```property``` is the value in the base schema (```foi_exemption_code``` NOT ```FOI exemption code```)
-- ``` "foi_exemption_code": {
+* ```property``` is the value in the base schema (```foi_exemption_code``` not ```FOI exemption code```)
+  * ``` "foi_exemption_code": {
       "type": [
         "array",
         "null"
