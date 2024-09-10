@@ -55,7 +55,7 @@ This process applies to all major feature releases or significant updates to exi
   - **User Experience**: Is the design intuitive? Are there any areas where the user might encounter confusion or friction?
   - **Edge Cases**: What happens when the feature is used in less typical ways (e.g., invalid inputs, unexpected user behavior)?
   - **Compatibility**: Does the feature work across different devices, browsers, or platforms (if applicable)?
-  - **Integration**: If feature is part of another proccess/feature. Does the new feature integrate properly with other existing features or systems?
+  - **Integration**: If feature is part of another process/feature. Does the new feature integrate properly with other existing features or systems?
 
 ### Step 4: **Feedback and Issue Documentation**
 - As issues or improvement areas are identified during testing, they are documented in the project management tool (e.g., Jira, Trello) or a shared document.
