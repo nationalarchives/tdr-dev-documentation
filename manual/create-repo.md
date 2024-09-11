@@ -153,9 +153,9 @@ Make sure that each of the files you add, contain all the dependencies/commands 
 
 * Add a link from the new project's README to this documentation, to add context for anyone who finds the project
 * Add the new project to the repo list in the README of **this** project
-* If the project is a Scala project, add the repository to the [list of repos maintained by Scala Steward]
 
 ## 12. Set up Scala Steward
+
 If the project is a Scala project:
 
 1. Create new branch in the repo: `scala-steward-dependencies`
