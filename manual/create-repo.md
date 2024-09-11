@@ -155,7 +155,26 @@ Make sure that each of the files you add, contain all the dependencies/commands 
 * Add the new project to the repo list in the README of **this** project
 * If the project is a Scala project, add the repository to the [list of repos maintained by Scala Steward]
 
-## 11. Add the repo in the tdr-configurations
+## 12. Set up Scala Steward
+If the project is a Scala project:
+
+1. Create new branch in the repo: `scala-steward-dependencies`
+2. Add new branch protection rule for the `scala-steward-dependencies` with the following rules:
+    * **Require pull request reviews before merging**
+        * "Require approvals" should be selected automatically which is fine *(the default of 1 required number of
+          approvals is OK)*
+    * **Dismiss stale pull request approvals when new commits are pushed**
+    * **Allow specified actors to bypass required pull requests**
+        * Select the relevant GitHub service account user
+   * **Require status checks to pass before merging**
+     * **Require branches to be up-to-date before merging** *(sub option)*
+     * **Note**: the GitHub Actions test job will need to be configured first before this status check will
+     appear; see step 7 (below) for more information on how to do this.
+     * **Note**: Snyk should be added to this list if available for the repo.
+   * **Require signed commits**
+3. Add the repository to the [list of repos maintained by Scala Steward]   
+
+## 13. Add the repo in the tdr-configurations
 * Go to [github_repositories][github-repositories] and add your newly created repository to the list. If your repo starts with `tdr-` then add it in the `github_tdr_active_repositories` or if it starts with `da-`
 then add it in the `github_da_active_repositories` list
   * Update the submodule hash for the tdr-configurations in the following repositories and then deploy the changes
