@@ -194,7 +194,7 @@ To process and/or store these errors, they need to be converted into a format (J
         },
         {
           "validationProcess": "SCHEMA_BASE",
-          "property": "date_last_modified",
+          "property": "Date last modified",
           "errorKey": "format.date",
           "message": "Must be a date in the format yyyy-mm-dd"
         }
