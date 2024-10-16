@@ -1,4 +1,4 @@
-# 35. Metadata CSV Validation
+# 35. Metadata CSV file Validation
 
 **Date**: 2024-10-07
 
