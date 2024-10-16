@@ -82,3 +82,8 @@ The reference generator service will be used to assign citeable references.
   for this to be a developer task, even though eventually we might build an
   admin UI or integrate with the planned catalogue API
 * Data stored in the export bucket can be transferred to the preservation system
+
+## Metadata Validation
+TDR validates metadata.csv files, ensuring integrity of the file and data within. Once validated the consignment status is updated and validation report saved to S3. The status and report can be used to drive the UI.  
+This diagram show the backend flow of data during validation and saving
+![](./diagrams/draft-metadata-validation.svg)
