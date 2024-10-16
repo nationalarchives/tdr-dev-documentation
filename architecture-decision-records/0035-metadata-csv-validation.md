@@ -17,15 +17,16 @@ The structure and integrity of the CSV file is checked before the actual [data i
 
 ### UTF-8 Validation 
 
-Technically it is not possible to [guarantee](https://www.quora.com/How-do-you-make-sure-a-file-is-UTF-8-encoded#:~:text=Technically%20you%20can't.,supplier%20how%20she%20encoded%20it) a file is UTF-8 encoded  
-The tdr-draft-metadata-validator will use the presence of the BOM (Byte order mark) at the beginning of the file. This suggests the file was saved using software that encodes in UTF-8 such as **Microsoft Excel** 
+Technically it is not possible to [guarantee](https://www.quora.com/How-do-you-make-sure-a-file-is-UTF-8-encoded#:~:text=Technically%20you%20can't.,supplier%20how%20she%20encoded%20it) a file is UTF-8 encoded.
+- "Technically you can’t. Files containing characters may be encoded in a wide variety of different ways, of which plain ASCIII and UTF-8 are just 2 encodings.
+- Basically to read a text file given to you by another party, the *only* reliable way to know its encoding is to ask the supplier how she encoded it. Absent that, you simply don’t know what encoding it has."
 
-### Valid CSV file
+### UTF-8 'validation' options
+- Check leading BOM 'EF BB BF'
+- Third party libraries, such as [TNA utf8-validator](https://github.com/digital-preservation/utf8-validator)
+ 
+The metadata csv files are prepared by the transferring body, and it is expected **Microsoft Excel** will be used and users can be required to save with the UTF-8 option.  
+Files stored in this manner will add the BOM
 
-The tdr-draft-metadata-validator will try to load the file using the [CSV library](https://github.com/tototoshi/scala-csv).  
-If it can load the file it will be treated as a valid CSV file
-
-### Required columns
-
-All files transferred through TDR require a certain amount of metadata. Required information includes closure information.  
-The tdr-draft-metadata-validator will use a required schema in the [da-metadata-schema repo](https://github.com/nationalarchives/da-metadata-schema/tree/main/metadata-schema) to validate the required fields
+The tdr-draft-metadata-validator will use the presence of the BOM (Byte order mark) at the beginning of the file. This indicates the file have been created with **Microsoft Excel** and will be UTF-8.  
+This method is restrictive as other spreadsheet software such as LibreOffice (Linux) and Numbers (Mac) do not add the BOM
