@@ -1,30 +1,28 @@
 # 35. Metadata CSV file UTF-8 Validation
 
-**Date**: 2024-10-07
+**Date**: 2024-10-21
 
 ## Context
+When digital assets are transferred to The National Archives (TNA), they are accompanied by associated metadata in CSV format. The entry point for these digital assets is via services provided by the Digital Selection and Transfer team, and the assets are then passed on to downstream services within TNA for further processing.
 
-Digital assets sent to The National Archives (TNA) are transferred with associated metadata in CSV format. The entry point for digital assets to TNA will be through the services provided by the Digital Selection and Transfer team.
+To ensure data integrity and compatibility, the downstream consumers have requested that the metadata CSV files be encoded in UTF-8. Ensuring proper UTF-8 encoding is crucial to prevent issues like character corruption, which can occur if the file uses a different encoding format.
 
-The structure and integrity of the CSV file is checked before the actual [data is validated](0034-metadata-validation.md) 
+Although it's not programmatically possible to guarantee that a file has been encoded correctly in UTF-8, we can detect certain 'signatures' of UTF-8 encoding, such as the presence of a Byte Order Mark (BOM), which is sometimes added by applications like Microsoft Excel when saving CSV files in UTF-8.
 
-## Structure and integrity checks
+Transferring bodies will be directed to use Microsoft Excel to prepare their metadata, as it offers the option to save CSV files in UTF-8 encoding. When this option is selected, a BOM (Byte Order Mark) is written to the beginning of the file (with the byte sequence `0xEF, 0xBB, 0xBF`).
 
-1. **Virus check**: All files uploaded to TDR are checked for viruses using the virus check lambda
-2. **[UTF-8](utf-8-validation)**: The CSV file must be UTF-8 format
+The TDR (Transfer Digital Records) system must validate the metadata to ensure it has been saved in UTF-8 encoding, particularly by detecting the presence of the BOM.
 
-### UTF-8 'validation' options
-- Check leading BOM 'EF BB BF'
-- Third party libraries, such as [TNA utf8-validator](https://github.com/digital-preservation/utf8-validator)
- 
-The metadata csv files are prepared by the transferring body, and it is expected **Microsoft Excel** will be used and users can be required to save with the UTF-8 option.  
-Files stored in this manner will add the BOM
+## Decision
+The UTF-8 validation for metadata CSV files will be implemented by checking for the presence of a BOM at the start of the file. This approach has been chosen for the following reasons:
+- **Indication of UTF-8 Encoding:** The presence of the BOM strongly suggests that the file has been saved using the UTF-8 encoding option in Microsoft Excel, as recommended.
+- **Efficiency:** It is a simple and efficient method to check only the first few bytes of the file, rather than analyzing the entire file.
+- **Limitations of Other Applications:** Spreadsheet applications like LibreOffice (Linux) and Numbers (Mac) do not add a BOM when saving CSV files in UTF-8 encoding, and files saved by these applications will fail this validation.
+- **Non-standard Applications:** CSV files edited with other text editors or tools that do not add a BOM will similarly fail the validation, as they might not follow the exact UTF-8 BOM signature expected.
 
-The tdr-draft-metadata-validator will use the presence of the BOM (Byte order mark) at the beginning of the file. This indicates the file may have been created with **Microsoft Excel** and explicitly saved as UTF-8.  
-This method is restrictive as other spreadsheet software such as LibreOffice (Linux) and Numbers (Mac) do not add the BOM
+## Other Options Considered
+Other approaches, including more comprehensive methods of UTF-8 validation, were considered. For example, libraries like the [TNA utf8-validator](https://github.com/digital-preservation/utf8-validator) perform byte-level validation of UTF-8 encoding by checking for invalid byte sequences.
 
-TNA CSV validator uses TNA utf8-validator library. This library checks the byte sequence and invalid single bytes. It does not check the BOM that suggests a file saved explicitly saved as UTF-8 from Microsoft Excel
-
-Whilst TDR requires the user to save the metadata csv in UTF-8 format from **Microsoft Excel** the BOM validation method will be used and no further UTF-8 checks made
-
-
+However, this library was not adopted because:
+- It checks general UTF-8 compliance but does not specifically check for the BOM, which is the key indicator of UTF-8 encoding from Microsoft Excel, the recommended tool for creating metadata.
+- This method would not specifically target the issue of ensuring metadata files have been saved in the expected UTF-8 format from Excel.
