@@ -43,11 +43,7 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-statuses](https://github.com/nationalarchives/tdr-statuses) - Lambda process to generate task statuses and pass them on to API update task
 
 ### Metadata Validaton
-- [metadata-validation](architecture-decision-records/0035-metadata-csv-validation.md) - Metadata validation architecture decision record
-- [csv file integrity checks](architecture-decision-records/0035-metadata-csv-file-validation.md) - UTF-8 validation architecture decision record
-- [tdr-draft-metadata-valdator](https://github.com/nationalarchives/tdr-draft-metadata-validator) - Draft metadata validation code
-- [draft-metadata-backend](beta-architecture/diagrams/draft-metadata-validation.svg) - Backend flow diagrm
-
+- [tdr-draft-metadata-valdator](https://github.com/nationalarchives/tdr-draft-metadata-validator) - Draft metadata validation 
 
 ### Export steps
 
