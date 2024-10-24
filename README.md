@@ -42,6 +42,9 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-redacted-files](https://github.com/nationalarchives/tdr-redacted-files) - Task for checking redacted files include original version in upload
 - [tdr-statuses](https://github.com/nationalarchives/tdr-statuses) - Lambda process to generate task statuses and pass them on to API update task
 
+### Metadata Validaton
+- [tdr-draft-metadata-valdator](https://github.com/nationalarchives/tdr-draft-metadata-validator) - Draft metadata validation 
+
 ### Export steps
 
 - [tdr-consignment-export](https://github.com/nationalarchives/tdr-consignment-export) - Task for exporting a consignment from TDR
