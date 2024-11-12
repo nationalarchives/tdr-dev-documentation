@@ -87,3 +87,9 @@ The reference generator service will be used to assign citeable references.
 TDR validates metadata.csv files, ensuring integrity of the file and data within. Once validated the consignment status is updated and validation report saved to S3. The status and report can be used to drive the UI.  
 This diagram show the backend flow of data during validation and saving
 ![](./diagrams/draft-metadata-validation.svg)
+
+## SharePoint to TDR Transfers
+TDR supports transfers directly from SharePoint via an application on SharePoint. This application communicates with TDR using a set of API endpoints hosted on an ECS task.
+The SharePoint application utilises the same transfer method to TDR's dirty bucket as the TDR application itself.
+This diagram present this sequence of calls and the interactions with TDR's services and AWS infrastructure.
+![](./diagrams/sharepoint-to-tdr-transfer-sequence.svg)
