@@ -18,7 +18,6 @@ Any requests made from @supremecourt.uk should be checked with [paul.sandles@sup
 
 All other requests received should be validated by the Judgments Judicial Helpdesk on [judgmentshelpdesk@judiciary.uk](mailto:judgmentshelpdesk@judiciary.uk)
 
-
 ## Role Description
 
 TDR user administrators have rights and privileges to manage:
@@ -32,6 +31,22 @@ TDR user administrators have rights and privileges to manage:
   * Add
   * Remove
   * Edit
+
+## Sending Emails to Users
+
+### Integration / Staging Environments GOVUK Notify Setup
+
+* To send an email to a user in the lower environments (Integration / Staging) the user should either have:
+  * a GOVUK Notify account set up for the environment (for **internal** TNA users only); or
+  * have their email address added to the GOVUK Notify API integration guest list
+
+Note: this is required as GOVUK Notify is not set up as a "live" service for TDR's lower environments.
+
+Ask a developer to set up GOVUK Notify.
+
+### Production
+
+No additional set up is required for adding users to Production.
 
 ## Setting Up As TDR User Administrator
 
