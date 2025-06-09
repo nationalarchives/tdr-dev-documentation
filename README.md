@@ -65,7 +65,6 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-terraform-backend](https://github.com/nationalarchives/tdr-terraform-backend) - Terraform scripts for setting up the Terraform backends in the TDR management account
 - [tdr-terraform-environments](https://github.com/nationalarchives/tdr-terraform-environments) - Terraform scripts for provisioning AWS resources to support the TDR application within the different environments
 - [tdr-terraform-modules](https://github.com/nationalarchives/tdr-terraform-modules) - Terraform modules for use by other Terraform repositories
-- [tna-custodian](https://github.com/nationalarchives/tna-custodian) - Implementation of Cloud Custodian for National Archives
 
 ### Monitoring
 
