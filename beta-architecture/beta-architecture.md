@@ -93,3 +93,9 @@ TDR supports transfers directly from SharePoint via an application on SharePoint
 The SharePoint application utilises the same transfer method to TDR's dirty bucket as the TDR application itself.
 This diagram present this sequence of calls and the interactions with TDR's services and AWS infrastructure.
 ![](./diagrams/sharepoint-to-tdr-transfer-sequence.svg)
+
+## External Event Handling
+The External Event Handler allows TDR to receive events from external systems such as Digital Records Repository (DR2) and act upon them accordingly.
+Events are received into a dedicated SQS queue which in turn triggers the event handling lambda.
+This diagram shows an overview of the event handling process as initially designed.
+![](./diagrams/tdr-external-event-handler-process.svg)

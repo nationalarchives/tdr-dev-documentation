@@ -51,6 +51,9 @@ The current repositories relating to TDR, and their purpose are:
 - [tdr-consignment-export-authoriser](https://github.com/nationalarchives/tdr-consignment-export-authoriser) - Lambda which authorises a request to export a consignment
 - [tdr-export-status-update](https://github.com/nationalarchives/tdr-export-status-update) - Lambda which changes the export status of a consignment
 
+### External Event Handling
+- [tdr-external-event-handling](https://github.com/nationalarchives/tdr-external-event-handling) - Lambda which handles events from systems outside of TDR
+
 ### Infrastructure and deployment
 
 - [tdr-aws-accounts](https://github.com/nationalarchives/tdr-aws-accounts) - AWS account level configuration
