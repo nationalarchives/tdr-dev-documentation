@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - uses: nationalarchives/tdr-github-actions/.github/actions/run-git-secrets@main
       - uses: nationalarchives/tdr-github-actions/.github/actions/slack-send@main
         if: failure()
