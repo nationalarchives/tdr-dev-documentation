@@ -17,6 +17,8 @@ The Athena infrastructure is provisioned using Terraform. However, the external 
 
 Currently, the data for the Athena table needs to be populated manually by a developer using a Python script. This script aggregates the individual JSON error files from S3 into a format suitable for Athena and uploads them directly to the destination S3 bucket.
 
+**Note:** This is an initial 'spiked' approach to setting up the data. Once requirements have been finalized, the population of this data may be automated to require no manual steps.
+
 The script is located at: `manual/scripts/populate_athena_metadata.py`
 
 ### Prerequisites
@@ -65,4 +67,3 @@ The script is located at: `manual/scripts/populate_athena_metadata.py`
 ## Accessing Reports
 
 Once the table is populated, authorized users can run SQL queries in Athena to analyze the metadata validation errors.
-
