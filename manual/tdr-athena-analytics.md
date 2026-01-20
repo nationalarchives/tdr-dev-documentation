@@ -50,6 +50,7 @@ The script is located at: `manual/scripts/populate_athena_metadata.py`
 4.  **Update and Run the Script:**
     *   Review the script to ensure it points to the correct S3 locations if strictly hardcoded (default is `tdr-draft-metadata-intg` -> `athena-tdr-metadata-checks-intg`).
     *   **Check the `MAX_FILES` configuration:** The script includes a `MAX_FILES` variable (defaulting to 50 for testing purposes). You should update this to a higher value (or remove the limit logic) to ensure all relevant files are processed.
+    *   **Clear previous data:** Ensure that any existing consolidated error files (e.g., `consolidated_errors_*.json`) in the destination S3 bucket are deleted. This prevents data duplication in Athena, as the script generates a new file with a timestamp each time.
     *   Run the script:
         ```bash
         python manual/scripts/populate_athena_metadata.py
