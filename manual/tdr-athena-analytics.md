@@ -1,8 +1,8 @@
 # TDR Athena Analytics
 
-## Overview
+## Querying metadata errors with Athena 
 
-The Metadata Upload feature captures error details in JSON files stored in an S3 bucket. To enable reporting on these errors (e.g. for user experience analysis), we use AWS Athena. This setup allows users to query the data efficiently.
+The Metadata Upload feature captures error details in JSON files stored in an S3 bucket. To enable reporting on these errors (e.g. for user experience analysis), AWS Athena can be used. Athena workgroup, database needs to be setup and example tables and data provided.
 
 ## Athena Setup
 
@@ -10,8 +10,9 @@ The Athena infrastructure is provisioned using Terraform. However, the external 
 
 1.  Log in to the AWS Console.
 2.  Navigate to **Athena**.
-3.  Locate the saved query for creating the external table.
-4.  Run the query to create the table `metadata_validation_reports`.
+3.  Select ```Query your data in Athena console```
+4.  Select Workgroup: ```tdr_reporting_analytics```
+5.  Locate and run the saved query for creating the external table ```tdr_reporting_analytics-metadata_validation_reports``.
 
 ## Populating the Data
 
@@ -67,3 +68,26 @@ The script is located at: `manual/scripts/populate_athena_metadata.py`
 ## Accessing Reports
 
 Once the table is populated, authorized users can run SQL queries in Athena to analyze the metadata validation errors.
+### Example Query
+
+```sql
+WITH MultiVersionConsignments AS (
+    SELECT consignmentId
+    FROM metadata_validgation_reports
+    GROUP BY consignmentId
+    HAVING COUNT(DISTINCT s3VersionId) > 1
+)
+SELECT
+  m.s3VersionId,
+  m.consignmentId,
+  v.assetId          AS asset_id,
+  e.property         AS property,
+  e.message          AS message
+FROM metadata_validation_reports m
+-- Inner join acts as a filter, keeping only rows where consignmentId exists in the CTE
+JOIN MultiVersionConsignments c ON m.consignmentId = c.consignmentId
+CROSS JOIN UNNEST(m.validationErrors) AS t (v)
+CROSS JOIN UNNEST(v.errors) AS u (e)
+WHERE e.message IS NOT NULL
+ORDER BY m.consignmentId, m.s3VersionId;
+```
