@@ -2,7 +2,7 @@
 
 ## Querying metadata errors with Athena 
 
-The Metadata Upload feature captures error details in JSON files stored in an S3 bucket. To enable reporting on these errors (e.g. for user experience analysis), AWS Athena can be used. Athena workgroup, database needs to be setup and example tables and data provided.
+The Metadata Upload feature captures error details in JSON files stored in an S3 bucket. To enable reporting on these errors (e.g. for user experience analysis), AWS Athena can be used. Athena workgroup and database need to be setup and example tables and data provided.
 
 ## Athena Setup
 
@@ -12,7 +12,7 @@ The Athena infrastructure is provisioned using Terraform. However, the external 
 2.  Navigate to **Athena**.
 3.  Select ```Query your data in Athena console```
 4.  Select Workgroup: ```tdr_reporting_analytics```
-5.  Locate and run the saved query for creating the external table ```tdr_reporting_analytics-metadata_validation_reports``.
+5.  Locate and run the saved query for creating the external table ```tdr_reporting_analytics-metadata_validation_reports```
 
 ## Populating the Data
 
