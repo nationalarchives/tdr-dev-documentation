@@ -99,8 +99,7 @@ Suppose you're developing a "Note" feature for metadata:
    - Begin modifying `config.json` with new note fields
    - Deploy to Integration/Staging
 
-2. 
-3. **Week 2 - Feature complete:**
+2. **Week 2 - Feature complete:**
    - All note-related changes have been merged into `config.json`
    - Delete `fab-note-config.json`, `fab-note-baseSchema.schema.json`, and `fab-note-metadata-template.json`
    - Remove `METADATA_VERSION_OVERRIDE=fab-note-` from Production Terraform
