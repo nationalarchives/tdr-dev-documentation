@@ -32,37 +32,15 @@ The script is located at: `manual/scripts/populate_athena_metadata.py`
 1.  **Prepare the environment:**
     Ensure you have the `manual/scripts/populate_athena_metadata.py` file.
 
-2.  **Set up a virtual environment:**
-    To ensure clean dependencies, create and activate a virtual environment, then install `boto3`.
-
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install boto3
-    ```
-
-3.  **Set Environment Variables:**
-    Export your AWS credentials to your local environment variables so the script can authenticate.
-
-    ```bash
-    export AWS_ACCESS_KEY_ID="your_access_key"
-    export AWS_SECRET_ACCESS_KEY="your_secret_key"
-    export AWS_SESSION_TOKEN="your_session_token" # If using temporary credentials
-    ```
-
-4.  **Update and Run the Script:**
+2.  **Update and Run the Script:**
     *   Review the script to ensure it points to the correct S3 locations if strictly hardcoded (default is `tdr-draft-metadata-intg` -> `athena-tdr-metadata-checks-intg`).
     *   **Check the `MAX_FILES` configuration:** The script includes a `MAX_FILES` variable (defaulting to 50 for testing purposes). You should update this to a higher value (or remove the limit logic) to ensure all relevant files are processed.
+    *   Upload file to cloudshell session
     *   **Clear previous data:** Ensure that any existing consolidated error files (e.g., `consolidated_errors_*.json`) in the destination S3 bucket are deleted. This prevents data duplication in Athena, as the script generates a new file with a timestamp each time.
-    *   Run the script:
+    *   Run the script from cloudshell:
         ```bash
-        python manual/scripts/populate_athena_metadata.py
+        python /home/cloudshell_user/populate_athena_metadata.py
         ```
-    *   When finished, you can deactivate the virtual environment:
-        ```bash
-        deactivate
-        ```
-
     *The script will process the files and populate the data source for the `metadata_validation_reports` table by uploading a consolidated file to S3.*
 
 ## Accessing Reports
