@@ -2,7 +2,7 @@
 
 ## Overview
 
-When releasing new metadata features/fileds, changes are made to configuration and schema files that are read by the system to:
+When releasing new metadata features/fields, changes are made to configuration and schema files that are read by the system to:
 - Provide validation rules
 - Support downloading of metadata files
 - Enable export of CSV files
@@ -40,10 +40,10 @@ No `METADATA_VERSION_OVERRIDE` is set. The system uses the normal configuration 
 ### 1. Starting Development Work
 
 At the beginning of feature development:
-1. Copy `config.json` to `fab-note-config.json`
-2. Copy `baseSchema.schema.json` to `fab-note-baseSchema.schema.json`
-3. Copy `metadata-template.json` to `fab-note-metadata-template.json`
-4. Add `METADATA_VERSION_OVERRIDE=fab-note-` to Terraform configuration for **Production environment only**
+1. Copy `config.json` to `fab-note-config.json` - mapping and downloads
+2. Copy `baseSchema.schema.json` to `fab-note-baseSchema.schema.json`  - basic validation
+3. Copy `metadata-template.json` to `fab-note-metadata-template.json`  - quick guide
+4. Add `METADATA_VERSION_OVERRIDE=fab-note-` to Terraform configuration for **Production environment only** ([see configuration](https://github.com/nationalarchives/tdr-terraform-environments/blob/master/root_locals.tf#L223)) 
 
 ### 2. Development and Testing
 
@@ -54,6 +54,9 @@ At the beginning of feature development:
 
 **On Production:**
 - The system uses the `fab-note-*` versions of files
+  - `fab-note-config.json`
+  - `fab-note-baseSchema.schema.json`
+  - `fab-note-metadata-template.json`
 - If other work is started on new non-fab fields, those changes **must also be added to the fab-note versions** if they are needed in Production
 
 ### 3. Merging and Releasing
@@ -126,6 +129,3 @@ When multiple fab versions exist for different features:
      - Deploy - Production now gets the released note feature plus in-progress tags feature
 
 This approach ensures that as each feature is released, all subsequent fab files incorporate those changes, creating a clean progression toward production readiness.
-
-
-
