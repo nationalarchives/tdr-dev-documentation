@@ -53,7 +53,7 @@ At the beginning of feature development:
 - GitHub workflows run normally without any environment variable modifications
 
 **On Production:**
-- The system uses the `fab-note-*` versions of files
+- The system uses the `fab-note-*` versions of files, ie the version of the files that do not contain the changes
   - `fab-note-config.json`
   - `fab-note-baseSchema.schema.json`
   - `fab-note-metadata-template.json`
