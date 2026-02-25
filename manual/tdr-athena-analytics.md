@@ -34,7 +34,7 @@ The script is located at: `manual/scripts/populate_athena_metadata.py`
     *   **Clear previous data:** Ensure that any existing consolidated error files (e.g., `consolidated_errors_*.json`) in the destination S3 bucket are deleted. This prevents data duplication in Athena, as the script generates a new file with a timestamp each time.
     *   Run the script from cloudshell:
         ```bash
-        python /home/cloudshell_user/populate_athena_metadata.py
+        python /home/cloudshell-user/populate_athena_metadata.py
         ```
     *The script will process the files and populate the data source for the `metadata_validation_reports` table by uploading a consolidated file to S3.*
 
