@@ -22,11 +22,6 @@ Currently, the data for the Athena table needs to be populated manually by a dev
 
 The script is located at: `manual/scripts/populate_athena_metadata.py`
 
-### Prerequisites
-
-*   Python 3 installed on your local machine.
-*   AWS credentials (access key and secret key) with permissions to access the relevant S3 buckets (`tdr-draft-metadata-intg` and `athena-tdr-metadata-checks-intg`).
-
 ### Running the Script
 
 1.  **Prepare the environment:**
