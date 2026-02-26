@@ -26,8 +26,9 @@ The script is located at: `manual/scripts/populate_athena_metadata.py`
 
 1.  **Prepare the environment:**
     Ensure you have the `manual/scripts/populate_athena_metadata.py` file.
+    You will require temporary [kms permissons](https://national-archives.atlassian.net/wiki/spaces/DA/pages/183926848/WIP+TDR+Operational+Support+Developer+Guide) to access s3 buckets in prod  
 
-2.  **Update and Run the Script:**
+3.  **Update and Run the Script:**
     *   Review the script to ensure it points to the correct S3 locations if strictly hardcoded (default is `tdr-draft-metadata-intg` -> `athena-tdr-metadata-checks-intg`).
     *   **Check the `MAX_FILES` configuration:** The script includes a `MAX_FILES` variable (defaulting to 50 for testing purposes). You should update this to a higher value (or remove the limit logic) to ensure all relevant files are processed.
     *   Upload file to cloudshell (cloudshell -> actions -> upload file)
