@@ -1,5 +1,5 @@
 # Observability - Cloudwatch
-In [ADR 39](https://github.com/nationalarchives/tdr-dev-documentation/blob/TDRD-1376/alarms_docs/architecture-decision-records/0039-observability.md) the use Cloudwatch as an observability product was prescribed.
+In [ADR 39](https://github.com/nationalarchives/tdr-dev-documentation/blob/TDRD-1376/alarms_docs/architecture-decision-records/0039-observability.md) the use of Cloudwatch as an observability product was prescribed.
 
 This document provides some basic guidance for managing dashboards, alarms and alerts.
 
@@ -22,7 +22,7 @@ Alarm names should match this naming convention: ```<metrics_name_space> <why (u
 This assumes that the resource contains an account identifier.  If not add one in the alarm name.
 For example,
 * ```AWS/S3 Object Put in tdr-upload-files-quarantine-staging``` - environment name is in the resource
-* ```AWS/ApplicationELB High 4XX Count Environment=intg, LB=app/tdr-transfer-service-intg/1234``` - environment is added to name
+* ```AWS/ApplicationELB High 4XX Count Environment=intg, LB=app/tdr-transfer-service-intg/1234``` - environment is added
 
 Alarms can be in one of three states OK, ALARM, and INSUFFICIENT_DATA (missing data).
 
@@ -33,19 +33,20 @@ See [Configuring how CloudWatch alarms treat missing data](https://docs.aws.amaz
 # Alerting 
 Eventbridge rules for alerting are created in the backend stack.
 
-Alarms are not attached to actions in this design.  Instead the Alarm state change events are caught by Eventbridge rules.
+Alarms are not attached to actions in this design.  Instead the alarm state change events are caught by Eventbridge rules.
 
 Currently, all alarms that transition to an ALARM state are sent to slack.
 
-Some alarms that transistion back to an OK state are sent to slack.  A rule needs to be created for each scenario.
-It is important to think about this.  E.g. A CPU spike triggers an ALARM state (Slack alert is sent) if it then falls back within the alarm threshold (transition to OK state) an alert should be sent to Slack 
+Some alarms that transition back to an OK state are sent to slack.  A rule needs to be created for each scenario.
+It is important to think about this.  E.g. A CPU spike triggers an ALARM state (Slack alert is sent) if it then falls
+back within the alarm threshold (transition to an OK state) an alert should be sent to Slack 
 and so a rule would need to be created for this in Eventbridge.
 
 # Slack setup
-Channel ids are kept in the tdr-condifurations repo.
+Channel Ids are kept in the tdr-configurations repo.
 
-The ```TDR Notifier App``` is attached to channels that wish to recieve messages.
+The ```TDR Notifier App``` is attached to channels that wish to receive messages.
 
-Slack message templates are in the [backend stack](https://github.com/nationalarchives/tdr-terraform-backend/tree/master/templates/alarms).
+Slack message templates are in the [backend stack - here](https://github.com/nationalarchives/tdr-terraform-backend/tree/master/templates/alarms).
 
 The [Slack block kit](https://app.slack.com/block-kit-builder/) is a nice way to build templates.  Currently, we use a single template for OK and ALERT type messages.
