@@ -6,10 +6,10 @@ This document provides some basic guidance for managing dashboards, alarms and a
 **All dashboards, alarms and Eventbridge rules are created in the management account**
 
 # Dashboards
-Dashboard are created manually for now.  They are backed up in [tdr-configuration](https://github.com/nationalarchives/tdr-configurations).
+Dashboard are created manually for now.  They are backed up in [tdr-configurations](https://github.com/nationalarchives/tdr-configurations).
 
 # Alarms
-Alarms are created in the environments stack.
+Alarms are created in the [Terraform environments stack](https://github.com/nationalarchives/tdr-terraform-environments).
 
 Use the `alarm_deployer` provider when creating alarms to create them in the management account.
 
