@@ -1,5 +1,5 @@
 # Observability - Cloudwatch
-In [ADR 39](https://github.com/nationalarchives/tdr-dev-documentation/blob/TDRD-1376/alarms_docs/architecture-decision-records/0039-observability.md) the use of Cloudwatch as an observability product was prescribed.
+In [ADR 39](/architecture-decision-records/0039-observability.md) the use of Cloudwatch as an observability product was prescribed.
 
 This document provides some basic guidance for managing dashboards, alarms and alerts.
 
