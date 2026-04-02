@@ -6,7 +6,7 @@ This document provides some basic guidance for managing dashboards, alarms and a
 **All dashboards, alarms and Eventbridge rules are created in the management account**
 
 # Dashboards
-Dashboard are handcranked for now.  They are backed up manually [here](https://github.com/nationalarchives/tdr-configurations)
+Dashboard are created manually for now.  They are backed up in [tdr-configuration](https://github.com/nationalarchives/tdr-configurations).
 
 # Alarms
 Alarms are created in the environments stack.
@@ -31,7 +31,7 @@ See [Configuring how CloudWatch alarms treat missing data](https://docs.aws.amaz
 
 
 # Alerting 
-Eventbridge rules for alerting are created in the backend stack.
+Eventbridge rules for alerting are created in the [Terraform backend stack](https://github.com/nationalarchives/tdr-terraform-backend).
 
 Alarms are not attached to actions in this design.  Instead the alarm state change events are caught by Eventbridge rules.
 
@@ -47,6 +47,6 @@ Channel Ids are kept in the tdr-configurations repo.
 
 The ```TDR Notifier App``` is attached to channels that wish to receive messages.
 
-Slack message templates are in the [backend stack - here](https://github.com/nationalarchives/tdr-terraform-backend/tree/master/templates/alarms).
+Slack message templates are in the [Terraform backend stack](https://github.com/nationalarchives/tdr-terraform-backend/tree/master/templates/alarms).
 
 The [Slack block kit](https://app.slack.com/block-kit-builder/) is a nice way to build templates.  Currently, we use a single template for OK and ALERT type messages.
