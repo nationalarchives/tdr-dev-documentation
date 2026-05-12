@@ -29,7 +29,6 @@ Alarms can be in one of three states OK, ALARM, and INSUFFICIENT_DATA (missing d
 It is important to consider how missing data is treated for a metric, i.e. is it a bad thing and should trigger an alarm?
 See [Configuring how CloudWatch alarms treat missing data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarms-and-missing-data.html)
 
-
 # Alerting 
 Eventbridge rules for alerting are created in the [Terraform backend stack](https://github.com/nationalarchives/tdr-terraform-backend).
 
@@ -41,6 +40,23 @@ Some alarms that transition back to an OK state are sent to slack.  A rule needs
 It is important to think about this.  E.g. A CPU spike triggers an ALARM state (Slack alert is sent) if it then falls
 back within the alarm threshold (transition to an OK state) an alert should be sent to Slack 
 and so a rule would need to be created for this in Eventbridge.
+
+## Muting Alerts
+In TDRD-1476 a decision was made on how to prevent alarms from being sent to Slack but still keep the alarm triggering in cloudwatch.  That ticket details why the concrete AWS muting rules are not used.
+
+To prevent alarms from going to Slack, prefix the Alarm name with ```Muted:```
+
+The single Eventbridge rule that sends ALARM state change events to Slack will ignore alarm names prefixed with ```Muted:```
+
+If the alarm also has a rule that sends OK state change events to Slack, modify that rule accordingly, e.g.
+
+```json
+  "detail.alarmName": [{
+    "anything-but": {
+      "prefix": "Muted:"
+    }
+  }],
+```
 
 # Slack setup
 Channel Ids are kept in the tdr-configurations repo.
