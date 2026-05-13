@@ -42,8 +42,6 @@ back within the alarm threshold (transition to an OK state) an alert should be s
 and so a rule would need to be created for this in Eventbridge.
 
 ## Muting Alerts
-In TDRD-1476 a decision was made on how to prevent alarms from being sent to Slack but still keep the alarm triggering in cloudwatch.  That ticket details why the concrete AWS muting rules are not used.
-
 To prevent alarms from going to Slack, prefix the Alarm name with ```Muted:```
 
 The single Eventbridge rule that sends ALARM state change events to Slack will ignore alarm names prefixed with ```Muted:```
@@ -57,6 +55,7 @@ If the alarm also has a rule that sends OK state change events to Slack, modify 
     }
   }],
 ```
+In [TDRD-1476](https://national-archives.atlassian.net/browse/TDRD-1476) a decision was made on how to prevent alarms from being sent to Slack but still keep the alarm triggering in cloudwatch.  That ticket details why the concrete AWS muting rules are not used.
 
 # Slack setup
 Channel Ids are kept in the tdr-configurations repo.
