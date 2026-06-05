@@ -10,25 +10,49 @@ This is not the final architecture, and it will change during the course of the 
 
 ## AWS Accounts and TDR environments
 
-TDR uses five AWS accounts:
+TDR uses six AWS accounts
 
-* Management (mgmt): the top-level account, which is used for running
-  cross-environment services like central logging, Terraform state tracking, ECR and Grafana.
-* Sandbox (sbox): used for technical spikes
-* Integration (intg): the first environment that code is deployed to. Most
-  services are deployed automatically to intg when code is merged to the
-  main/master branch. Most deployments are run programatically through Github actions,
-  but we sometimes make temporary manual changes or deploy a branch when that's
-  the easiest way to test something.
-* Staging (staging): a more stable environment used to check changes just before
-  deployment to production. Developers need to manually start a Githud action to
-  deploy code to this environment. Used for user research sessions and demonstrations to key stakeholders.
-* Production (prod): the environment used by real users. Deployment is the same
-  as for staging.
+This diagram shows the interactions between the different AWS accounts (available [here](https://lucid.app/lucidchart/1ebaa6a9-1439-4af6-97ef-287e4bae7f53/edit?invitationId=inv_6a138a86-5e6c-49bb-9da8-5db2a3605e6f) for editing):
 
-This diagram shows the interactions between the different AWS accounts:
+![](./diagrams/aws-accounts.svg)
 
-![](./diagrams/aws-accounts.png)
+### Management (mgmt)
+Top-level account, which is used for running cross-environment services like:
+* central logging;
+* Terraform state tracking;
+* Lambda code storage (S3)
+* ECR;
+* CloudWatch dashboards and alarms
+
+### Sandbox (sbox)
+Used for technical spikes
+
+### Development (dev)
+Standalone environment containing an instance of TDR that can be used safely for breaking development
+
+### Integration (intg)
+The first environment that code is deployed to. 
+
+Most services are deployed automatically to intg when code is merged to the main/master branch. 
+
+Most deployments are run programatically through Github actions, but sometimes temporary manual changes are made or deployment of a branch when that's
+the easiest way to test something. 
+
+Automated tests are triggered on each deployment.
+
+### Staging (staging)
+A more stable environment used to check changes just before deployment to production. 
+
+Developers need to manually start a Github action to deploy code to this environment. 
+
+Used for user research sessions and demonstrations to key stakeholders.
+
+Automated tests are triggered on each deployment.
+
+### Production (prod)
+Environment used by real users. Deployment is the same as for staging.
+
+No testing is done in this environment to avoid test data entering the archive
 
 ### TDR
 
