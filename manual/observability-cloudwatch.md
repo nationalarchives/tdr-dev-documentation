@@ -65,3 +65,12 @@ The ```TDR Notifier App``` is attached to channels that wish to receive messages
 Slack message templates are in the [Terraform backend stack](https://github.com/nationalarchives/tdr-terraform-backend/tree/master/templates/alarms).
 
 The [Slack block kit](https://app.slack.com/block-kit-builder/) is a nice way to build templates.  Currently, we use a single template for OK and ALERT type messages.
+
+Presently, any alarms that are not muted will be sent to Slack.
+
+# Jira setup
+The cloud instance id used for the api endpoint is kept in the tdr-configurations repo.  This is required for scoped tokens.
+
+The jira message template is in the [Terraform backend stack](https://github.com/nationalarchives/tdr-terraform-backend/tree/master/templates/alarms).
+
+Presently, alarms that are not muted and have fired in production, will have a issue created in Jira.
