@@ -65,6 +65,21 @@ This diagram shows a high level view of the interactions between the different A
 
 ![](./diagrams/tdr-transfer-sequence.svg)
 
+The transfer sequence is made up of the following broad steps:
+* User Login; 
+* Series selection;
+* Compliance;
+* Upload and file checks;
+* Metadata upload and validation;
+* Metadata review;
+* Export.
+
+### Upload and File Checks Step Sequence (post TDRD-1261)
+
+Diagram shows the high level sequence of interactions between the different AWS services during the upload and file checks step in TDR:
+
+![](./diagrams/upload-sequence-v1.svg)
+
 ## Digital Archiving Event Bus
 
 TDR communicates with other Digital Archiving services using the Digital Archiving event bus hosted in the Transform Engine AWS accounts.
