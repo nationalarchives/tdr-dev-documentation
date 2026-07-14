@@ -29,7 +29,6 @@ Alarms can be in one of three states OK, ALARM, and INSUFFICIENT_DATA (missing d
 It is important to consider how missing data is treated for a metric, i.e. is it a bad thing and should trigger an alarm?
 See [Configuring how CloudWatch alarms treat missing data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarms-and-missing-data.html)
 
-
 # Alerting 
 Eventbridge rules for alerting are created in the [Terraform backend stack](https://github.com/nationalarchives/tdr-terraform-backend).
 
@@ -42,6 +41,22 @@ It is important to think about this.  E.g. A CPU spike triggers an ALARM state (
 back within the alarm threshold (transition to an OK state) an alert should be sent to Slack 
 and so a rule would need to be created for this in Eventbridge.
 
+## Muting Alerts
+To prevent alarms from going to Slack, prefix the Alarm name with ```Muted:```
+
+The single Eventbridge rule that sends ALARM state change events to Slack will ignore alarm names prefixed with ```Muted:```
+
+If the alarm also has a rule that sends OK state change events to Slack, modify that rule accordingly, e.g.
+
+```json
+  "detail.alarmName": [{
+    "anything-but": {
+      "prefix": "Muted:"
+    }
+  }],
+```
+In [TDRD-1476](https://national-archives.atlassian.net/browse/TDRD-1476) a decision was made on how to prevent alarms from being sent to Slack but still keep the alarm triggering in cloudwatch.  That ticket details why the concrete AWS muting rules are not used.
+
 # Slack setup
 Channel Ids are kept in the tdr-configurations repo.
 
@@ -50,3 +65,12 @@ The ```TDR Notifier App``` is attached to channels that wish to receive messages
 Slack message templates are in the [Terraform backend stack](https://github.com/nationalarchives/tdr-terraform-backend/tree/master/templates/alarms).
 
 The [Slack block kit](https://app.slack.com/block-kit-builder/) is a nice way to build templates.  Currently, we use a single template for OK and ALERT type messages.
+
+Presently, any alarms that are not muted will be sent to Slack.
+
+# Jira setup
+The cloud instance id used for the api endpoint is kept in the tdr-configurations repo.  This is required for scoped tokens.
+
+The jira message template is in the [Terraform backend stack](https://github.com/nationalarchives/tdr-terraform-backend/tree/master/templates/alarms).
+
+Presently, alarms that are not muted and have fired in production, will have a issue created in Jira.

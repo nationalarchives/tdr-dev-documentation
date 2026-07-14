@@ -20,17 +20,9 @@ things like deploying code or debugging complex parts of the stack.
 ### Alerts
 
 * [ECR scans](alerts/ecr-scans.md)
-* [Missed Jenkins backups](alerts/missed-jenkins-backups.md)
 * [Rotate AWS keys](alerts/rotate-aws-keys.md)
 * [Rotate Client Secrets](alerts/client-secret-rotation.md)
 * [Observability - Cloudwatch](observability-cloudwatch.md)
-
-### CI/CD
-
-* [Clear Jenkins disk space](clear-jenkins-disk-space.md)
-* [Jenkins style guide](jenkins-style-guide.md)
-* [Reset Jenkins Builds](reset-jenkins-builds.md)
-* [Update Jenkins](update-jenkins.md)
 
 ### Code repositories
 
