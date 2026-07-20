@@ -89,7 +89,7 @@ Tested with 5 × 5 GB files on AWS Lambda (4096 MB, ~2.3 vCPUs, `parTraverseN(3)
 | Approach | Time for 5 × 5 GB | Bottleneck |
 |---|---|---|
 | `utf8-validator` library (single-byte reads) | ~12 minutes | CPU-bound: ~5 billion `InputStream.read()` calls per file |
-| JDK `CharsetDecoder` (8 KB bulk reads) | ~4–5 minutes (projected at 10240 MB) | I/O-bound: S3 download throughput |
+| JDK `CharsetDecoder` (8 KB bulk reads) | ~8 minutes | I/O-bound: S3 download throughput |
 
 ### Why the library is slower
 
