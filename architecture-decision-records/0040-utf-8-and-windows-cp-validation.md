@@ -4,7 +4,7 @@
 2026-06-12
 
 ## Context
-During file checks, Droid is used to obtain the ffid. For text (`.txt`) and CSV (`.csv`) files, Droid provides a format based on the extension. These files then need to be checked to confirm whether they are UTF-8 or Windows-1252. If they are neither, the file is marked as unidentified.
+During file checks, Droid is used to obtain the file format ID (FFID). For text (`.txt`) and CSV (`.csv`) files, Droid provides a format based on the extension. These files then need to be checked to confirm whether they are UTF-8 or Windows-1252. If they are neither, the file is marked as unidentified.
 
 Files that cannot be identified and have unknown extensions, but are UTF-8 or Windows-1252, are considered valid and marked as successful and accepted.
 
