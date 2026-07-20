@@ -8,7 +8,8 @@ During file checks, Droid is used to obtain the ffid. For text (`.txt`) and CSV 
 
 Files that cannot be identified and have unknown extensions, but are UTF-8 or Windows-1252, are considered valid and marked as successful and accepted.
 
-The `tdr-statuses` Lambda validates file content to determine whether files are valid UTF-8 (or Windows-1252 as a fallback). Previously, the `uk.gov.nationalarchives:utf8-validator:1.2` library was used for UTF-8 validation. This library reads bytes one at a time via `InputStream.read()` and signals errors by throwing exceptions through a `ValidationHandler` callback.
+The `tdr-statuses` Lambda validates file content to determine whether files are valid UTF-8 (or Windows-1252 as a fallback). Previously, the `uk.gov.nationalarchives:utf8-validator:1.2` library was used for UTF-8 validation. This library reads bytes one at a time via `InputStream.read()` and signals errors by throwing exceptions through a `ValidationHandler` callback.  
+Quote from Preservation team "I think utf8-validator is only used with DRI. I'm not aware of it having wider use like CSV Validator.  In practice it's only a few lines of code looking for the absence of certain byte ranges"
 
 TDR processes files ranging from small (< 1 MB) to large (5 GB+), with batches of up to 10,000 files per Lambda invocation. The Lambda has a configured timeout and runs with parallel file processing (`parTraverseN`).
 
