@@ -2,13 +2,18 @@ name: TDR Run Git Secrets
 on:
   pull_request:
   push:
+permissions: {}
 jobs:
   test:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: nationalarchives/tdr-github-actions/.github/actions/run-git-secrets@main
-      - uses: nationalarchives/tdr-github-actions/.github/actions/slack-send@main
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: nationalarchives/tdr-github-actions/.github/actions/run-git-secrets@f318ce8a5d99c08b1235663f97fdb1b35844674e # v0.0.39
+      - uses: nationalarchives/tdr-github-actions/.github/actions/slack-send@f318ce8a5d99c08b1235663f97fdb1b35844674e # v0.0.39
         if: failure()
         with:
           message: ":warning: Secrets found in repository tdr-dev-documentation"
