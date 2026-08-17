@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: nationalarchives/tdr-github-actions/.github/actions/run-git-secrets@f318ce8a5d99c08b1235663f97fdb1b35844674e # v0.0.39
+      - uses: nationalarchives/tdr-github-actions/.github/actions/run-git-secrets@2d29c2e83fbaba6554c1e0d8c0b45d2015d610b2 # v0.0.41
       - uses: nationalarchives/tdr-github-actions/.github/actions/slack-send@f318ce8a5d99c08b1235663f97fdb1b35844674e # v0.0.39
         if: failure()
         with:
