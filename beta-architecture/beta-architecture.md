@@ -2,11 +2,11 @@
 
 The current architectural design for beta is shown below.
 
-Diagram is available for editing here: https://www.lucidchart.com/documents/edit/caa0eee6-a9ef-4d2e-a03e-4a1d6fc7b7e4/0_0
+Diagram is available for editing on [LucidChart](https://lucid.app/documents)
 
 This is not the final architecture, and it will change during the course of the beta phase of the TDR project.
 
-![](./diagrams/tdr-beta-high-level-architecture.svg)
+![](./diagrams/tdr-beta-high-level-architecture-08-2026.svg)
 
 ## AWS Accounts and TDR environments
 
