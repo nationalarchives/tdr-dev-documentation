@@ -80,6 +80,8 @@ Diagram shows the high level sequence of interactions between the different AWS 
 
 ![](./diagrams/tdr-upload-sequence-08-2026.svg)
 
+For a more detailed description of how the upload is secured with signed cookies, see [Proxy S3 uploads through CloudFront](https://github.com/nationalarchives/tdr-dev-documentation/blob/master/architecture-decision-records/0022-cloudfront-upload-proxy.md) 
+
 ## Digital Archiving Event Bus
 
 TDR communicates with other Digital Archiving services using the Digital Archiving event bus hosted in the Transform Engine AWS accounts.
