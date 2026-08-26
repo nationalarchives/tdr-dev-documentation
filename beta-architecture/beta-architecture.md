@@ -59,7 +59,7 @@ No testing is done in this environment to avoid test data entering the archive
 The applications which make up TDR run within each environments. For example,
 each environment has a frontend application, API, auth server, etc.
 
-## Upload and Transfer Sequence
+## Transfer Sequence
 
 This diagram shows a high level view of the interactions between the different AWS services during the upload and transfer of files:
 
@@ -79,6 +79,12 @@ The transfer sequence is made up of the following broad steps:
 Diagram shows the high level sequence of interactions between the different AWS services during the upload and file checks step in TDR:
 
 ![](./diagrams/upload-sequence-v1.svg)
+
+### File Checks Sequence (as of August 2026)
+
+Diagram shows the high level sequence of interactions between the different AWS services during the file checks step in TDR:
+
+![](./diagrams/tdr-file-checks-sequence-08-2026.svg)
 
 ## Digital Archiving Event Bus
 
