@@ -74,11 +74,13 @@ The transfer sequence is made up of the following broad steps:
 * Metadata review;
 * Export.
 
-### Upload and File Checks Step Sequence (post TDRD-1261)
+### Upload Sequence (as of August 2026)
 
-Diagram shows the high level sequence of interactions between the different AWS services during the upload and file checks step in TDR:
+Diagram shows the high level sequence of interactions between the different AWS services during the upload step in TDR:
 
-![](./diagrams/upload-sequence-v1.svg)
+![](./diagrams/tdr-upload-sequence-08-2026.svg)
+
+For a more detailed description of how the upload is secured with signed cookies, see [Proxy S3 uploads through CloudFront](https://github.com/nationalarchives/tdr-dev-documentation/blob/master/architecture-decision-records/0022-cloudfront-upload-proxy.md) 
 
 ### File Checks Sequence (as of August 2026)
 
