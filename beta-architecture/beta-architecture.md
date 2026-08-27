@@ -88,6 +88,12 @@ Diagram shows the high level sequence of interactions between the different AWS 
 
 ![](./diagrams/tdr-file-checks-sequence-08-2026.svg)
 
+### File Checks Results Sequence (as of August 2026)
+
+iagram shows the high level sequence of interactions between the different AWS services during the file checks step in TDR:
+
+![](./diagrams/tdr-file-checks-results-sequence-08-2026.svg)
+
 ## Digital Archiving Event Bus
 
 TDR communicates with other Digital Archiving services using the Digital Archiving event bus hosted in the Transform Engine AWS accounts.
