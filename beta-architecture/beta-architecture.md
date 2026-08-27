@@ -90,7 +90,7 @@ Diagram shows the high level sequence of interactions between the different AWS 
 
 ### File Checks Results Sequence (as of August 2026)
 
-iagram shows the high level sequence of interactions between the different AWS services during the file checks step in TDR:
+Diagram shows the high level sequence of interactions between the different AWS services during the file checks results step in TDR:
 
 ![](./diagrams/tdr-file-checks-results-sequence-08-2026.svg)
 
