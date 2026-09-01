@@ -34,6 +34,9 @@ things like deploying code or debugging complex parts of the stack.
 ### Database restore
 * [Restore either the Keycloak or Consignment API database](https://github.com/nationalarchives/tdr-scripts/blob/master/terraform/restore-database/README.md)
 
+### Database clean up for capacity testing
+* [Manage database size (for capacity testing on staging)](manage-database-size.md)
+
 ### Debugging
 
 * [Creating or creating a bastion host for database access](debugging/applying-or-destroying-a-bastion-host.md)
