@@ -88,6 +88,12 @@ Diagram shows the high level sequence of interactions between the different AWS 
 
 ![](./diagrams/tdr-file-checks-sequence-08-2026.svg)
 
+### File Checks Results Sequence (as at August 2026)
+
+Diagram shows the high level sequence of interactions between the different AWS services during the file checks results step in TDR:
+
+![](./diagrams/tdr-file-checks-results-sequence-08-2026.svg)
+
 ### Draft Metadata Sequence (as at August 2026)
 
 Diagram shows the high level sequence of interactions between the different AWS services during the draft metadata step in TDR:
