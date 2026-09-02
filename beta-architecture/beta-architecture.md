@@ -94,6 +94,12 @@ Diagram shows the high level sequence of interactions between the different AWS 
 
 ![](./diagrams/tdr-draft-metadata-sequence-08-2026.svg)
 
+### Export Sequence (as at August 2026)
+
+Diagram shows the high level sequence of interactions between the different AWS services during the export step in TDR:
+
+![](./diagrams/tdr-export-sequence-08-2026.svg)
+
 ## Digital Archiving Event Bus
 
 TDR communicates with other Digital Archiving services using the Digital Archiving event bus hosted in the Transform Engine AWS accounts.
