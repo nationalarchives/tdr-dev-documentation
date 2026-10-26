@@ -1,12 +1,17 @@
-# Container TLS Certificate Management
+# 41. ECS Container TLS Certificate Management
+
+## Date
+2026-10-26
 
 # Status - WIP
 
 # Context
 
-We wish to implement end-to-end encryption (e2ee) for ECS based service.  Currently, we have TLS termination on the AWS Load Balancers.  Services behind these are served using a plain text protocol (HTTP).  We wish to change this to HTTPS.  Doing so, requires that certificates are installed on each running service.  Getting the certificates on to the containers requires a design decision which is discussed herein.  Not increasing new complexity to the local development experience must be considered.  Certificates only need to be self signed and can expire - [see](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-routing-configuration)
+We wish to implement end-to-end encryption (e2ee) for ECS based service.  Currently, we have TLS termination on the AWS Load Balancers.  Services behind these are served using a plain text protocol (HTTP).  We wish to change this to HTTPS.  Doing so, requires that certificates are installed on each running service.  Getting the certificates on to the containers requires a design decision which is discussed herein.  Further considerations for the design are:
+ * Certificates only need to be self signed and can expire - [see](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-routing-configuration)
+ * The Local development experience should not become more complex
 
-At the time of writing, the services effected are:
+At the time of writing (10/2026), the services affected are:
 
 * Consignment API
 
@@ -40,7 +45,7 @@ This requires a new service to be engineered and maintained.
 
 # Design Option 3 - Shared Storage
 
-In this design, each container is configured to attached to a shared storage mechanism (EFS, S3 files etc) where from it would read the cert and key.
+In this design, each container is configured to attach to a shared storage mechanism (EFS, S3 files etc) where from it would read the cert and key.
 
 A process or service for creating the certs and keys would need to be considered.
 
