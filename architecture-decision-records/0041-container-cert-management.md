@@ -16,12 +16,11 @@ At the time of writing, the services effected are:
 
 * Keycloak
 
-
 # Design Option 1 - Sidecar that fetches secrets
 
-An example of the Sidecar pattern can be found here [Sidecar pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar)
+A description of the Sidecar pattern can be found here [Sidecar pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar)
 
-In this design, an additional container would be attached to ECS task/service at launch.  A simple service or script would run on this sidecar that would fetch a cert and a key from a secrets store (e.g. SSM or Secrets Manager) and copy them to a shared volume.  The existing service is configured to use the key and cert from this shared volume.
+In this design, an additional container would be attached to the ECS task/service at launch.  A simple service or script would run on this sidecar that would fetch a cert and a key from a secrets store (e.g. SSM or Secrets Manager) and copy them to a shared volume.  The existing service is configured to use the key and cert from this shared volume.
 
 The sidecar would be a single and portable implementation and could be attached to all existing and future services that require TLS certs.
 
@@ -29,14 +28,15 @@ There is a medium level of engineering required and it introduces another servic
 
 A small amount of change is required to the existing service to consume the key and cert from the shared volume.
 
-# Design Option 2 - Sidecar proxy
+# Design Option 2 - Sidecar HTTP proxy
 
 A sidecar proxy solutions such as Envoy or a similar roll-your-own approach with nginx/apache http.
 
-A proxy solution would potentially remove any need to make changes to the existing service and removes the need to install on them any certificates at all.
+The proxy listens on HTTPS and proxys traffic to the existing service.
+
+A proxy solution would potentially remove any need to make changes to the existing service and it removes the need to install on them any certificates at all.
 
 This requires a new service to be engineered and maintained.
-
 
 # Design Option 3 - Shared Storage
 
@@ -48,7 +48,7 @@ There is a medium amount of engineering required to the existing service to atta
 
 # Design Option 4 - Task Secret Injection and Conversion
 
-An secrets manager arn is used to inject a value in to the Task Definition/Environment.  At launch, a process is engineered to convert the environment vars values to a key and cert on the filesystem.
+A secrets manager arn is used to inject a value in to the Task Definition/Environment.  At launch, a process is engineered to convert the environment vars values to a key and cert on the filesystem.
 
 There is a medium level of engineering required to do the conversion of vars to files.  This also makes the service more brittle and more complex and is not necessarily a generic process for all the services.
 
