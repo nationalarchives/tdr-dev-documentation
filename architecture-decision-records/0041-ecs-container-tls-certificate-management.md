@@ -7,8 +7,8 @@
 
 # Context
 
-We wish to implement end-to-end encryption (e2ee) for ECS based service.  Currently, we have TLS termination on the AWS Load Balancers.  Services behind these are served using a plain text protocol (HTTP).  We wish to change this to HTTPS.  Doing so, requires that certificates are installed on each running service.  Getting the certificates on to the containers requires a design decision which is discussed herein.  Further considerations for the design are:
- * Certificates only need to be self signed and can expire - [see](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-routing-configuration)
+We wish to implement end-to-end encryption (e2ee) for ECS based services.  Currently, we have TLS termination on the AWS Load Balancers.  Services behind these are served using a plain text protocol (HTTP).  We wish to change this to HTTPS.  Doing so, requires that certificates are installed on each running service.  Getting the certificates on to the containers requires a design decision which is discussed herein.  Further considerations for the design are:
+ * "The load balancer establishes TLS connections with the targets using certificates that you install on the targets. The load balancer does not validate these certificates. Therefore, you can use self-signed certificates or certificates that have expired." [see](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-routing-configuration)
  * The Local development experience should not become more complex
 
 At the time of writing (10/2026), the services affected are:
@@ -75,11 +75,11 @@ This has the added benefit in that to rotate a certificate and key, the ECS task
 
 # Decision
 
-We will use option 6 - Generate Secrets on Boot with entry point script
+We will use option 6 - Generate Secrets on Boot with Entrypoint Script
 
 # Consequences
 
-All services must be reconfigured use TLS on launch.
+All services must be reconfigured to use TLS on launch.
 
 # Related tickets
 
