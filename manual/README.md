@@ -27,6 +27,7 @@ things like deploying code or debugging complex parts of the stack.
 ### Code repositories
 
 * [Create a repo](create-repo.md)
+* [Lambda runtimes](lambda-runtimes.md)
 
 ### Database permissions
 * [Fix permission denied errors for new tables](fix-database-permissions.md)
