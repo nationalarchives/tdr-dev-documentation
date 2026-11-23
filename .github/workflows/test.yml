@@ -13,7 +13,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: nationalarchives/tdr-github-actions/.github/actions/run-git-secrets@5a96b84cf82bce1371168cc31cb89f88cad86763 # v0.0.53
-      - uses: nationalarchives/tdr-github-actions/.github/actions/slack-send@5a96b84cf82bce1371168cc31cb89f88cad86763 # v0.0.53
+      - uses: nationalarchives/tdr-github-actions/.github/actions/slack-send@4b2753940019ebbed38030f1aca49f0eb123a45e # v0.0.55
         if: failure()
         with:
           message: ":warning: Secrets found in repository tdr-dev-documentation"
